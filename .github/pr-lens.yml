@@ -1,0 +1,9 @@
+schemaVersion: 0.3.1
+lenses:
+  - architecture
+  - data-flow
+  - data-model
+branding: true
+map:
+  exclude:
+    - "**/*.test.ts"
