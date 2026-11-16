@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "模板表达式读取绑定的规则变化",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "expression",
+      "label": "prefix()",
+      "type": "backend",
+      "pos": [
+        100,
+        160
+      ],
+      "size": [
+        350,
+        130
+      ],
+      "sublabel": "processExpression 内的绑定访问改写",
+      "change": "modified"
+    }
+  ],
+  "connections": []
+}

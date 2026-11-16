@@ -1,0 +1,238 @@
+{
+  "id": "story-vllm",
+  "title": "vLLM 分区计算",
+  "question": "PagedAttention V2 如何增加序列维度并行，同时保留原输出契约？",
+  "duration": 36,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/vllm-project/vllm/pull/1348",
+    "base": "d0740dff1b3ab06860316d98c937a3d4e143f25f",
+    "head": "9451b2d8e3282d27797e9b02780448f703dc80d6"
+  },
+  "stills": [
+    3,
+    8.5,
+    14.4,
+    20.5,
+    25.3,
+    33.5
+  ],
+  "selection": {
+    "main": "按输入选择 V1/V2，V2 分区计算后归并",
+    "support": [
+      "512-token 分区",
+      "局部 max / exp sum / 输出",
+      "原输出 shape 保留"
+    ],
+    "omit": [
+      "作者的提速描述不作为本地测量",
+      "不把所有解码请求都改画为 V2"
+    ]
+  },
+  "views": {
+    "dispatch": {
+      "model": "external-vllm-dispatch",
+      "type": "workflow",
+      "end": 10
+    },
+    "partitions": {
+      "model": "external-vllm-partitions",
+      "type": "dataflow",
+      "start": 10.4,
+      "end": 28.2
+    },
+    "selector": {
+      "model": "external-vllm-selector",
+      "type": "architecture",
+      "start": 28.7,
+      "end": 36
+    }
+  },
+  "enter": [
+    {
+      "view": "dispatch",
+      "nodes": [
+        "v2"
+      ],
+      "at": 5.1
+    },
+    {
+      "view": "partitions",
+      "nodes": [
+        "part0",
+        "part1",
+        "remaining"
+      ],
+      "at": 11.2,
+      "stagger": 0.4
+    },
+    {
+      "view": "partitions",
+      "nodes": [
+        "reduce"
+      ],
+      "at": 18.5
+    }
+  ],
+  "connect": [
+    {
+      "view": "dispatch",
+      "edges": [
+        "choose-v2",
+        "v2-out"
+      ],
+      "at": 5.6,
+      "stagger": 0.8
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "read0",
+        "read1",
+        "read-rest"
+      ],
+      "at": 12,
+      "stagger": 0.35
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "sum0",
+        "sum1",
+        "sum-rest"
+      ],
+      "at": 18.9,
+      "stagger": 0.35
+    }
+  ],
+  "traces": [
+    {
+      "view": "partitions",
+      "edges": [
+        "read0"
+      ],
+      "times": [
+        13
+      ],
+      "end": 16.5,
+      "id": "partition-0"
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "read1"
+      ],
+      "times": [
+        13.2
+      ],
+      "end": 16.7,
+      "id": "partition-1"
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "read-rest"
+      ],
+      "times": [
+        13.4
+      ],
+      "end": 16.9,
+      "id": "remaining-partitions"
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "sum0"
+      ],
+      "times": [
+        20
+      ],
+      "end": 23,
+      "id": "result-0"
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "sum1"
+      ],
+      "times": [
+        20.2
+      ],
+      "end": 23.2,
+      "id": "result-1"
+    },
+    {
+      "view": "partitions",
+      "edges": [
+        "sum-rest"
+      ],
+      "times": [
+        20.4
+      ],
+      "end": 23.4,
+      "id": "result-rest"
+    }
+  ],
+  "detail": {
+    "view": "selector",
+    "nodes": [
+      "selector"
+    ],
+    "start": 28.7,
+    "end": 36,
+    "title": "attention.py · 路径选择",
+    "file": "inputs/vllm/vllm__model_executor__layers__attention.py",
+    "lines": [
+      165,
+      166,
+      167,
+      175,
+      176,
+      178
+    ],
+    "highlight": [
+      175,
+      176,
+      178
+    ],
+    "note": "分区数与输入工作量共同决定内核"
+  },
+  "steps": [
+    {
+      "at": 0,
+      "title": "新增序列分区内核，同时保留 V1 路径",
+      "body": "变化集中在生成阶段的注意力计算，调用方仍接收原输出张量。",
+      "change": "added"
+    },
+    {
+      "at": 4.8,
+      "title": "按分区数与工作量选择 V1 或 V2",
+      "body": "单分区或已有足够并行工作时走 V1，其余情况进入 V2。",
+      "change": "added"
+    },
+    {
+      "at": 10.9,
+      "title": "同一序列按 512 tokens 划分计算分区",
+      "body": "不同 CUDA block 处理不同序列片段；实际分区数量随输入变化。",
+      "change": "added"
+    },
+    {
+      "at": 17.2,
+      "title": "各分区产出局部结果和归一化统计",
+      "body": "临时输出、max logits 与 exp sums 一起交给归并内核。",
+      "change": "added"
+    },
+    {
+      "at": 23.4,
+      "title": "归并内核重新缩放，写回原 out 张量",
+      "body": "局部计算增加并行工作，最终输出形状与调用契约保持。",
+      "change": "added"
+    },
+    {
+      "at": 29.2,
+      "title": "分流条件明确保留单分区的 V1 快路径",
+      "body": "max_num_partitions 为 1，或 num_seqs × num_heads 大于 512 时使用 V1。",
+      "change": "added"
+    }
+  ]
+}

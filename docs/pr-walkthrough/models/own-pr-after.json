@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "新增 PR 输入与差异层，复用原有分析和工作台",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "repository",
+      "label": "仓库分析",
+      "pos": [
+        30,
+        90
+      ],
+      "sublabel": "原有调用方式",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ]
+    },
+    {
+      "id": "session",
+      "label": "原生分析会话",
+      "pos": [
+        355,
+        90
+      ],
+      "sublabel": "新增双版本调度",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "modified"
+    },
+    {
+      "id": "workbench",
+      "label": "原生工作台",
+      "pos": [
+        680,
+        90
+      ],
+      "sublabel": "增加 PR 变化与来源",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "modified"
+    },
+    {
+      "id": "pr",
+      "label": "指定一个 PR",
+      "pos": [
+        30,
+        320
+      ],
+      "sublabel": "--pr / --repository / --scope",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "added"
+    },
+    {
+      "id": "capture",
+      "label": "固定两侧源码",
+      "pos": [
+        355,
+        320
+      ],
+      "sublabel": "merge-base 与 head",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "added"
+    },
+    {
+      "id": "impact",
+      "label": "PR 增量提取",
+      "pos": [
+        680,
+        320
+      ],
+      "sublabel": "依赖 / 指标 / 已知引用",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "added"
+    }
+  ],
+  "connections": [
+    {
+      "id": "repo-session",
+      "from": "repository",
+      "to": "session",
+      "label": "原有入口"
+    },
+    {
+      "id": "session-view",
+      "from": "session",
+      "to": "workbench",
+      "label": "当前诊断"
+    },
+    {
+      "id": "pr-capture",
+      "from": "pr",
+      "to": "capture",
+      "label": "固定 PR 身份",
+      "change": "added"
+    },
+    {
+      "id": "capture-session",
+      "from": "capture",
+      "to": "session",
+      "label": "准备两份输入",
+      "change": "added",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "labelAt": [
+        478,
+        255
+      ]
+    },
+    {
+      "id": "session-impact",
+      "from": "session",
+      "to": "impact",
+      "label": "两侧产物",
+      "change": "added",
+      "fromSide": "right",
+      "toSide": "left",
+      "via": [
+        [
+          630,
+          132
+        ],
+        [
+          630,
+          362
+        ]
+      ],
+      "labelAt": [
+        638,
+        245
+      ]
+    },
+    {
+      "id": "impact-view",
+      "from": "impact",
+      "to": "workbench",
+      "label": "本次变化",
+      "change": "added",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "labelAt": [
+        822,
+        255
+      ]
+    }
+  ]
+}

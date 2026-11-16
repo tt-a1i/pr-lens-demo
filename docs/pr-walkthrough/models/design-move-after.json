@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "实现迁到概览模块，对外仍导出 where",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "caller",
+      "label": "原有调用者",
+      "type": "backend",
+      "pos": [
+        28,
+        90
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "import { where }"
+    },
+    {
+      "id": "api",
+      "label": "公开导出 where",
+      "type": "backend",
+      "pos": [
+        338,
+        90
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "bin/check.mjs",
+      "change": "modified"
+    },
+    {
+      "id": "implementation",
+      "label": "findingWhere()",
+      "type": "backend",
+      "pos": [
+        648,
+        300
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "overlay/overview.mjs",
+      "change": "modified"
+    }
+  ],
+  "connections": [
+    {
+      "id": "caller-api",
+      "from": "caller",
+      "to": "api",
+      "label": "公开入口"
+    },
+    {
+      "id": "binding-new",
+      "from": "api",
+      "to": "implementation",
+      "label": "重导出为 where",
+      "change": "modified",
+      "fromSide": "right",
+      "toSide": "top",
+      "labelAt": [
+        744,
+        180
+      ]
+    }
+  ]
+}

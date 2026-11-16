@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "原先：扣款和回执都完成，HTTP 才返回",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "lanes": [
+    {
+      "id": "request",
+      "label": "HTTP 请求"
+    },
+    {
+      "id": "background",
+      "label": "后台任务"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "checkout",
+      "lane": "request",
+      "col": 0,
+      "label": "提交结账",
+      "sublabel": "POST /checkout",
+      "type": "backend",
+      "width": 162,
+      "height": 76
+    },
+    {
+      "id": "stripe",
+      "lane": "request",
+      "col": 1,
+      "label": "Stripe 扣款",
+      "sublabel": "chargeSingleOrder",
+      "type": "backend",
+      "width": 162,
+      "height": 76
+    },
+    {
+      "id": "receipt",
+      "lane": "request",
+      "col": 2,
+      "label": "发送回执",
+      "sublabel": "同步发送",
+      "type": "backend",
+      "width": 162,
+      "height": 76
+    },
+    {
+      "id": "response",
+      "lane": "request",
+      "col": 3,
+      "label": "200 · 已完成",
+      "sublabel": "等待整个过程",
+      "type": "backend",
+      "width": 162,
+      "height": 76
+    }
+  ],
+  "edges": [
+    {
+      "id": "sync-charge",
+      "from": "checkout",
+      "to": "stripe"
+    },
+    {
+      "id": "sync-receipt",
+      "from": "stripe",
+      "to": "receipt"
+    },
+    {
+      "id": "sync-response",
+      "from": "receipt",
+      "to": "response"
+    }
+  ]
+}

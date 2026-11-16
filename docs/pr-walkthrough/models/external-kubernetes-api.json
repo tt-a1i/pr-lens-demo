@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Ingress 的 API 类型与编解码基础",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "scheme",
+      "label": "实验 API Scheme",
+      "type": "backend",
+      "pos": [
+        25,
+        100
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "已有类型注册入口",
+      "change": "modified"
+    },
+    {
+      "id": "versioned",
+      "label": "experimental / v1",
+      "type": "backend",
+      "pos": [
+        365,
+        100
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "Ingress 与 IngressList",
+      "change": "added"
+    },
+    {
+      "id": "internal",
+      "label": "内部 API 类型",
+      "type": "backend",
+      "pos": [
+        365,
+        320
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "Spec / Rule / Backend",
+      "change": "added"
+    },
+    {
+      "id": "generated",
+      "label": "生成的转换与复制",
+      "type": "backend",
+      "pos": [
+        25,
+        320
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "转换、DeepCopy 与字段文档",
+      "change": "added"
+    }
+  ],
+  "connections": [
+    {
+      "id": "register",
+      "from": "scheme",
+      "to": "versioned",
+      "label": "注册新类型",
+      "change": "added"
+    },
+    {
+      "id": "version-convert",
+      "from": "versioned",
+      "to": "internal",
+      "label": "对应内部结构",
+      "change": "added",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        473,
+        250
+      ]
+    },
+    {
+      "id": "convert-internal",
+      "from": "generated",
+      "to": "internal",
+      "label": "转换与复制",
+      "change": "added"
+    },
+    {
+      "id": "version-generated",
+      "from": "versioned",
+      "to": "generated",
+      "label": "生成配套代码",
+      "change": "added",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "via": [
+        [
+          472.5,
+          230
+        ],
+        [
+          132.5,
+          230
+        ]
+      ],
+      "labelAt": [
+        260,
+        214
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "原先的本地队列与线程池",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "workerA",
+      "label": "当前 Worker",
+      "type": "backend",
+      "pos": [
+        20,
+        80
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "执行本地任务"
+    },
+    {
+      "id": "local",
+      "label": "本地运行队列",
+      "type": "messagebus",
+      "pos": [
+        340,
+        80
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "Chase-Lev deque"
+    },
+    {
+      "id": "global",
+      "label": "共享任务队列",
+      "type": "messagebus",
+      "pos": [
+        340,
+        310
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "本地满时批量溢出"
+    },
+    {
+      "id": "workerB",
+      "label": "其他 Worker",
+      "type": "backend",
+      "pos": [
+        670,
+        80
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "空闲时尝试窃取"
+    },
+    {
+      "id": "idle",
+      "label": "Idle 协调",
+      "type": "backend",
+      "pos": [
+        20,
+        310
+      ],
+      "size": [
+        215,
+        84
+      ],
+      "sublabel": "原有睡眠与唤醒机制"
+    }
+  ],
+  "connections": [
+    {
+      "id": "local-run",
+      "from": "local",
+      "to": "workerA",
+      "label": "取本地任务",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "shared-pop",
+      "from": "global",
+      "to": "workerB",
+      "label": "从共享队列取任务",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "via": [
+        [
+          777.5,
+          352
+        ]
+      ],
+      "labelAt": [
+        777.5,
+        270
+      ]
+    },
+    {
+      "id": "idle-control",
+      "from": "workerA",
+      "to": "idle",
+      "label": "无任务：搜索或停泊",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        128,
+        242
+      ]
+    }
+  ]
+}

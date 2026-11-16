@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 1,
+  "status": "showcase-prototype",
+  "targetRepository": "tt-a1i/pr-lens-demo",
+  "targetBase": "e3a00b089748830a724dd51ae565ac03707c8c2a",
+  "authoring": {
+    "client": "Codex",
+    "model": "gpt-6.1-sol",
+    "method": "Agent-authored native graph models and explicit story plans; not an automatic arbitrary-PR-to-story pipeline."
+  },
+  "renderer": {
+    "packageVersion": "3.2.1-dev.1",
+    "developmentMerge": "daec9ea17abe77702bed89cbc69a4b2661653ea9",
+    "parents": [
+      "b009ef30f160ee52a2fe0e5c74b3cd8e00b0feec",
+      "caf0cd37e3e5c5cfbf8f61c4b1013208ab5b0ed4"
+    ],
+    "storyPipeline": "Local exploratory downstream compiler; included with frozen native SVG inputs."
+  },
+  "analysis": {
+    "repository": "tt-a1i/archify",
+    "revision": "e50aa8622f63537009691a65e1474f828e3f1eda",
+    "complexity": "native TS measureFunctions",
+    "dependencies": "native facts, module graph and coupling/cycle evaluation"
+  },
+  "comparison": {
+    "repository": "tt-a1i/pr-lens-demo",
+    "pr": 1,
+    "attribution": "Existing PRLens image published by tt-a1i; linked without modification.",
+    "light": "https://github.com/user-attachments/assets/082054c3-510f-4983-9b03-04a65fdb4ee4",
+    "dark": "https://github.com/user-attachments/assets/ab60b7a8-9be4-46a9-919b-c0020ad2ccce",
+    "kind": "Same pinned source change; presentation comparison, not a controlled model benchmark",
+    "sameTopicExamples": {
+      "repository": "coldteadotai/pr-lens",
+      "revision": "d94e0b076e7c94a0d3b66e4e2b6fd6b683e50d51",
+      "files": [
+        "docs/showcase/gallery/tokio-work-stealing.svg",
+        "docs/showcase/gallery/vue-script-setup.svg",
+        "docs/showcase/gallery/django-asgi.svg",
+        "docs/showcase/gallery/vllm-paged-attention.svg",
+        "docs/showcase/gallery/kubernetes-ingress.svg"
+      ],
+      "scope": "Official same-PR presentation references; not a controlled same-input or model-quality benchmark."
+    }
+  },
+  "cases": [
+    {
+      "id": "story-our-pr",
+      "title": "我们的 PR 分析",
+      "pr": 1359,
+      "question": "PR #1359 怎样让原生工作台区分本次变化，并追溯其来源？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/tt-a1i/archify/pull/1359",
+        "base": "fb9ed13755444ff7188b4e65c39a7c96bc04a892",
+        "head": "e50aa8622f63537009691a65e1474f828e3f1eda"
+      },
+      "structures": "架构图 → 流程图",
+      "stills": [
+        3,
+        9.3,
+        15.2,
+        21.3,
+        26.3,
+        31.5,
+        39
+      ],
+      "shots": [
+        "原生工作台新增 PR 比较与源码追溯",
+        "新增 PR 来源准备，固定共同基点与 head",
+        "两侧复用同一分析器、配置和语言适配器",
+        "新增增量层，提取变化与已知使用方",
+        "变化接回原生源码、引用和任务入口",
+        "分析失败时，上一份成功结果继续保留",
+        "会话协调新增双版本分支，圈复杂度 8 → 17"
+      ],
+      "duration": 43,
+      "programFacts": "measurements/our-pr.json",
+      "plan": "story-plans/story-our-pr.json",
+      "images": {
+        "light": "images/story-our-pr-light.svg",
+        "dark": "images/story-our-pr-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-our-pr-2.png",
+        "stills/story-our-pr-7.png"
+      ],
+      "role": "own-pr-baseline"
+    },
+    {
+      "id": "story-checkout",
+      "title": "组织结账",
+      "pr": 2,
+      "question": "组织结账怎样从同步扣款改为幂等排队和后台执行？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/tt-a1i/pr-lens-demo/pull/2",
+        "base": "e3a00b089748830a724dd51ae565ac03707c8c2a",
+        "head": "8bcb443e82d1da97c78aa6d626ad6e18ec54120b"
+      },
+      "structures": "流程图 → ER 图",
+      "stills": [
+        3,
+        8.4,
+        13.6,
+        18.8,
+        24,
+        30.5
+      ],
+      "shots": [
+        "组织结账改为幂等排队，再由后台扣款",
+        "新增幂等锁、队列与结账 Worker",
+        "重复请求绕过队列，复用已有发票",
+        "HTTP 返回 202，付款结果由后台处理",
+        "发票从用户归属改为组织归属",
+        "金额类型扩大，幂等键增加唯一约束"
+      ],
+      "duration": 34,
+      "programFacts": null,
+      "plan": "story-plans/story-checkout.json",
+      "images": {
+        "light": "images/story-checkout-light.svg",
+        "dark": "images/story-checkout-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-checkout-2.png",
+        "stills/story-checkout-5.png"
+      ],
+      "role": "same-input-comparison"
+    },
+    {
+      "id": "story-relocation",
+      "title": "实现搬迁",
+      "pr": 1338,
+      "question": "实现搬迁并改名后，调用者是否还走原来的公开入口？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/tt-a1i/archify/pull/1338",
+        "base": "91270ea08d53baf676bd2270d7805233a8798351",
+        "head": "a4cc9165358f3dfe080096618bb91ba6882f40ed"
+      },
+      "structures": "架构图",
+      "stills": [
+        3,
+        8.7,
+        16.5
+      ],
+      "shots": [
+        "实现迁到 overview，公开入口仍叫 where",
+        "where() 搬迁后改名为 findingWhere()",
+        "重导出指向新实现，调用方仍导入 where"
+      ],
+      "duration": 20,
+      "programFacts": null,
+      "plan": "story-plans/story-relocation.json",
+      "images": {
+        "light": "images/story-relocation-light.svg",
+        "dark": "images/story-relocation-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-relocation-2.png"
+      ],
+      "role": "auxiliary-design"
+    },
+    {
+      "id": "story-dependency",
+      "title": "依赖改向",
+      "pr": null,
+      "question": "提取公共契约以后，原先的模块环是否还在？",
+      "source": {
+        "kind": "simulation",
+        "fixture": "design-fixtures/dependency",
+        "analysis": "Small, self-contained before/head fixture. No production PR is implied."
+      },
+      "structures": "架构图",
+      "stills": [
+        3,
+        8.6,
+        14.4,
+        20.9
+      ],
+      "shots": [
+        "提取公共契约，移除存储对业务的反向导入",
+        "新增 contracts，双方改为依赖公共类型",
+        "存储不再反向导入订单模块",
+        "反向导入移除，这组模块循环从 1 变为 0"
+      ],
+      "duration": 24,
+      "programFacts": "measurements/dependency.json",
+      "plan": "story-plans/story-dependency.json",
+      "images": {
+        "light": "images/story-dependency-light.svg",
+        "dark": "images/story-dependency-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-dependency-4.png"
+      ],
+      "role": "auxiliary-design"
+    },
+    {
+      "id": "story-tokio",
+      "title": "Tokio 调度器",
+      "pr": 1657,
+      "question": "线程池重写怎样改变任务的分配、窃取和停泊协调？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/tokio-rs/tokio/pull/1657",
+        "base": "1cae04f8b380137137bb06e9d0ec0743aaa74c51",
+        "head": "1c117fb7fd3ca398ca53ff676485b12cbb08557a"
+      },
+      "structures": "架构图 → 生命周期",
+      "stills": [
+        3,
+        8.5,
+        14.3,
+        20.1,
+        26.5,
+        32.6
+      ],
+      "shots": [
+        "替换本地队列，重做搜索与唤醒协调",
+        "Chase-Lev 队列替换为有界环形队列",
+        "本地队列满时，约一半任务移到共享队列",
+        "空闲 Worker 可以批量窃取其他本地队列",
+        "搜索者数量影响搜索与停泊选择",
+        "Worker 被唤醒后重新检查任务"
+      ],
+      "duration": 35.5,
+      "role": "external-showcase",
+      "programFacts": null,
+      "plan": "story-plans/story-tokio.json",
+      "images": {
+        "light": "images/story-tokio-light.svg",
+        "dark": "images/story-tokio-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-tokio-3.png",
+        "stills/story-tokio-6.png"
+      ]
+    },
+    {
+      "id": "story-vue",
+      "title": "Vue 编译绑定",
+      "pr": 2532,
+      "question": "script setup 的绑定信息怎样影响普通与内联模板的生成？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/vuejs/core/pull/2532",
+        "base": "0935c0501b8dcabf5600a539672c4745f7b1b93f",
+        "head": "2a4fc32d1561125582a7fe3b9bf2815d6974c814"
+      },
+      "structures": "数据流图 → 架构图",
+      "stills": [
+        3,
+        8.5,
+        14.5,
+        20,
+        26.8
+      ],
+      "shots": [
+        "脚本绑定信息连接模板编译与生成产物",
+        "顶层声明和导入被归类为绑定元数据",
+        "inlineTemplate 模式直接返回 render 闭包",
+        "普通模式继续返回绑定对象",
+        "内联绑定按种类生成访问表达式"
+      ],
+      "duration": 29,
+      "role": "external-showcase",
+      "programFacts": "measurements/vue.json",
+      "plan": "story-plans/story-vue.json",
+      "images": {
+        "light": "images/story-vue-light.svg",
+        "dark": "images/story-vue-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-vue-3.png",
+        "stills/story-vue-5.png"
+      ]
+    },
+    {
+      "id": "story-django",
+      "title": "Django ASGI",
+      "pr": 11209,
+      "question": "新增异步服务入口以后，原有同步视图契约怎样保留？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/django/django/pull/11209",
+        "base": "cce47ff65a4dd3786c049ec14ee889e128ca7de9",
+        "head": "7f19e3713598a37b0809b5434114140170d12e34"
+      },
+      "structures": " → 流程图",
+      "stills": [
+        3,
+        8,
+        13.5,
+        19.1,
+        26.5,
+        32.3
+      ],
+      "shots": [
+        "新增 ASGI 入口，原有同步视图链继续复用",
+        "ASGIHandler 接收 HTTP 请求与请求体",
+        "同步 get_response 经 sync_to_async 执行",
+        "响应回到 Handler，再逐段发送给 ASGI 服务",
+        "同步专用函数在运行中的事件循环里被拦截",
+        "同步上下文继续走原函数"
+      ],
+      "duration": 35,
+      "role": "external-showcase",
+      "programFacts": null,
+      "plan": "story-plans/story-django.json",
+      "images": {
+        "light": "images/story-django-light.svg",
+        "dark": "images/story-django-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-django-3.png",
+        "stills/story-django-5.png"
+      ]
+    },
+    {
+      "id": "story-vllm",
+      "title": "vLLM 分区计算",
+      "pr": 1348,
+      "question": "PagedAttention V2 如何增加序列维度并行，同时保留原输出契约？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/vllm-project/vllm/pull/1348",
+        "base": "d0740dff1b3ab06860316d98c937a3d4e143f25f",
+        "head": "9451b2d8e3282d27797e9b02780448f703dc80d6"
+      },
+      "structures": "流程图 → 数据流图 → 架构图",
+      "stills": [
+        3,
+        8.5,
+        14.4,
+        20.5,
+        25.3,
+        33.5
+      ],
+      "shots": [
+        "新增序列分区内核，同时保留 V1 路径",
+        "按分区数与工作量选择 V1 或 V2",
+        "同一序列按 512 tokens 划分计算分区",
+        "各分区产出局部结果和归一化统计",
+        "归并内核重新缩放，写回原 out 张量",
+        "分流条件明确保留单分区的 V1 快路径"
+      ],
+      "duration": 36,
+      "role": "external-showcase",
+      "programFacts": null,
+      "plan": "story-plans/story-vllm.json",
+      "images": {
+        "light": "images/story-vllm-light.svg",
+        "dark": "images/story-vllm-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-vllm-3.png",
+        "stills/story-vllm-6.png"
+      ]
+    },
+    {
+      "id": "story-kubernetes",
+      "title": "Kubernetes API",
+      "pr": 14175,
+      "question": "初版 Ingress PR 新增了哪些 API 契约，哪些执行能力尚未加入？",
+      "source": {
+        "kind": "real-pr",
+        "url": "https://github.com/kubernetes/kubernetes/pull/14175",
+        "base": "cad5f03311afff3907ce1f682c115c7c5451db06",
+        "head": "44477b246baadf49f100ab89725baa7119ce6cef"
+      },
+      "structures": "架构图 → 类型图",
+      "stills": [
+        3,
+        8.5,
+        14.4,
+        20.5,
+        28
+      ],
+      "shots": [
+        "初版 Ingress 建立 API 类型与版本配套",
+        "Scheme 注册 Ingress 与 IngressList",
+        "内部和 v1 类型配套生成转换与复制",
+        "规则用 Host 和 Paths 描述目标后端",
+        "Backend 声明 ServiceRef、端口与协议"
+      ],
+      "duration": 31.5,
+      "role": "external-showcase",
+      "programFacts": null,
+      "plan": "story-plans/story-kubernetes.json",
+      "images": {
+        "light": "images/story-kubernetes-light.svg",
+        "dark": "images/story-kubernetes-dark.svg"
+      },
+      "keyFrames": [
+        "stills/story-kubernetes-4.png",
+        "stills/story-kubernetes-5.png"
+      ]
+    }
+  ],
+  "implementationStatus": {
+    "embeddedExport": "Local single-view CLI implementation; multi-structure outputs use the exploratory compiler.",
+    "analysisIntegration": "Native measurements explicitly bound to selected case objects; general automatic adapter not implemented.",
+    "designExploration": [
+      "PR narration and scope",
+      "identity and transitions",
+      "layout, source and metric placement"
+    ]
+  },
+  "delivery": {
+    "platform": "github",
+    "repository": "tt-a1i/pr-lens-demo",
+    "contributor": "goatliamia",
+    "form": "Self-contained SVG images and editable inputs in a showcase PR; no website or publishing workflow."
+  }
+}

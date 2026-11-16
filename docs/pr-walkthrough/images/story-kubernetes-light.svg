@@ -1,0 +1,1067 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-label="初版 Ingress PR 新增了哪些 API 契约，哪些执行能力尚未加入？"><title>初版 Ingress PR 新增了哪些 API 契约，哪些执行能力尚未加入？</title><style><![CDATA[text{font-family:system-ui,-apple-system,Segoe UI,Microsoft YaHei,sans-serif}[data-native-key] [data-legend]{display:none}[data-native-key] [data-node-label]{font-size:14px!important;font-weight:600!important}[data-native-key] text[data-detail="context"]{font-size:11.5px!important}[data-native-key] [data-detail="fine"]{font-size:10px!important}.caption-title{font-weight:650;letter-spacing:-.3px}.caption-body{font-size:17px}
+[data-composition-frame-kind="lane"]{fill:none!important;stroke-opacity:.28}[data-composition-frame-kind="stage"]{fill:none!important;stroke:none!important}[data-story-node-badge] text{font-size:10.5px!important}
+@keyframes f0{0.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}51.42857%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}54.28571%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f1{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}52.69841%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}56.34921%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f2{0.00000%{transform:translate(128.766px,38.659px) scale(1.16110);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{transform:translate(128.766px,38.659px) scale(1.16110);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f3{0.00000%{transform:translate(20.629px,160.180px) scale(0.96507);animation-timing-function:cubic-bezier(.65,0,.35,1)}53.96825%{transform:translate(20.629px,160.180px) scale(0.96507);animation-timing-function:cubic-bezier(.65,0,.35,1)}58.73016%{transform:translate(180.763px,242.366px) scale(1.06870);animation-timing-function:cubic-bezier(.65,0,.35,1)}76.50794%{transform:translate(20.629px,160.180px) scale(0.96507);animation-timing-function:cubic-bezier(.65,0,.35,1)}81.26984%{transform:translate(-100.263px,167.895px) scale(0.92105);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{transform:translate(-100.263px,167.895px) scale(0.92105);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+#view-api [data-node-id="versioned"]{transform-origin:472.5px 142px}
+@keyframes f4{0.00000%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}15.23810%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}18.88889%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}100.00000%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}}
+#view-api [data-node-id="internal"]{transform-origin:472.5px 362px}
+@keyframes f5{0.00000%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}34.60317%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}38.25397%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}100.00000%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}}
+#view-api [data-node-id="generated"]{transform-origin:132.5px 362px}
+@keyframes f6{0.00000%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}35.71429%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}39.36508%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}100.00000%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}}
+#view-types [data-node-id="path"]{transform-origin:438px 260px}
+@keyframes f7{0.00000%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}75.87302%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}79.52381%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}100.00000%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}}
+#view-types [data-node-id="backend"]{transform-origin:792px 260px}
+@keyframes f8{0.00000%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}76.50794%{opacity:0;transform:translateY(14px) scale(.96);animation-timing-function:cubic-bezier(.2,.8,.25,1)}80.15873%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}100.00000%{opacity:1;transform:translateY(0px) scale(1);animation-timing-function:cubic-bezier(.2,.8,.25,1)}}
+@keyframes f9{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}17.14286%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}17.61905%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f10{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}17.14286%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}20.63492%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f11{0.00000%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}20.57143%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}20.63492%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f12{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}36.50794%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}36.98413%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f13{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}36.50794%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}40.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f14{0.00000%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}39.93651%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}40.00000%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f15{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}37.77778%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}38.25397%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f16{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}37.77778%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}41.26984%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f17{0.00000%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}41.20635%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}41.26984%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f18{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}39.04762%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}39.52381%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f19{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}39.04762%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}42.53968%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f20{0.00000%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}42.47619%{marker-end:none;animation-timing-function:cubic-bezier(.65,0,.35,1)}42.53968%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{marker-end:url(#native-external-kubernetes-api-arrowhead-change-added);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f21{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}76.19048%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}76.66667%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f22{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}76.19048%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}79.68254%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f23{0.00000%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}77.14286%{opacity:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}77.61905%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f24{0.00000%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}77.14286%{stroke-dasharray:1;stroke-dashoffset:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}80.63492%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{stroke-dasharray:1;stroke-dashoffset:0;animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f25{0.00000%{filter:opacity(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}74.60317%{filter:opacity(1);animation-timing-function:cubic-bezier(.65,0,.35,1)}77.77778%{filter:opacity(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}100.00000%{filter:opacity(0);animation-timing-function:cubic-bezier(.65,0,.35,1)}}
+@keyframes f26{0.00000%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}13.80952%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}15.23810%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}100.00000%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}}
+@keyframes f27{0.00000%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}15.87302%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}17.93651%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}33.17460%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}34.60317%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}100.00000%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}}
+@keyframes f28{0.00000%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}35.23810%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}37.30159%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}52.85714%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}54.28571%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}100.00000%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}}
+@keyframes f29{0.00000%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}54.92063%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}56.98413%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}74.76190%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}76.19048%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}100.00000%{opacity:0;transform:translateY(-6px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}}
+@keyframes f30{0.00000%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}76.82540%{opacity:0;transform:translateY(8px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}78.88889%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}100.00000%{opacity:1;transform:translateY(0px);animation-timing-function:cubic-bezier(.22,.7,.2,1)}}
+#view-api{animation:f0 31.5s linear 2 both}
+#view-types{animation:f1 31.5s linear 2 both}
+#camera-api{animation:f2 31.5s linear 2 both}
+#camera-types{animation:f3 31.5s linear 2 both}
+#view-api [data-node-id="versioned"]{animation:f4 31.5s linear 2 both}
+#view-api [data-node-id="internal"]{animation:f5 31.5s linear 2 both}
+#view-api [data-node-id="generated"]{animation:f6 31.5s linear 2 both}
+#view-types [data-node-id="path"]{animation:f7 31.5s linear 2 both}
+#view-types [data-node-id="backend"]{animation:f8 31.5s linear 2 both}
+#view-api [data-edge-id="register"]{animation:f9 31.5s linear 2 both}
+#view-api path[data-edge-id="register"]{animation:f9 31.5s linear 2 both,f10 31.5s linear 2 both,f11 31.5s linear 2 both}
+#view-api [data-edge-id="register"] path{animation:f9 31.5s linear 2 both}
+#view-api [data-story-edge-id="register"]{animation:f9 31.5s linear 2 both}
+#view-api [data-edge-id="version-convert"]{animation:f12 31.5s linear 2 both}
+#view-api path[data-edge-id="version-convert"]{animation:f12 31.5s linear 2 both,f13 31.5s linear 2 both,f14 31.5s linear 2 both}
+#view-api [data-edge-id="version-convert"] path{animation:f12 31.5s linear 2 both}
+#view-api [data-story-edge-id="version-convert"]{animation:f12 31.5s linear 2 both}
+#view-api [data-edge-id="convert-internal"]{animation:f15 31.5s linear 2 both}
+#view-api path[data-edge-id="convert-internal"]{animation:f15 31.5s linear 2 both,f16 31.5s linear 2 both,f17 31.5s linear 2 both}
+#view-api [data-edge-id="convert-internal"] path{animation:f15 31.5s linear 2 both}
+#view-api [data-story-edge-id="convert-internal"]{animation:f15 31.5s linear 2 both}
+#view-api [data-edge-id="version-generated"]{animation:f18 31.5s linear 2 both}
+#view-api path[data-edge-id="version-generated"]{animation:f18 31.5s linear 2 both,f19 31.5s linear 2 both,f20 31.5s linear 2 both}
+#view-api [data-edge-id="version-generated"] path{animation:f18 31.5s linear 2 both}
+#view-api [data-story-edge-id="version-generated"]{animation:f18 31.5s linear 2 both}
+#view-types [data-edge-id="rule-path"]{animation:f21 31.5s linear 2 both}
+#view-types path[data-edge-id="rule-path"]{animation:f21 31.5s linear 2 both,f22 31.5s linear 2 both}
+#view-types [data-edge-id="rule-path"] path{animation:f21 31.5s linear 2 both}
+#view-types [data-story-edge-id="rule-path"]{animation:f21 31.5s linear 2 both}
+#view-types [data-edge-id="path-backend"]{animation:f23 31.5s linear 2 both}
+#view-types path[data-edge-id="path-backend"]{animation:f23 31.5s linear 2 both,f24 31.5s linear 2 both}
+#view-types [data-edge-id="path-backend"] path{animation:f23 31.5s linear 2 both}
+#view-types [data-story-edge-id="path-backend"]{animation:f23 31.5s linear 2 both}
+#view-types [data-node-id="spec"]{animation:f25 31.5s linear 2 both}
+#view-types [data-edge-id="spec-rule"]{animation:f25 31.5s linear 2 both}
+#view-types path[data-edge-id="spec-rule"]{animation:f25 31.5s linear 2 both}
+#view-types [data-edge-id="spec-rule"] path{animation:f25 31.5s linear 2 both}
+#view-types [data-story-edge-id="spec-rule"]{animation:f25 31.5s linear 2 both}
+#caption-step-0{animation:f26 31.5s linear 2 both}
+#caption-step-1{animation:f27 31.5s linear 2 both}
+#caption-step-2{animation:f28 31.5s linear 2 both}
+#caption-step-3{animation:f29 31.5s linear 2 both}
+#caption-step-4{animation:f30 31.5s linear 2 both}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}g[id^="token-"]{display:none}.film-caption{display:none}.film-caption:last-of-type{display:inline;opacity:1!important}}]]></style><rect width="960" height="560" fill="#ffffff"/><defs><clipPath id="story-diagram-viewport" clipPathUnits="userSpaceOnUse"><rect x="18" y="112" width="924" height="432"/></clipPath></defs><g data-story-layer="diagram" clip-path="url(#story-diagram-viewport)"><g id="view-api" class="view-stage " data-native-key="native-external-kubernetes-api" style="opacity:1"><g id="camera-api" style="transform:translate(128.766px,38.659px) scale(1.16110);transform-origin:0 0"><svg viewBox="0 0 620 472" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="standard" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14" xmlns="http://www.w3.org/2000/svg" data-theme="light" data-archify-bake="static" x="0" y="0" width="620" height="472">
+        <title id="native-external-kubernetes-api-archify-diagram-title">Ingress 的 API 类型与编解码基础</title>
+        <desc id="native-external-kubernetes-api-archify-diagram-description">由 Archify 生成的架构图。</desc>
+        <style><![CDATA[[data-native-key="native-external-kubernetes-api"] :is(svg){font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace}[data-native-key="native-external-kubernetes-api"] :is(svg){font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace}[data-native-key="native-external-kubernetes-api"] :is(svg a.archify-drilldown-link){text-decoration:none;color:inherit}[data-native-key="native-external-kubernetes-api"] :is(svg .archify-drilldown-mark-disc){fill:#23a37b;stroke:#5eb29f;stroke-width:1}[data-native-key="native-external-kubernetes-api"] :is(svg .archify-drilldown-mark-arrow){stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-api"] :is(.c-grid){stroke:#e9edf2;fill:none}[data-native-key="native-external-kubernetes-api"] :is(.c-mask){fill:#ffffff;stroke:none}[data-native-key="native-external-kubernetes-api"] :is(.c-lane-rule){stroke:#cbd5e1;fill:none;opacity:0.7}[data-native-key="native-external-kubernetes-api"] :is(.c-lane-wash){fill:rgba(248, 250, 252, 0.65);stroke:none}[data-native-key="native-external-kubernetes-api"] :is(.c-frontend){fill:rgba(34, 211, 238, 0.15);stroke:#0891b2}[data-native-key="native-external-kubernetes-api"] :is(.c-backend){fill:rgba(52, 211, 153, 0.18);stroke:#059669}[data-native-key="native-external-kubernetes-api"] :is(.c-database){fill:rgba(167, 139, 250, 0.2);stroke:#7c3aed}[data-native-key="native-external-kubernetes-api"] :is(.c-cloud){fill:rgba(251, 191, 36, 0.18);stroke:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.c-security){fill:rgba(251, 113, 133, 0.15);stroke:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.c-messagebus){fill:rgba(251, 146, 60, 0.15);stroke:#ea580c}[data-native-key="native-external-kubernetes-api"] :is(.c-external){fill:rgba(148, 163, 184, 0.18);stroke:#64748b}[data-native-key="native-external-kubernetes-api"] :is(.t-primary){fill:#111827}[data-native-key="native-external-kubernetes-api"] :is(.t-muted){fill:#5b6474}[data-native-key="native-external-kubernetes-api"] :is(.t-dim){fill:#9aa3b2}[data-native-key="native-external-kubernetes-api"] :is(.t-frontend){fill:#0891b2}[data-native-key="native-external-kubernetes-api"] :is(.t-backend){fill:#059669}[data-native-key="native-external-kubernetes-api"] :is(.t-database){fill:#7c3aed}[data-native-key="native-external-kubernetes-api"] :is(.t-cloud){fill:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.t-security){fill:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.t-messagebus){fill:#ea580c}[data-native-key="native-external-kubernetes-api"] :is(.t-external){fill:#64748b}[data-native-key="native-external-kubernetes-api"] :is(.t-edge-default){fill:#5b6474}[data-native-key="native-external-kubernetes-api"] :is(.t-edge-emphasis){fill:#059669}[data-native-key="native-external-kubernetes-api"] :is(.t-edge-security){fill:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.t-edge-dashed){fill:#7c3aed}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="classic"] .c-grid){stroke:transparent}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="classic"][data-theme="light"] [data-node-id] > rect:not(.c-mask)){filter:drop-shadow(0 1px 1px rgba(17, 24, 39, 0.05)) drop-shadow(0 6px 12px rgba(17, 24, 39, 0.06))}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="classic"][data-theme="light"] [data-edge-from]){stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="classic"][data-theme="light"] .c-lane-wash){fill:rgba(17, 24, 39, 0.026)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="classic"][data-theme="light"] .c-lane-rule){stroke:#e5e7eb;opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg .semantic-sigil){fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;opacity:0.76}[data-native-key="native-external-kubernetes-api"] :is(svg .semantic-sigil > *){vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-api"] :is(svg .semantic-sigil .sigil-fill){fill:currentColor;stroke:none}[data-native-key="native-external-kubernetes-api"] :is(svg .s-frontend){color:#0891b2}[data-native-key="native-external-kubernetes-api"] :is(svg .s-backend){color:#059669}[data-native-key="native-external-kubernetes-api"] :is(svg .s-database){color:#7c3aed}[data-native-key="native-external-kubernetes-api"] :is(svg .s-cloud){color:#d97706}[data-native-key="native-external-kubernetes-api"] :is(svg .s-security){color:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(svg .s-messagebus){color:#ea580c}[data-native-key="native-external-kubernetes-api"] :is(svg .s-external){color:#64748b}[data-native-key="native-external-kubernetes-api"] :is(svg .brand-mark-badge){fill:#fff;stroke:none}[data-native-key="native-external-kubernetes-api"] :is(svg .brand-mark-frame){fill:none;stroke:#cbd5e1;stroke-width:0.8;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-api"] :is(svg .brand-mark-fallback){fill:none;stroke:#475569;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-api"] :is(svg [data-detail-anchor]){transform-box:fill-box;transform-origin:center}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-focus-match][data-detail], svg[data-focus-active] [data-focus-match] [data-detail], svg[data-reach-active] [data-reach-match][data-detail], svg[data-reach-active] [data-reach-match] [data-detail], svg[data-lens-active] [data-lens-match][data-detail], svg[data-lens-active] [data-lens-match] [data-detail], svg[data-legend-preview-active] [data-legend-preview-match][data-detail], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail], svg[data-intent-trace-active] [data-intent-trace-match][data-detail], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail], svg[data-route-active] [data-route-match][data-detail], svg[data-route-active] [data-route-match] [data-detail], svg[data-relationship-preview-active] [data-relationship-preview][data-detail], svg[data-relationship-preview-active] [data-relationship-preview] [data-detail]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-focus-match] [data-detail-anchor], svg[data-reach-active] [data-reach-match] [data-detail-anchor], svg[data-lens-active] [data-lens-match] [data-detail-anchor], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail-anchor], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail-anchor], svg[data-route-active] [data-route-match] [data-detail-anchor]){transform:none}[data-native-key="native-external-kubernetes-api"] :is(.a-default){stroke:#64748b;fill:none}[data-native-key="native-external-kubernetes-api"] :is(.a-emphasis){stroke:#059669;fill:none}[data-native-key="native-external-kubernetes-api"] :is(.a-security){stroke:#e11d48;fill:none;stroke-dasharray:5,5}[data-native-key="native-external-kubernetes-api"] :is(.a-dashed){stroke:#7c3aed;fill:none;stroke-dasharray:4,4}[data-native-key="native-external-kubernetes-api"] :is(.m-default){fill:#64748b}[data-native-key="native-external-kubernetes-api"] :is(.m-emphasis){fill:#059669}[data-native-key="native-external-kubernetes-api"] :is(.m-security){fill:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.m-dashed){fill:#7c3aed}[data-native-key="native-external-kubernetes-api"] :is(.c-change-swatch-added){fill:rgba(52, 211, 153, 0.18);stroke:#059669}[data-native-key="native-external-kubernetes-api"] :is(.c-change-swatch-modified){fill:rgba(251, 191, 36, 0.18);stroke:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.c-change-swatch-removed){fill:rgba(251, 113, 133, 0.15);stroke:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.c-change-badge-added){fill:#d2ece4;stroke:#059669}[data-native-key="native-external-kubernetes-api"] :is(.c-change-badge-modified){fill:#f8e7d2;stroke:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.c-change-badge-removed){fill:#fad6de;stroke:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.c-change-swatch-removed){stroke-dasharray:3,2}[data-native-key="native-external-kubernetes-api"] :is(.c-change-swatch-unchanged){fill:#ffffff;stroke:#9aa3b2}[data-native-key="native-external-kubernetes-api"] :is(.t-change-added, .t-change-badge-added){fill:#059669}[data-native-key="native-external-kubernetes-api"] :is(.t-change-modified, .t-change-badge-modified){fill:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.t-change-removed, .t-change-badge-removed){fill:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(.m-change-added){fill:#059669}[data-native-key="native-external-kubernetes-api"] :is(.m-change-modified){fill:#d97706}[data-native-key="native-external-kubernetes-api"] :is(.m-change-removed){fill:#e11d48}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change="added"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#059669;stroke-width:2.4}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change="modified"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#d97706;stroke-width:2.4}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change="removed"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-api"] :is(svg rect[data-change="added"][data-graph-role], svg [data-change="added"] > rect.c-lane-wash, svg [data-change="added"] > rect.c-lane-rule){stroke:#059669;stroke-width:2;stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg rect[data-change="modified"][data-graph-role], svg [data-change="modified"] > rect.c-lane-wash, svg [data-change="modified"] > rect.c-lane-rule){stroke:#d97706;stroke-width:2;stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg rect[data-change="removed"][data-graph-role], svg [data-change="removed"] > rect.c-lane-wash, svg [data-change="removed"] > rect.c-lane-rule){stroke:#e11d48;stroke-width:1.4;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-api"] :is(svg path[data-change="added"][data-edge-from], svg [data-change="added"][data-edge-from] > path){stroke:#059669;stroke-width:2.4}[data-native-key="native-external-kubernetes-api"] :is(svg path[data-change="modified"][data-edge-from], svg [data-change="modified"][data-edge-from] > path){stroke:#d97706;stroke-width:2.4}[data-native-key="native-external-kubernetes-api"] :is(svg path[data-change="removed"][data-edge-from], svg [data-change="removed"][data-edge-from] > path){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change="removed"], svg text[data-change="removed"]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change="removed"] > text[data-node-label], svg [data-change="removed"][data-graph-role] > text, svg [data-change="removed"][data-edge-from] text, svg text[data-change="removed"], svg [data-er-row][data-change="removed"] > text, svg [data-class-row][data-change="removed"] > text){text-decoration:line-through}[data-native-key="native-external-kubernetes-api"] :is(svg [data-emphasis] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask), svg path[data-emphasis][data-edge-from], svg [data-emphasis][data-edge-from] > path){stroke-width:3.2}[data-native-key="native-external-kubernetes-api"] :is(svg [data-emphasis] > text[data-node-label]){font-weight:800}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change-context="subdued"]){opacity:0.48}[data-native-key="native-external-kubernetes-api"] :is(svg [data-change-context="subdued"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-hit]){fill:transparent;stroke:transparent;stroke-width:1.4;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-count-badge] rect){fill:#ffffff;stroke:#e5e7eb;stroke-width:1;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-count-badge] text){fill:#5b6474;font-size:8px;font-weight:700;text-anchor:middle}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-kind][data-legend-selected] [data-legend-hit]){stroke:#7c3aed;stroke-width:2.2;stroke-dasharray:3 2}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect){stroke:#7c3aed;stroke-width:1.8}[data-native-key="native-external-kubernetes-api"] :is(svg [data-legend-kind][data-legend-zero]){opacity:0.44}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-node-id], svg[data-legend-preview-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-legend-preview-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-legend-preview-peer]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-legend-preview-selected]){filter:drop-shadow(0 0 8px #7c3aed)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-lens-active] [data-node-id], svg[data-lens-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-api"] :is(svg[data-lens-active] [data-lens-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-lens-active] [data-lens-peer]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg[data-lens-active] [data-lens-selected]){filter:drop-shadow(0 0 10px #7c3aed)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.11}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-legend-preview-match]) > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(> [data-lens-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-legend-preview-peer]) > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(> [data-lens-peer]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-node-id], svg[data-focus-active] [data-edge-from]){opacity:0.13}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.13}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-focus-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-graph-role="automatic-crossover"]:has(> [data-focus-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-focus-active] [data-focus-selected]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active] [data-node-id], svg[data-reach-active] [data-edge-from]){opacity:0.09}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.09}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active] [data-reach-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active] [data-graph-role="automatic-crossover"]:has(> [data-reach-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active="upstream"] [data-reach-origin]){filter:drop-shadow(0 0 11px #7c3aed)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active="downstream"] [data-reach-origin]){filter:drop-shadow(0 0 11px #059669)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active="upstream"] [data-edge-from][data-reach-match]){filter:drop-shadow(0 0 4px rgba(124, 58, 237, 0.72))}[data-native-key="native-external-kubernetes-api"] :is(svg[data-reach-active="downstream"] [data-edge-from][data-reach-match]){filter:drop-shadow(0 0 4px rgba(5, 150, 105, 0.72))}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="blueprint"][data-reach-active] [data-reach-origin], svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match]){filter:none}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-direct-active] [data-node-id], svg[data-relationship-direct-active] [data-edge-from]){opacity:0.16}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.16}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-direct-active] [data-relationship-preview], svg[data-relationship-direct-active] [data-relationship-preview-node]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"]:has(> [data-relationship-preview]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-focus-match]){opacity:0.18}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-focus-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.18}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview-node]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-relationship-preview]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-relationship-preview]){filter:drop-shadow(0 0 5px #059669)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-relationship-preview] path, svg[data-relationship-preview-active] path[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] line, svg[data-relationship-preview-active] line[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] polyline, svg[data-relationship-preview-active] polyline[data-relationship-preview]){stroke-width:2.75}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-relationship-preview-source]){filter:drop-shadow(0 0 7px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-relationship-preview-active] [data-relationship-preview-target]){filter:drop-shadow(0 0 7px #7c3aed)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-node-id]){fill-opacity:0.2;stroke-opacity:0.2}[data-native-key="native-external-kubernetes-api"] :is(svg [data-node-id] > .c-mask){fill-opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-node-id][data-intent-trace-match]){fill-opacity:1;stroke-opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-edge-from]){opacity:0.2}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.2}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-intent-trace-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-graph-role="automatic-crossover"]:has(> [data-intent-trace-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-intent-trace-active] [data-intent-trace-selected]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-picking="target"] [data-node-id]){opacity:0.24}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-picking="target"] [data-route-candidate], svg[data-route-picking="target"] [data-route-start]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-picking] [data-route-start]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-node-id], svg[data-route-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.11}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-route-match]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-graph-role="automatic-crossover"]:has(> [data-route-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-route-start]){filter:drop-shadow(0 0 11px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-route-end]){filter:drop-shadow(0 0 11px #e11d48)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end])){filter:drop-shadow(0 0 7px #059669)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="past"]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="future"]){opacity:0.34}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="current"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="past"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.62}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="future"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.34}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="current"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-node-id][data-route-journey-current]){filter:drop-shadow(0 0 10px #059669)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-route-journey] [data-edge-from][data-route-journey-current]){opacity:1;filter:drop-shadow(0 0 6px #059669)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="editorial"][data-focus-active] [data-focus-selected]){filter:drop-shadow(0 2px 2px rgba(17, 24, 39, 0.18))}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="blueprint"][data-focus-active] [data-focus-selected]){filter:drop-shadow(0 0 3px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin]){filter:none}[data-native-key="native-external-kubernetes-api"] :is(svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target]){filter:drop-shadow(0 0 3px #0891b2)}[data-native-key="native-external-kubernetes-api"] :is(.c-security-group){fill:transparent;stroke:#e11d48;stroke-dasharray:4,4}[data-native-key="native-external-kubernetes-api"] :is(.c-region){fill:rgba(251, 191, 36, 0.05);stroke:#d97706;stroke-dasharray:8,4}[data-native-key="native-external-kubernetes-api"] :is(.c-lane){fill:rgba(248, 250, 252, 0.65);stroke:#cbd5e1;stroke-dasharray:6,6}[data-native-key="native-external-kubernetes-api"] :is(svg[data-theme="light"]){--bg:#ffffff;--grid:#e9edf2;--canvas-dot:#e2e7ec;--text:#111827;--text-muted:#5b6474;--text-dim:#9aa3b2;--text-faint:#6b7280;--panel:#ffffff;--panel-border:#e5e7eb;--lane-fill:rgba(248, 250, 252, 0.65);--lane-stroke:#cbd5e1;--arrow:#64748b;--arrow-emphasis:#059669;--edge-label:#5b6474;--mask:#ffffff;--frontend-fill:rgba(34, 211, 238, 0.15);--frontend-stroke:#0891b2;--backend-fill:rgba(52, 211, 153, 0.18);--backend-stroke:#059669;--database-fill:rgba(167, 139, 250, 0.2);--database-stroke:#7c3aed;--cloud-fill:rgba(251, 191, 36, 0.18);--cloud-stroke:#d97706;--security-fill:rgba(251, 113, 133, 0.15);--security-stroke:#e11d48;--messagebus-fill:rgba(251, 146, 60, 0.15);--messagebus-stroke:#ea580c;--external-fill:rgba(148, 163, 184, 0.18);--external-stroke:#64748b;--toolbar-bg:rgba(255, 255, 255, 0.92);--toolbar-border:#cbd5e1;--toolbar-text:#334155;--toolbar-hover:#ffffff;--toolbar-menu-bg:#ffffff;--reader-accent:#077f9c}]]></style><!-- Definitions -->
+        <defs>
+          <marker id="native-external-kubernetes-api-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="native-external-kubernetes-api-arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="native-external-kubernetes-api-arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="native-external-kubernetes-api-arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="native-external-kubernetes-api-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+          <marker id="native-external-kubernetes-api-arrowhead-change-added" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-change-added" />
+          </marker>
+          <marker id="native-external-kubernetes-api-arrowhead-change-modified" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-change-modified" />
+          </marker>
+          <marker id="native-external-kubernetes-api-arrowhead-change-removed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-change-removed" />
+          </marker>
+        </defs>
+        <style><![CDATA[[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] [data-node-id] > rect:not(.c-mask)){stroke-width:1.25px}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-frontend){fill:#dff1f5;stroke:#4db0c8}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-backend){fill:#dff1ec;stroke:#4bb393}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-database){fill:#eee5fd;stroke:#a171f2}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-cloud){fill:#faeddf;stroke:#e49d4c}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-security){fill:#fbe2e7;stroke:#e95c7b}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-messagebus){fill:#fce9df;stroke:#f08750}[data-native-key="native-external-kubernetes-api"] :is(:is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] > rect:not(.c-mask).c-external){fill:#ebedf0;stroke:#8f9bab}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui]:is([data-preset="classic"], [data-preset="signal-flow"], [data-preset="editorial"]) .c-region){fill:rgba(217, 119, 6, 0.03);stroke:#d1ae85;stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] .c-security-group){stroke:#d86a88}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui]:is([data-preset="classic"], [data-preset="signal-flow"], [data-preset="editorial"]) .c-security-group){stroke-dasharray:4 3}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui]:is([data-preset="classic"], [data-preset="signal-flow"], [data-preset="editorial"]) .c-lane){stroke:#cbd5e1;stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] [data-graph-role="structural-frame-label-mask"]){rx:5px;fill:#fbf1e6;stroke:#f1cba0;stroke-width:.8px}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] [data-composition-frame-kind="security-group"] > [data-graph-role="structural-frame-label-mask"]){fill:#fcebef;stroke:#f4aebd}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] .phase-rule){opacity:.5;stroke-dasharray:none}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] .phase-chip){stroke:#cbd5e1;stroke-width:.75px}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui] g[data-edge-from] > rect.c-mask){rx:7px;stroke:#cbd5e1;stroke-width:.75px}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui][data-preset="blueprint"] :is([data-graph-role="structural-frame-label-mask"], g[data-edge-from] > rect.c-mask, .phase-chip)){rx:2px}[data-native-key="native-external-kubernetes-api"] :is(svg[data-node-ui][data-preset="editorial"] :is([data-graph-role="structural-frame-label-mask"], g[data-edge-from] > rect.c-mask, .phase-chip)){rx:3px}]]></style>
+
+        <!-- Background Grid -->
+        
+
+        <!-- Boundaries (behind everything) -->
+
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <g data-graph-role="automatic-crossover" style="--step:0" data-story-edge-id="register">
+          <path data-graph-role="automatic-crossover-underlay" d="M 240 142 L 365 142" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="scheme" data-edge-to="versioned" data-edge-label="注册新类型" data-edge-key="0" data-edge-id="register" data-change="added" data-composition-points="240,142;365,142" data-composition-crossover="halo" data-composition-independent="true" d="M 240 142 L 365 142" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#native-external-kubernetes-api-arrowhead-change-added)" pathLength="1"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:1" data-story-edge-id="version-convert">
+          <path data-graph-role="automatic-crossover-underlay" d="M 472.5 184 L 472.5 320" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="versioned" data-edge-to="internal" data-edge-label="对应内部结构" data-edge-key="1" data-edge-id="version-convert" data-change="added" data-composition-points="472.5,184;472.5,320" data-composition-crossover="halo" d="M 472.5 184 L 472.5 320" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#native-external-kubernetes-api-arrowhead-change-added)" pathLength="1"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:2" data-story-edge-id="convert-internal">
+          <path data-graph-role="automatic-crossover-underlay" d="M 240 362 L 365 362" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="generated" data-edge-to="internal" data-edge-label="转换与复制" data-edge-key="2" data-edge-id="convert-internal" data-change="added" data-composition-points="240,362;365,362" data-composition-crossover="halo" data-composition-independent="true" d="M 240 362 L 365 362" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#native-external-kubernetes-api-arrowhead-change-added)" pathLength="1"/>
+        </g>
+        <path data-edge-from="versioned" data-edge-to="generated" data-edge-label="生成配套代码" data-edge-key="3" data-edge-id="version-generated" data-change="added" data-composition-points="472.5,184;472.5,230;132.5,230;132.5,320" d="M 472.5 184 L 472.5 222 Q 472.5 230 464.5 230 L 140.5 230 Q 132.5 230 132.5 238 L 132.5 320" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#native-external-kubernetes-api-arrowhead-change-added)" pathLength="1"/>
+
+        <!-- Components -->
+        <g id="native-external-kubernetes-api-node-scheme" data-node-id="scheme" data-node-label="实验 API Scheme" tabindex="0" role="button" aria-label="聚焦实验 API Scheme，已有类型注册入口, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="已有类型注册入口" data-node-context="架构组件" data-change="modified">
+          <title>实验 API Scheme · 已有类型注册入口 · 架构组件</title>
+          <rect x="25" y="100" width="215" height="84" rx="8" class="c-mask"/>
+          <rect x="25" y="100" width="215" height="84" rx="8" class="c-backend" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(31 106) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="132.5" y="138.4" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">实验 API Scheme</text>
+        <text data-detail="context" x="132.5" y="154.4" class="t-muted" font-size="9" text-anchor="middle">已有类型注册入口</text>
+          <g data-change-badge="modified" data-story-node-badge="" pointer-events="none"><rect x="174" y="91" width="54" height="18" rx="6" class="c-mask"/><rect x="174" y="91" width="54" height="18" rx="6" class="c-change-badge-modified" stroke-width="1"/><text x="201" y="103.5" class="t-change-badge-modified" font-size="10.5" font-weight="600" text-anchor="middle">~ 修改</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-api-node-versioned" data-node-id="versioned" data-node-label="experimental / v1" tabindex="0" role="button" aria-label="聚焦experimental / v1，Ingress 与 IngressList, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Ingress 与 IngressList" data-node-context="架构组件" data-change="added">
+          <title>experimental / v1 · Ingress 与 IngressList · 架构组件</title>
+          <rect x="365" y="100" width="215" height="84" rx="8" class="c-mask"/>
+          <rect x="365" y="100" width="215" height="84" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(371 106) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="472.5" y="138.4" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">experimental / v1</text>
+        <text data-detail="context" x="472.5" y="154.4" class="t-muted" font-size="9" text-anchor="middle">Ingress 与 IngressList</text>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="514" y="91" width="54" height="18" rx="6" class="c-mask"/><rect x="514" y="91" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="541" y="103.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-api-node-internal" data-node-id="internal" data-node-label="内部 API 类型" tabindex="0" role="button" aria-label="聚焦内部 API 类型，Spec / Rule / Backend, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Spec / Rule / Backend" data-node-context="架构组件" data-change="added">
+          <title>内部 API 类型 · Spec / Rule / Backend · 架构组件</title>
+          <rect x="365" y="320" width="215" height="84" rx="8" class="c-mask"/>
+          <rect x="365" y="320" width="215" height="84" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(371 326) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="472.5" y="358.4" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">内部 API 类型</text>
+        <text data-detail="context" x="472.5" y="374.4" class="t-muted" font-size="9" text-anchor="middle">Spec / Rule / Backend</text>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="514" y="311" width="54" height="18" rx="6" class="c-mask"/><rect x="514" y="311" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="541" y="323.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-api-node-generated" data-node-id="generated" data-node-label="生成的转换与复制" tabindex="0" role="button" aria-label="聚焦生成的转换与复制，转换、DeepCopy 与字段文档, 架构组件" aria-pressed="false" data-node-kind="backend" data-node-sublabel="转换、DeepCopy 与字段文档" data-node-context="架构组件" data-change="added">
+          <title>生成的转换与复制 · 转换、DeepCopy 与字段文档 · 架构组件</title>
+          <rect x="25" y="320" width="215" height="84" rx="8" class="c-mask"/>
+          <rect x="25" y="320" width="215" height="84" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(31 326) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="132.5" y="358.4" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">生成的转换与复制</text>
+        <text data-detail="context" x="132.5" y="374.4" class="t-muted" font-size="9" text-anchor="middle">转换、DeepCopy 与字段文档</text>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="174" y="311" width="54" height="18" rx="6" class="c-mask"/><rect x="174" y="311" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="201" y="323.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="scheme" data-edge-to="versioned" data-edge-label="注册新类型" data-edge-key="0" data-edge-id="register" data-change="added">
+          <rect x="267.5" y="122" width="70" height="14" rx="3" class="c-mask"/>
+          <text x="302.5" y="132" class="t-edge-default" font-size="8" text-anchor="middle"><tspan class="t-change-badge-added" font-weight="700">+ </tspan>注册新类型</text>
+        </g>
+        <g data-detail="context" data-edge-from="versioned" data-edge-to="internal" data-edge-label="对应内部结构" data-edge-key="1" data-edge-id="version-convert" data-change="added">
+          <rect x="433.2" y="240" width="79.6" height="14" rx="3" class="c-mask"/>
+          <text x="473" y="250" class="t-edge-default" font-size="8" text-anchor="middle"><tspan class="t-change-badge-added" font-weight="700">+ </tspan>对应内部结构</text>
+        </g>
+        <g data-detail="context" data-edge-from="generated" data-edge-to="internal" data-edge-label="转换与复制" data-edge-key="2" data-edge-id="convert-internal" data-change="added">
+          <rect x="267.5" y="342" width="70" height="14" rx="3" class="c-mask"/>
+          <text x="302.5" y="352" class="t-edge-default" font-size="8" text-anchor="middle"><tspan class="t-change-badge-added" font-weight="700">+ </tspan>转换与复制</text>
+        </g>
+        <g data-detail="context" data-edge-from="versioned" data-edge-to="generated" data-edge-label="生成配套代码" data-edge-key="3" data-edge-id="version-generated" data-change="added">
+          <rect x="220.2" y="204" width="79.6" height="14" rx="3" class="c-mask"/>
+          <text x="260" y="214" class="t-edge-default" font-size="8" text-anchor="middle"><tspan class="t-change-badge-added" font-weight="700">+ </tspan>生成配套代码</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="436" class="t-primary" font-size="12" font-weight="650">图例</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="后端" data-legend-x="40" data-legend-baseline="456" data-legend-width="68">
+            <rect x="40" y="447" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="456" class="t-muted" font-size="10" font-weight="500">后端</text>
+          </g>
+          <g data-legend-semantic-kind="change-added" data-legend-x="130" data-legend-baseline="456" data-legend-width="62">
+            <rect x="130" y="447" width="16" height="10" rx="2.5" class="c-change-swatch-added" stroke-width="1.5"/>
+            <text x="154" y="456" class="t-muted" font-size="10" font-weight="500">+ 新增</text>
+          </g>
+          <g data-legend-semantic-kind="change-modified" data-legend-x="214" data-legend-baseline="456" data-legend-width="62">
+            <rect x="214" y="447" width="16" height="10" rx="2.5" class="c-change-swatch-modified" stroke-width="1.5"/>
+            <text x="238" y="456" class="t-muted" font-size="10" font-weight="500">~ 修改</text>
+          </g>
+          <g data-legend-semantic-kind="change-removed" data-legend-x="298" data-legend-baseline="456" data-legend-width="62">
+            <rect x="298" y="447" width="16" height="10" rx="2.5" class="c-change-swatch-removed" stroke-width="1.5"/>
+            <text x="322" y="456" class="t-muted" font-size="10" font-weight="500">− 删除</text>
+          </g>
+          <g data-legend-semantic-kind="change-unchanged" data-legend-x="382" data-legend-baseline="456" data-legend-width="62">
+            <rect x="382" y="447" width="16" height="10" rx="2.5" class="c-change-swatch-unchanged" stroke-width="1.5"/>
+            <text x="406" y="456" class="t-muted" font-size="10" font-weight="500">未变化</text>
+          </g>
+        </g>
+      <metadata id="native-external-kubernetes-api-archify-software-notices">NOTICE
+Archify
+Copyright (c) 2026 tt-a1i (Archify)
+Copyright (c) 2025 Cocoon AI
+
+Archify is distributed under the Apache License, Version 2.0 (LICENSE),
+except where a file, package manifest, or third-party notice specifies otherwise.
+The separately versioned DeepSeek Harness adapter remains MIT; its bundled
+Skill retains the license of the immutable source selected in release.json.
+
+Code and contributions received under the MIT License through pre-transition
+commit 82c7e0f089a02a4d514714adf37dc2061682da5f remain available under their
+original terms. Previously published releases keep their existing licenses. The complete historical MIT
+copyright and permission notice is preserved in LICENSE-MIT. This transition
+does not revoke existing MIT grants or assert a new patent grant on behalf
+of historical contributors.
+
+Archify originated from Cocoon-AI/architecture-diagram-generator:
+https://github.com/Cocoon-AI/architecture-diagram-generator
+
+Third-party components retain their own licenses; see THIRD_PARTY_NOTICES.md
+and the license files beside those components. Names and logos do not imply
+official endorsement, and the software license grants no general trademark
+permission.
+
+These software licenses cover Archify's embedded runtime and templates, not
+ownership of a user's authored content, business data, or source repository.
+
+LICENSE
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+LICENSE-MIT
+MIT License
+
+Copyright (c) 2026 tt-a1i (Archify)
+Copyright (c) 2025 Cocoon AI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+THIRD_PARTY_NOTICES.md
+# Third-party notices
+
+Archify includes optional vector data for third-party brand marks. These marks
+are provided only to identify technologies and services in user-authored
+diagrams. Their inclusion does not imply sponsorship, endorsement, partnership,
+or affiliation with Archify.
+
+Archify's license and historical MIT grants are described in LICENSE, NOTICE,
+and LICENSE-MIT. The software license does not
+replace the copyright licenses, trademark policies, or brand guidelines that
+apply to third-party marks. Users are responsible for confirming that their
+particular use is permitted.
+
+## Simple Icons
+
+Most of the built-in vector paths and their metadata were generated from
+[Simple Icons 16.28.0](https://github.com/simple-icons/simple-icons/tree/16.28.0).
+Simple Icons makes its collection work available under
+[CC0 1.0 Universal](https://github.com/simple-icons/simple-icons/blob/16.28.0/LICENSE.md).
+
+As Simple Icons explains in its
+[disclaimer](https://github.com/simple-icons/simple-icons/blob/16.28.0/DISCLAIMER.md),
+CC0 for the collection does not mean that every underlying icon is CC0. License
+and brand-guideline metadata may be incomplete or change over time. The absence
+of an individual license entry is not a grant of permission.
+
+Archify embeds the selected icons as vector-path data and may render them in a
+user-selected color. The following individual licenses were recorded in the
+pinned Simple Icons 16.28.0 metadata:
+
+| Mark | Recorded source | Recorded license | Archify treatment |
+|---|---|---|---|
+| Angular | [Angular press kit](https://angular.dev/press-kit) | [`CC-BY-4.0`](https://creativecommons.org/licenses/by/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| Apache Airflow | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |
+| Apache Kafka | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |
+| .NET | [.NET brand repository](https://github.com/dotnet/brand/blob/c7d0f51b8ec59531332d05fb27a5b758a7a3d689/logo/dotnet-logo.svg) | [`CC0-1.0`](https://creativecommons.org/publicdomain/zero/1.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| JavaScript | [JS community logo](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/js.svg) | [`MIT`](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/LICENSE) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| Jenkins | [Jenkins artwork source](https://get.jenkins.io/art/) | [`CC-BY-SA-3.0`](https://creativecommons.org/licenses/by-sa/3.0/) | Embedded as vector-path data; color may be changed by the authored diagram. Jenkins retains its trademark rights. |
+| Rust | [Rust project](https://www.rust-lang.org) | [`CC-BY-SA-4.0`](https://creativecommons.org/licenses/by-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. See the [Rust media guide](https://www.rust-lang.org/policies/media-guide). |
+| Vue.js | [Vue logo source](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/logo.svg) | [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. The non-commercial and share-alike conditions remain applicable; see the [Vue artwork terms](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/README.md). |
+
+The source, guideline, and known license fields for every packaged mark are
+preserved in `renderers/shared/generated-brand-marks.mjs`.
+
+## OpenAI mark
+
+The OpenAI vector path is recorded from the
+[OpenAI brand guidelines](https://openai.com/brand/), not from Simple Icons.
+Use remains subject to those current guidelines and any applicable trademark
+rights. Its inclusion does not state or imply endorsement by OpenAI.
+
+## JetBrains Mono
+
+Delivered Archify viewer artifacts embed the JetBrains Mono variable font
+subsets served by Google Fonts. For characters covered by these subsets, font
+selection does not depend on a network request or a locally installed copy.
+Uncovered characters (including CJK) still use the system fallback stack;
+browser and operating-system rasterization can differ.
+JetBrains Mono is maintained at
+[github.com/JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+and is distributed under the SIL Open Font License 1.1. The complete license
+text is preserved in `assets/JetBrainsMono-OFL.txt` in the packaged Skill and
+in the font CSS carried by standalone HTML and SVG exports.
+
+## Pele
+
+The explainer renders Mermaid chart fences with an unmodified subset of
+[Pele 1.3.0](https://github.com/obsidianmd/pele), copyright (c) 2026 kepano,
+distributed under the MIT License. The subset and its license text are in
+`explainer/vendor/pele/` in the packaged Skill. Charts are rendered to static
+SVG when a page is built; delivered pages contain no Pele code.
+
+## No additional rights granted
+
+Brand names, logos, and trademarks remain the property of their respective
+owners. This notice records provenance and known terms; it does not grant rights
+that Archify does not hold, and it does not state that every packaged mark has
+been cleared for every commercial, promotional, or redistributive use.
+
+## Story HTML parser
+
+The Node story scanner and builder include parse5 7.3.0 (MIT) and entities
+6.0.1 (BSD-2-Clause), bundled into `story/vendor/html-parser.mjs`. The parser is
+not embedded in generated HTML. Pinned sources, rebuild instructions and the
+complete licenses are in `story/vendor/`.</metadata></svg>
+</g></g><g id="view-types" class="view-stage " data-native-key="native-external-kubernetes-types" style="opacity:0"><g id="camera-types" style="transform:translate(20.629px,160.180px) scale(0.96507);transform-origin:0 0"><svg viewBox="0 0 944 370" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="standard" data-class-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" xmlns="http://www.w3.org/2000/svg" data-theme="light" data-archify-bake="static" x="0" y="0" width="944" height="370">
+        <title id="native-external-kubernetes-types-archify-diagram-title">Ingress 的规则与后端数据契约</title>
+        <desc id="native-external-kubernetes-types-archify-diagram-description">由 Archify 生成的类与接口图。</desc>
+        <style><![CDATA[[data-native-key="native-external-kubernetes-types"] :is(svg){font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace}[data-native-key="native-external-kubernetes-types"] :is(svg){font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace}[data-native-key="native-external-kubernetes-types"] :is(svg a.archify-drilldown-link){text-decoration:none;color:inherit}[data-native-key="native-external-kubernetes-types"] :is(svg .archify-drilldown-mark-disc){fill:#23a37b;stroke:#5eb29f;stroke-width:1}[data-native-key="native-external-kubernetes-types"] :is(svg .archify-drilldown-mark-arrow){stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-types"] :is(.c-grid){stroke:#e9edf2;fill:none}[data-native-key="native-external-kubernetes-types"] :is(.c-mask){fill:#ffffff;stroke:none}[data-native-key="native-external-kubernetes-types"] :is(.c-lane-rule){stroke:#cbd5e1;fill:none;opacity:0.7}[data-native-key="native-external-kubernetes-types"] :is(.c-lane-wash){fill:rgba(248, 250, 252, 0.65);stroke:none}[data-native-key="native-external-kubernetes-types"] :is(.c-frontend){fill:rgba(34, 211, 238, 0.15);stroke:#0891b2}[data-native-key="native-external-kubernetes-types"] :is(.c-backend){fill:rgba(52, 211, 153, 0.18);stroke:#059669}[data-native-key="native-external-kubernetes-types"] :is(.c-database){fill:rgba(167, 139, 250, 0.2);stroke:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(.c-cloud){fill:rgba(251, 191, 36, 0.18);stroke:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.c-security){fill:rgba(251, 113, 133, 0.15);stroke:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.c-messagebus){fill:rgba(251, 146, 60, 0.15);stroke:#ea580c}[data-native-key="native-external-kubernetes-types"] :is(.c-external){fill:rgba(148, 163, 184, 0.18);stroke:#64748b}[data-native-key="native-external-kubernetes-types"] :is(.t-primary){fill:#111827}[data-native-key="native-external-kubernetes-types"] :is(.t-muted){fill:#5b6474}[data-native-key="native-external-kubernetes-types"] :is(.t-dim){fill:#9aa3b2}[data-native-key="native-external-kubernetes-types"] :is(.t-frontend){fill:#0891b2}[data-native-key="native-external-kubernetes-types"] :is(.t-backend){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(.t-database){fill:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(.t-cloud){fill:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.t-security){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.t-messagebus){fill:#ea580c}[data-native-key="native-external-kubernetes-types"] :is(.t-external){fill:#64748b}[data-native-key="native-external-kubernetes-types"] :is(.t-edge-default){fill:#5b6474}[data-native-key="native-external-kubernetes-types"] :is(.t-edge-emphasis){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(.t-edge-security){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.t-edge-dashed){fill:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="classic"] .c-grid){stroke:transparent}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="classic"][data-theme="light"] [data-node-id] > rect:not(.c-mask)){filter:drop-shadow(0 1px 1px rgba(17, 24, 39, 0.05)) drop-shadow(0 6px 12px rgba(17, 24, 39, 0.06))}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="classic"][data-theme="light"] [data-edge-from]){stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="classic"][data-theme="light"] .c-lane-wash){fill:rgba(17, 24, 39, 0.026)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="classic"][data-theme="light"] .c-lane-rule){stroke:#e5e7eb;opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg .semantic-sigil){fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;opacity:0.76}[data-native-key="native-external-kubernetes-types"] :is(svg .semantic-sigil > *){vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-types"] :is(svg .semantic-sigil .sigil-fill){fill:currentColor;stroke:none}[data-native-key="native-external-kubernetes-types"] :is(svg .s-frontend){color:#0891b2}[data-native-key="native-external-kubernetes-types"] :is(svg .s-backend){color:#059669}[data-native-key="native-external-kubernetes-types"] :is(svg .s-database){color:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(svg .s-cloud){color:#d97706}[data-native-key="native-external-kubernetes-types"] :is(svg .s-security){color:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(svg .s-messagebus){color:#ea580c}[data-native-key="native-external-kubernetes-types"] :is(svg .s-external){color:#64748b}[data-native-key="native-external-kubernetes-types"] :is(svg .brand-mark-badge){fill:#fff;stroke:none}[data-native-key="native-external-kubernetes-types"] :is(svg .brand-mark-frame){fill:none;stroke:#cbd5e1;stroke-width:0.8;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-types"] :is(svg .brand-mark-fallback){fill:none;stroke:#475569;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}[data-native-key="native-external-kubernetes-types"] :is(svg [data-detail-anchor]){transform-box:fill-box;transform-origin:center}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-focus-match][data-detail], svg[data-focus-active] [data-focus-match] [data-detail], svg[data-reach-active] [data-reach-match][data-detail], svg[data-reach-active] [data-reach-match] [data-detail], svg[data-lens-active] [data-lens-match][data-detail], svg[data-lens-active] [data-lens-match] [data-detail], svg[data-legend-preview-active] [data-legend-preview-match][data-detail], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail], svg[data-intent-trace-active] [data-intent-trace-match][data-detail], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail], svg[data-route-active] [data-route-match][data-detail], svg[data-route-active] [data-route-match] [data-detail], svg[data-relationship-preview-active] [data-relationship-preview][data-detail], svg[data-relationship-preview-active] [data-relationship-preview] [data-detail]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-focus-match] [data-detail-anchor], svg[data-reach-active] [data-reach-match] [data-detail-anchor], svg[data-lens-active] [data-lens-match] [data-detail-anchor], svg[data-legend-preview-active] [data-legend-preview-match] [data-detail-anchor], svg[data-intent-trace-active] [data-intent-trace-match] [data-detail-anchor], svg[data-route-active] [data-route-match] [data-detail-anchor]){transform:none}[data-native-key="native-external-kubernetes-types"] :is(.a-default){stroke:#64748b;fill:none}[data-native-key="native-external-kubernetes-types"] :is(.a-emphasis){stroke:#059669;fill:none}[data-native-key="native-external-kubernetes-types"] :is(.a-security){stroke:#e11d48;fill:none;stroke-dasharray:5,5}[data-native-key="native-external-kubernetes-types"] :is(.a-dashed){stroke:#7c3aed;fill:none;stroke-dasharray:4,4}[data-native-key="native-external-kubernetes-types"] :is(.m-default){fill:#64748b}[data-native-key="native-external-kubernetes-types"] :is(.m-emphasis){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(.m-security){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.m-dashed){fill:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(.c-change-swatch-added){fill:rgba(52, 211, 153, 0.18);stroke:#059669}[data-native-key="native-external-kubernetes-types"] :is(.c-change-swatch-modified){fill:rgba(251, 191, 36, 0.18);stroke:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.c-change-swatch-removed){fill:rgba(251, 113, 133, 0.15);stroke:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.c-change-badge-added){fill:#d2ece4;stroke:#059669}[data-native-key="native-external-kubernetes-types"] :is(.c-change-badge-modified){fill:#f8e7d2;stroke:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.c-change-badge-removed){fill:#fad6de;stroke:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.c-change-swatch-removed){stroke-dasharray:3,2}[data-native-key="native-external-kubernetes-types"] :is(.c-change-swatch-unchanged){fill:#ffffff;stroke:#9aa3b2}[data-native-key="native-external-kubernetes-types"] :is(.t-change-added, .t-change-badge-added){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(.t-change-modified, .t-change-badge-modified){fill:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.t-change-removed, .t-change-badge-removed){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(.m-change-added){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(.m-change-modified){fill:#d97706}[data-native-key="native-external-kubernetes-types"] :is(.m-change-removed){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change="added"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#059669;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change="modified"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#d97706;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change="removed"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-types"] :is(svg rect[data-change="added"][data-graph-role], svg [data-change="added"] > rect.c-lane-wash, svg [data-change="added"] > rect.c-lane-rule){stroke:#059669;stroke-width:2;stroke-dasharray:none}[data-native-key="native-external-kubernetes-types"] :is(svg rect[data-change="modified"][data-graph-role], svg [data-change="modified"] > rect.c-lane-wash, svg [data-change="modified"] > rect.c-lane-rule){stroke:#d97706;stroke-width:2;stroke-dasharray:none}[data-native-key="native-external-kubernetes-types"] :is(svg rect[data-change="removed"][data-graph-role], svg [data-change="removed"] > rect.c-lane-wash, svg [data-change="removed"] > rect.c-lane-rule){stroke:#e11d48;stroke-width:1.4;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-types"] :is(svg path[data-change="added"][data-edge-from], svg [data-change="added"][data-edge-from] > path){stroke:#059669;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg path[data-change="modified"][data-edge-from], svg [data-change="modified"][data-edge-from] > path){stroke:#d97706;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg path[data-change="removed"][data-edge-from], svg [data-change="removed"][data-edge-from] > path){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change="removed"], svg text[data-change="removed"]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change="removed"] > text[data-node-label], svg [data-change="removed"][data-graph-role] > text, svg [data-change="removed"][data-edge-from] text, svg text[data-change="removed"], svg [data-er-row][data-change="removed"] > text, svg [data-class-row][data-change="removed"] > text){text-decoration:line-through}[data-native-key="native-external-kubernetes-types"] :is(svg [data-emphasis] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask), svg path[data-emphasis][data-edge-from], svg [data-emphasis][data-edge-from] > path){stroke-width:3.2}[data-native-key="native-external-kubernetes-types"] :is(svg [data-emphasis] > text[data-node-label]){font-weight:800}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change-context="subdued"]){opacity:0.48}[data-native-key="native-external-kubernetes-types"] :is(svg [data-change-context="subdued"] > :is(rect, circle, ellipse, polygon, path)[class^="c-"]:not(.c-mask)){stroke-dasharray:none}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-hit]){fill:transparent;stroke:transparent;stroke-width:1.4;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-count-badge] rect){fill:#ffffff;stroke:#e5e7eb;stroke-width:1;vector-effect:non-scaling-stroke}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-count-badge] text){fill:#5b6474;font-size:8px;font-weight:700;text-anchor:middle}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-kind][data-legend-selected] [data-legend-hit]){stroke:#7c3aed;stroke-width:2.2;stroke-dasharray:3 2}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect){stroke:#7c3aed;stroke-width:1.8}[data-native-key="native-external-kubernetes-types"] :is(svg [data-legend-kind][data-legend-zero]){opacity:0.44}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-node-id], svg[data-legend-preview-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-legend-preview-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-legend-preview-peer]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-legend-preview-selected]){filter:drop-shadow(0 0 8px #7c3aed)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-lens-active] [data-node-id], svg[data-lens-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-types"] :is(svg[data-lens-active] [data-lens-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-lens-active] [data-lens-peer]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg[data-lens-active] [data-lens-selected]){filter:drop-shadow(0 0 10px #7c3aed)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.11}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-legend-preview-match]) > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(> [data-lens-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-legend-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-legend-preview-peer]) > [data-graph-role="automatic-crossover-underlay"], svg[data-lens-active] [data-graph-role="automatic-crossover"]:has(> [data-lens-peer]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-node-id], svg[data-focus-active] [data-edge-from]){opacity:0.13}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.13}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-focus-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-graph-role="automatic-crossover"]:has(> [data-focus-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-focus-active] [data-focus-selected]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active] [data-node-id], svg[data-reach-active] [data-edge-from]){opacity:0.09}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.09}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active] [data-reach-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active] [data-graph-role="automatic-crossover"]:has(> [data-reach-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active="upstream"] [data-reach-origin]){filter:drop-shadow(0 0 11px #7c3aed)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active="downstream"] [data-reach-origin]){filter:drop-shadow(0 0 11px #059669)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active="upstream"] [data-edge-from][data-reach-match]){filter:drop-shadow(0 0 4px rgba(124, 58, 237, 0.72))}[data-native-key="native-external-kubernetes-types"] :is(svg[data-reach-active="downstream"] [data-edge-from][data-reach-match]){filter:drop-shadow(0 0 4px rgba(5, 150, 105, 0.72))}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="blueprint"][data-reach-active] [data-reach-origin], svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match]){filter:none}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-direct-active] [data-node-id], svg[data-relationship-direct-active] [data-edge-from]){opacity:0.16}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.16}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-direct-active] [data-relationship-preview], svg[data-relationship-direct-active] [data-relationship-preview-node]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-direct-active] [data-graph-role="automatic-crossover"]:has(> [data-relationship-preview]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-focus-match]){opacity:0.18}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-focus-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.18}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview-node]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-graph-role="automatic-crossover"]:has(> [data-relationship-preview]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-relationship-preview]){filter:drop-shadow(0 0 5px #059669)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-relationship-preview] path, svg[data-relationship-preview-active] path[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] line, svg[data-relationship-preview-active] line[data-relationship-preview], svg[data-relationship-preview-active] [data-relationship-preview] polyline, svg[data-relationship-preview-active] polyline[data-relationship-preview]){stroke-width:2.75}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-relationship-preview-source]){filter:drop-shadow(0 0 7px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-relationship-preview-active] [data-relationship-preview-target]){filter:drop-shadow(0 0 7px #7c3aed)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-node-id]){fill-opacity:0.2;stroke-opacity:0.2}[data-native-key="native-external-kubernetes-types"] :is(svg [data-node-id] > .c-mask){fill-opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-node-id][data-intent-trace-match]){fill-opacity:1;stroke-opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-edge-from]){opacity:0.2}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.2}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-lifecycle-rail]){opacity:0}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-intent-trace-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-graph-role="automatic-crossover"]:has(> [data-intent-trace-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-intent-trace-active] [data-intent-trace-selected]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-picking="target"] [data-node-id]){opacity:0.24}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-picking="target"] [data-route-candidate], svg[data-route-picking="target"] [data-route-start]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-picking] [data-route-start]){filter:drop-shadow(0 0 10px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-node-id], svg[data-route-active] [data-edge-from]){opacity:0.11}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-graph-role="automatic-crossover"] > [data-graph-role="automatic-crossover-underlay"]){opacity:0.11}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-route-match]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-graph-role="automatic-crossover"]:has(> [data-route-match]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-route-start]){filter:drop-shadow(0 0 11px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-route-end]){filter:drop-shadow(0 0 11px #e11d48)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end])){filter:drop-shadow(0 0 7px #059669)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="past"]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="future"]){opacity:0.34}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-route-match][data-route-journey-state="current"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="past"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.62}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="future"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:0.34}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-graph-role="automatic-crossover"]:has(> [data-route-match][data-route-journey-state="current"]) > [data-graph-role="automatic-crossover-underlay"]){opacity:1}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-node-id][data-route-journey-current]){filter:drop-shadow(0 0 10px #059669)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-route-journey] [data-edge-from][data-route-journey-current]){opacity:1;filter:drop-shadow(0 0 6px #059669)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="editorial"][data-focus-active] [data-focus-selected]){filter:drop-shadow(0 2px 2px rgba(17, 24, 39, 0.18))}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="blueprint"][data-focus-active] [data-focus-selected]){filter:drop-shadow(0 0 3px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin]){filter:none}[data-native-key="native-external-kubernetes-types"] :is(svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source], svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target]){filter:drop-shadow(0 0 3px #0891b2)}[data-native-key="native-external-kubernetes-types"] :is(.c-security-group){fill:transparent;stroke:#e11d48;stroke-dasharray:4,4}[data-native-key="native-external-kubernetes-types"] :is(.c-region){fill:rgba(251, 191, 36, 0.05);stroke:#d97706;stroke-dasharray:8,4}[data-native-key="native-external-kubernetes-types"] :is(.c-lane){fill:rgba(248, 250, 252, 0.65);stroke:#cbd5e1;stroke-dasharray:6,6}[data-native-key="native-external-kubernetes-types"] :is(svg[data-theme="light"]){--bg:#ffffff;--grid:#e9edf2;--canvas-dot:#e2e7ec;--text:#111827;--text-muted:#5b6474;--text-dim:#9aa3b2;--text-faint:#6b7280;--panel:#ffffff;--panel-border:#e5e7eb;--lane-fill:rgba(248, 250, 252, 0.65);--lane-stroke:#cbd5e1;--arrow:#64748b;--arrow-emphasis:#059669;--edge-label:#5b6474;--mask:#ffffff;--frontend-fill:rgba(34, 211, 238, 0.15);--frontend-stroke:#0891b2;--backend-fill:rgba(52, 211, 153, 0.18);--backend-stroke:#059669;--database-fill:rgba(167, 139, 250, 0.2);--database-stroke:#7c3aed;--cloud-fill:rgba(251, 191, 36, 0.18);--cloud-stroke:#d97706;--security-fill:rgba(251, 113, 133, 0.15);--security-stroke:#e11d48;--messagebus-fill:rgba(251, 146, 60, 0.15);--messagebus-stroke:#ea580c;--external-fill:rgba(148, 163, 184, 0.18);--external-stroke:#64748b;--toolbar-bg:rgba(255, 255, 255, 0.92);--toolbar-border:#cbd5e1;--toolbar-text:#334155;--toolbar-hover:#ffffff;--toolbar-menu-bg:#ffffff;--reader-accent:#077f9c}]]></style><!-- Definitions -->
+        <defs>
+          <marker id="native-external-kubernetes-types-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="native-external-kubernetes-types-arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="native-external-kubernetes-types-arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="native-external-kubernetes-types-arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="native-external-kubernetes-types-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+          <!-- UML relationship markers -->
+          <marker id="native-external-kubernetes-types-cl-diamond-filled" markerWidth="20" markerHeight="12" refX="1" refY="6" orient="auto" markerUnits="userSpaceOnUse" class="cl-marker" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M 1 6 L 10 1 L 19 6 L 10 11 Z" class="cl-marker-filled"/>
+          </marker>
+        </defs>
+        <style><![CDATA[[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] .cl-zebra), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] .cl-zebra)){fill:rgba(5, 150, 105, 0.06)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] .cl-zebra), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] .cl-zebra)){fill:rgba(8, 145, 178, 0.06)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] .cl-zebra), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] .cl-zebra)){fill:rgba(234, 88, 12, 0.06)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] .cl-zebra), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] .cl-zebra)){fill:rgba(124, 58, 237, 0.06)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-param){fill:#262d3d}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-type){fill:#ffffff}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] .cl-type), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] .cl-type)){stroke:#70b8aa}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] .cl-type), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] .cl-type)){stroke:#71b6cb}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] .cl-type), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] .cl-type)){stroke:#d99c7f}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] .cl-type), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] .cl-type)){stroke:#a78ee7}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type){stroke-dasharray:5 3}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type)){stroke:#4cad94}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type)){stroke:#4ea9c3}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type)){stroke:#df8559}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] [data-class-kind="abstract"] .cl-type)){stroke:#9872e9}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-header){stroke:none}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-cap){pointer-events:none}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] .cl-cap), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] .cl-cap)){stroke:#059669}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] .cl-cap), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] .cl-cap)){stroke:#0891b2}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] .cl-cap), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] .cl-cap)){stroke:#ea580c}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] .cl-cap), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] .cl-cap)){stroke:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] .cl-badge-chip), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] .cl-badge-chip)){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] .cl-badge-chip), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] .cl-badge-chip)){fill:#0891b2}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] .cl-badge-chip), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] .cl-badge-chip)){fill:#ea580c}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] .cl-badge-chip), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] .cl-badge-chip)){fill:#7c3aed}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-badge-letter){fill:#ffffff}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-stereotype){fill:#5b6474;letter-spacing:.04em}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-backend:is(svg[data-class-ui] .cl-rule), svg[data-class-ui] .cl-hue-backend :is(svg[data-class-ui] .cl-rule)){stroke:#9fc7c7}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-frontend:is(svg[data-class-ui] .cl-rule), svg[data-class-ui] .cl-hue-frontend :is(svg[data-class-ui] .cl-rule)){stroke:#a0c6d7}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-messagebus:is(svg[data-class-ui] .cl-rule), svg[data-class-ui] .cl-hue-messagebus :is(svg[data-class-ui] .cl-rule)){stroke:#d2bab2}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-hue-database:is(svg[data-class-ui] .cl-rule), svg[data-class-ui] .cl-hue-database :is(svg[data-class-ui] .cl-rule)){stroke:#bab3e4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-vis){font-weight:700}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-vis-chip){fill:rgba(17, 24, 39, 0.06)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-type-ref){fill:#5b6474}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-punct){fill:#5b6474;opacity:.8}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-label-box){stroke:#cbd5e1;stroke-width:.8}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-member){font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', 'Noto Sans Mono CJK SC', 'PingFang SC', 'Microsoft YaHei', monospace}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-dashed){stroke-dasharray:6 4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker){stroke:#64748b}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-hollow){fill:#ffffff}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-filled){fill:#64748b}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-legend-hit){fill:transparent;transition:fill .15s}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-legend-hit:focus){outline:none}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-legend-hit:focus-visible){stroke:#64748b;stroke-width:1.5}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-legend-semantic-kind]:is(:hover, :focus-within) .cl-legend-hit){fill:rgba(248, 250, 252, 0.65)}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-class-relationship]){transition:opacity .15s}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="dependency"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="dependency"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="association"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="association"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="inheritance"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="inheritance"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="realization"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="realization"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="composition"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="composition"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui]:has([data-legend-semantic-kind="aggregation"]:is(:hover, :focus-within)) [data-class-relationship]:not([data-class-relationship="aggregation"])){opacity:.15}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-node-id][data-class-kind][data-change="added"] > .cl-type){stroke:#059669;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-node-id][data-class-kind][data-change="modified"] > .cl-type){stroke:#d97706;stroke-width:2.4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-node-id][data-class-kind][data-change="removed"] > .cl-type){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] path[data-edge-from][data-change="removed"]){stroke:#e11d48;stroke-width:1.6;stroke-dasharray:5,4}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-added){stroke:#059669}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-added .cl-marker-filled){fill:#059669}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-modified){stroke:#d97706}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-modified .cl-marker-filled){fill:#d97706}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-removed){stroke:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] .cl-marker-removed .cl-marker-filled){fill:#e11d48}[data-native-key="native-external-kubernetes-types"] :is(svg[data-class-ui] [data-node-id][data-class-kind][data-emphasis] > .cl-type){stroke-width:3.2}]]></style>
+
+        <!-- Background Grid -->
+        
+
+        <!-- Relationships (before types for correct z-order) -->
+        <path data-edge-from="spec" data-edge-to="rule" data-edge-label="Rules[]" data-edge-key="0" data-edge-id="spec-rule" data-change-context="neighbour" data-class-relationship="composition" data-composition-points="212,82;348,82" d="M 212 82 L 348 82" class="a-default cl-relationship" data-animate="edge" style="--step:0" stroke-width="1.5" marker-start="url(#native-external-kubernetes-types-cl-diamond-filled)"/>
+        <path data-edge-from="rule" data-edge-to="path" data-edge-label="Paths[]" data-edge-key="1" data-edge-id="rule-path" data-change-context="neighbour" data-class-relationship="composition" data-composition-points="438,124;438,218" d="M 438 124 L 438 218" class="a-default cl-relationship" data-animate="edge" style="--step:1" stroke-width="1.5" marker-start="url(#native-external-kubernetes-types-cl-diamond-filled)" pathLength="1"/>
+        <path data-edge-from="path" data-edge-to="backend" data-edge-label="Backend" data-edge-key="2" data-edge-id="path-backend" data-change-context="neighbour" data-class-relationship="composition" data-composition-points="536,260;664,260" d="M 536 260 L 664 260" class="a-default cl-relationship" data-animate="edge" style="--step:2" stroke-width="1.5" marker-start="url(#native-external-kubernetes-types-cl-diamond-filled)" pathLength="1"/>
+
+        <!-- Types -->
+        <g id="native-external-kubernetes-types-node-spec" data-node-id="spec" data-node-label="IngressSpec" tabindex="0" role="button" aria-label="聚焦IngressSpec，类" aria-pressed="false" data-node-kind="class" data-node-context="类" data-change="added" data-class-kind="class" class="cl-hue-backend">
+          <title>IngressSpec · 类</title>
+          <rect x="32" y="50" width="180" height="64" rx="8" class="c-mask"/>
+          <rect x="32" y="50" width="180" height="64" rx="8" class="c-backend cl-type" data-animate="node" style="--step:1" stroke-width="1.2"/>
+          <path class="cl-header c-backend" stroke="none" d="M 40 50 H 204 A 8 8 0 0 1 212 58 V 84 H 32 V 58 A 8 8 0 0 1 40 50 Z"/>
+          <path class="cl-cap" d="M 44 51.4 H 200" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" class="cl-badge">
+            <rect x="44" y="59" width="16" height="16" rx="4.8" class="cl-badge-chip"/>
+            <text x="52" y="70.5" class="t-backend cl-badge-letter" font-size="10" font-weight="800" text-anchor="middle">C</text>
+          </g>
+          
+          <text data-node-label="" x="122" y="70.5" class="t-primary" font-size="13.5" font-weight="700" text-anchor="middle">IngressSpec</text>
+          <g data-detail="context" data-class-compartment="attributes">
+            <line x1="32" y1="84" x2="212" y2="84" class="cl-rule" stroke-width="1"/>
+            <rect x="44" y="93.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="51" y="104" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="64" y="102.5" class="t-primary cl-member" font-size="11">Rules</text><text data-detail="context" x="200" y="102.5" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">[]IngressRule</text>
+          </g>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="146" y="41" width="54" height="18" rx="6" class="c-mask"/><rect x="146" y="41" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="173" y="53.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-types-node-rule" data-node-id="rule" data-node-label="IngressRule" tabindex="0" role="button" aria-label="聚焦IngressRule，类" aria-pressed="false" data-node-kind="class" data-node-context="类" data-change="added" data-class-kind="class" class="cl-hue-backend">
+          <title>IngressRule · 类</title>
+          <rect x="348" y="40" width="180" height="84" rx="8" class="c-mask"/>
+          <rect x="348" y="40" width="180" height="84" rx="8" class="c-backend cl-type" data-animate="node" style="--step:0" stroke-width="1.2"/>
+          <path class="cl-header c-backend" stroke="none" d="M 356 40 H 520 A 8 8 0 0 1 528 48 V 74 H 348 V 48 A 8 8 0 0 1 356 40 Z"/>
+          <path class="cl-cap" d="M 360 41.4 H 516" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" class="cl-badge">
+            <rect x="360" y="49" width="16" height="16" rx="4.8" class="cl-badge-chip"/>
+            <text x="368" y="60.5" class="t-backend cl-badge-letter" font-size="10" font-weight="800" text-anchor="middle">C</text>
+          </g>
+          
+          <text data-node-label="" x="438" y="60.5" class="t-primary" font-size="13.5" font-weight="700" text-anchor="middle">IngressRule</text>
+          <g data-detail="context" data-class-compartment="attributes">
+            <line x1="348" y1="74" x2="528" y2="74" class="cl-rule" stroke-width="1"/>
+            <rect x="360" y="83.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="367" y="94" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="380" y="92.5" class="t-primary cl-member" font-size="11">Host</text><text data-detail="context" x="516" y="92.5" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">string</text>
+            <rect x="352" y="100" width="172" height="18" rx="4" class="cl-zebra"/><rect x="360" y="103.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="367" y="114" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="380" y="112.5" class="t-primary cl-member" font-size="11">Paths</text><text data-detail="context" x="516" y="112.5" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">[]IngressPath</text>
+          </g>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="462" y="31" width="54" height="18" rx="6" class="c-mask"/><rect x="462" y="31" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="489" y="43.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-types-node-path" data-node-id="path" data-node-label="IngressPath" tabindex="0" role="button" aria-label="聚焦IngressPath，类" aria-pressed="false" data-node-kind="class" data-node-context="类" data-change="added" data-class-kind="class" class="cl-hue-backend">
+          <title>IngressPath · 类</title>
+          <rect x="340" y="218" width="196" height="84" rx="8" class="c-mask"/>
+          <rect x="340" y="218" width="196" height="84" rx="8" class="c-backend cl-type" data-animate="node" style="--step:1" stroke-width="1.2"/>
+          <path class="cl-header c-backend" stroke="none" d="M 348 218 H 528 A 8 8 0 0 1 536 226 V 252 H 340 V 226 A 8 8 0 0 1 348 218 Z"/>
+          <path class="cl-cap" d="M 352 219.4 H 524" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" class="cl-badge">
+            <rect x="352" y="227" width="16" height="16" rx="4.8" class="cl-badge-chip"/>
+            <text x="360" y="238.5" class="t-backend cl-badge-letter" font-size="10" font-weight="800" text-anchor="middle">C</text>
+          </g>
+          
+          <text data-node-label="" x="438" y="238.4" class="t-primary" font-size="13.5" font-weight="700" text-anchor="middle">IngressPath</text>
+          <g data-detail="context" data-class-compartment="attributes">
+            <line x1="340" y1="252" x2="536" y2="252" class="cl-rule" stroke-width="1"/>
+            <rect x="352" y="261.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="359" y="272" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="372" y="270.4" class="t-primary cl-member" font-size="11">Path</text><text data-detail="context" x="524" y="270.4" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">string</text>
+            <rect x="344" y="278" width="188" height="18" rx="4" class="cl-zebra"/><rect x="352" y="281.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="359" y="292" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="372" y="290.4" class="t-primary cl-member" font-size="11">Backend</text><text data-detail="context" x="524" y="290.4" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">IngressBackend</text>
+          </g>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="470" y="209" width="54" height="18" rx="6" class="c-mask"/><rect x="470" y="209" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="497" y="221.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <g id="native-external-kubernetes-types-node-backend" data-node-id="backend" data-node-label="IngressBackend" tabindex="0" role="button" aria-label="聚焦IngressBackend，类" aria-pressed="false" data-node-kind="class" data-node-context="类" data-change="added" data-class-kind="class" class="cl-hue-backend">
+          <title>IngressBackend · 类</title>
+          <rect x="664" y="208" width="256" height="104" rx="8" class="c-mask"/>
+          <rect x="664" y="208" width="256" height="104" rx="8" class="c-backend cl-type" data-animate="node" style="--step:2" stroke-width="1.2"/>
+          <path class="cl-header c-backend" stroke="none" d="M 672 208 H 912 A 8 8 0 0 1 920 216 V 242 H 664 V 216 A 8 8 0 0 1 672 208 Z"/>
+          <path class="cl-cap" d="M 676 209.4 H 908" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" class="cl-badge">
+            <rect x="676" y="217" width="16" height="16" rx="4.8" class="cl-badge-chip"/>
+            <text x="684" y="228.5" class="t-backend cl-badge-letter" font-size="10" font-weight="800" text-anchor="middle">C</text>
+          </g>
+          
+          <text data-node-label="" x="792" y="228.4" class="t-primary" font-size="13.5" font-weight="700" text-anchor="middle">IngressBackend</text>
+          <g data-detail="context" data-class-compartment="attributes">
+            <line x1="664" y1="242" x2="920" y2="242" class="cl-rule" stroke-width="1"/>
+            <rect x="676" y="251.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="683" y="262" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="696" y="260.4" class="t-primary cl-member" font-size="11">ServiceRef</text><text data-detail="context" x="908" y="260.4" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">LocalObjectReference</text>
+            <rect x="668" y="268" width="248" height="18" rx="4" class="cl-zebra"/><rect x="676" y="271.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="683" y="282" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="696" y="280.4" class="t-primary cl-member" font-size="11">ServicePort</text><text data-detail="context" x="908" y="280.4" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">IntOrString</text>
+            <rect x="676" y="291.5" width="14" height="14" rx="4" class="cl-vis-chip cl-vis-public"/><text x="683" y="302" class="t-muted cl-vis cl-vis-public" font-size="11" text-anchor="middle">+</text><text data-detail="context" data-class-member="attributes" x="696" y="300.4" class="t-primary cl-member" font-size="11">Protocol</text><text data-detail="context" x="908" y="300.4" class="t-muted cl-member cl-type-ref" font-size="11" text-anchor="end">Protocol</text>
+          </g>
+          <g data-change-badge="added" data-story-node-badge="" pointer-events="none"><rect x="854" y="199" width="54" height="18" rx="6" class="c-mask"/><rect x="854" y="199" width="54" height="18" rx="6" class="c-change-badge-added" stroke-width="1"/><text x="881" y="211.5" class="t-change-badge-added" font-size="10.5" font-weight="600" text-anchor="middle">+ 新增</text></g>
+        </g>
+
+        <!-- Relationship labels -->
+        <g data-detail="context" data-edge-from="spec" data-edge-to="rule" data-edge-label="Rules[]" data-edge-key="0" data-edge-id="spec-rule" data-change-context="neighbour" data-class-relationship="composition">
+          <rect x="254.385" y="66" width="51.23" height="14" rx="7" class="c-mask cl-label-box"/>
+          <text x="280" y="76" class="t-muted" font-size="9.5" text-anchor="middle">Rules[]</text>
+        </g>
+        <g data-detail="context" data-edge-from="rule" data-edge-to="path" data-edge-label="Paths[]" data-edge-key="1" data-edge-id="rule-path" data-change-context="neighbour" data-class-relationship="composition">
+          <rect x="444" y="165" width="51.23" height="14" rx="7" class="c-mask cl-label-box"/>
+          <text x="469.615" y="175" class="t-muted" font-size="9.5" text-anchor="middle">Paths[]</text>
+        </g>
+        <g data-detail="context" data-edge-from="path" data-edge-to="backend" data-edge-label="Backend" data-edge-key="2" data-edge-id="path-backend" data-change-context="neighbour" data-class-relationship="composition">
+          <rect x="574.385" y="244" width="51.23" height="14" rx="7" class="c-mask cl-label-box"/>
+          <text x="600" y="254" class="t-muted" font-size="9.5" text-anchor="middle">Backend</text>
+        </g>
+
+        <!-- Legend -->
+        <g data-legend="">
+          <text x="24" y="334" class="t-primary" font-size="12" font-weight="650">图例</text>
+          <g data-legend-semantic-kind="composition" data-legend-x="24" data-legend-baseline="354" data-legend-width="72">
+            <rect class="cl-legend-hit" tabindex="0" role="img" aria-label="组合" x="18" y="339" width="84" height="22" rx="11"/><path d="M 26 350 L 56 350" class="a-default cl-relationship" stroke-width="1.5" marker-start="url(#native-external-kubernetes-types-cl-diamond-filled)"/>
+            <text x="66" y="354" class="t-muted" font-size="12" font-weight="500">组合</text>
+          </g>
+          <g data-legend-semantic-kind="change-added" data-legend-x="118" data-legend-baseline="354" data-legend-width="69">
+            <rect x="118" y="345" width="16" height="10" rx="2.5" class="c-change-swatch-added" stroke-width="1.5"/>
+            <text x="142" y="354" class="t-muted" font-size="12" font-weight="500">+ 新增</text>
+          </g>
+          <g data-legend-semantic-kind="change-modified" data-legend-x="209" data-legend-baseline="354" data-legend-width="69">
+            <rect x="209" y="345" width="16" height="10" rx="2.5" class="c-change-swatch-modified" stroke-width="1.5"/>
+            <text x="233" y="354" class="t-muted" font-size="12" font-weight="500">~ 修改</text>
+          </g>
+          <g data-legend-semantic-kind="change-removed" data-legend-x="300" data-legend-baseline="354" data-legend-width="69">
+            <rect x="300" y="345" width="16" height="10" rx="2.5" class="c-change-swatch-removed" stroke-width="1.5"/>
+            <text x="324" y="354" class="t-muted" font-size="12" font-weight="500">− 删除</text>
+          </g>
+          <g data-legend-semantic-kind="change-unchanged" data-legend-x="391" data-legend-baseline="354" data-legend-width="69">
+            <rect x="391" y="345" width="16" height="10" rx="2.5" class="c-change-swatch-unchanged" stroke-width="1.5"/>
+            <text x="415" y="354" class="t-muted" font-size="12" font-weight="500">未变化</text>
+          </g>
+        </g>
+      <metadata id="native-external-kubernetes-types-archify-software-notices">NOTICE
+Archify
+Copyright (c) 2026 tt-a1i (Archify)
+Copyright (c) 2025 Cocoon AI
+
+Archify is distributed under the Apache License, Version 2.0 (LICENSE),
+except where a file, package manifest, or third-party notice specifies otherwise.
+The separately versioned DeepSeek Harness adapter remains MIT; its bundled
+Skill retains the license of the immutable source selected in release.json.
+
+Code and contributions received under the MIT License through pre-transition
+commit 82c7e0f089a02a4d514714adf37dc2061682da5f remain available under their
+original terms. Previously published releases keep their existing licenses. The complete historical MIT
+copyright and permission notice is preserved in LICENSE-MIT. This transition
+does not revoke existing MIT grants or assert a new patent grant on behalf
+of historical contributors.
+
+Archify originated from Cocoon-AI/architecture-diagram-generator:
+https://github.com/Cocoon-AI/architecture-diagram-generator
+
+Third-party components retain their own licenses; see THIRD_PARTY_NOTICES.md
+and the license files beside those components. Names and logos do not imply
+official endorsement, and the software license grants no general trademark
+permission.
+
+These software licenses cover Archify's embedded runtime and templates, not
+ownership of a user's authored content, business data, or source repository.
+
+LICENSE
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+LICENSE-MIT
+MIT License
+
+Copyright (c) 2026 tt-a1i (Archify)
+Copyright (c) 2025 Cocoon AI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+THIRD_PARTY_NOTICES.md
+# Third-party notices
+
+Archify includes optional vector data for third-party brand marks. These marks
+are provided only to identify technologies and services in user-authored
+diagrams. Their inclusion does not imply sponsorship, endorsement, partnership,
+or affiliation with Archify.
+
+Archify's license and historical MIT grants are described in LICENSE, NOTICE,
+and LICENSE-MIT. The software license does not
+replace the copyright licenses, trademark policies, or brand guidelines that
+apply to third-party marks. Users are responsible for confirming that their
+particular use is permitted.
+
+## Simple Icons
+
+Most of the built-in vector paths and their metadata were generated from
+[Simple Icons 16.28.0](https://github.com/simple-icons/simple-icons/tree/16.28.0).
+Simple Icons makes its collection work available under
+[CC0 1.0 Universal](https://github.com/simple-icons/simple-icons/blob/16.28.0/LICENSE.md).
+
+As Simple Icons explains in its
+[disclaimer](https://github.com/simple-icons/simple-icons/blob/16.28.0/DISCLAIMER.md),
+CC0 for the collection does not mean that every underlying icon is CC0. License
+and brand-guideline metadata may be incomplete or change over time. The absence
+of an individual license entry is not a grant of permission.
+
+Archify embeds the selected icons as vector-path data and may render them in a
+user-selected color. The following individual licenses were recorded in the
+pinned Simple Icons 16.28.0 metadata:
+
+| Mark | Recorded source | Recorded license | Archify treatment |
+|---|---|---|---|
+| Angular | [Angular press kit](https://angular.dev/press-kit) | [`CC-BY-4.0`](https://creativecommons.org/licenses/by/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| Apache Airflow | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |
+| Apache Kafka | [Apache logos](https://apache.org/logos) | [`Apache-2.0`](https://www.apache.org/licenses/LICENSE-2.0) | Embedded as vector-path data; Apache trademarks remain subject to the [ASF trademark policy](https://www.apache.org/foundation/marks/). |
+| .NET | [.NET brand repository](https://github.com/dotnet/brand/blob/c7d0f51b8ec59531332d05fb27a5b758a7a3d689/logo/dotnet-logo.svg) | [`CC0-1.0`](https://creativecommons.org/publicdomain/zero/1.0/) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| JavaScript | [JS community logo](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/js.svg) | [`MIT`](https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/LICENSE) | Embedded as vector-path data; color may be changed by the authored diagram. |
+| Jenkins | [Jenkins artwork source](https://get.jenkins.io/art/) | [`CC-BY-SA-3.0`](https://creativecommons.org/licenses/by-sa/3.0/) | Embedded as vector-path data; color may be changed by the authored diagram. Jenkins retains its trademark rights. |
+| Rust | [Rust project](https://www.rust-lang.org) | [`CC-BY-SA-4.0`](https://creativecommons.org/licenses/by-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. See the [Rust media guide](https://www.rust-lang.org/policies/media-guide). |
+| Vue.js | [Vue logo source](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/logo.svg) | [`CC-BY-NC-SA-4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/) | Embedded as vector-path data; color may be changed by the authored diagram. The non-commercial and share-alike conditions remain applicable; see the [Vue artwork terms](https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/README.md). |
+
+The source, guideline, and known license fields for every packaged mark are
+preserved in `renderers/shared/generated-brand-marks.mjs`.
+
+## OpenAI mark
+
+The OpenAI vector path is recorded from the
+[OpenAI brand guidelines](https://openai.com/brand/), not from Simple Icons.
+Use remains subject to those current guidelines and any applicable trademark
+rights. Its inclusion does not state or imply endorsement by OpenAI.
+
+## JetBrains Mono
+
+Delivered Archify viewer artifacts embed the JetBrains Mono variable font
+subsets served by Google Fonts. For characters covered by these subsets, font
+selection does not depend on a network request or a locally installed copy.
+Uncovered characters (including CJK) still use the system fallback stack;
+browser and operating-system rasterization can differ.
+JetBrains Mono is maintained at
+[github.com/JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+and is distributed under the SIL Open Font License 1.1. The complete license
+text is preserved in `assets/JetBrainsMono-OFL.txt` in the packaged Skill and
+in the font CSS carried by standalone HTML and SVG exports.
+
+## Pele
+
+The explainer renders Mermaid chart fences with an unmodified subset of
+[Pele 1.3.0](https://github.com/obsidianmd/pele), copyright (c) 2026 kepano,
+distributed under the MIT License. The subset and its license text are in
+`explainer/vendor/pele/` in the packaged Skill. Charts are rendered to static
+SVG when a page is built; delivered pages contain no Pele code.
+
+## No additional rights granted
+
+Brand names, logos, and trademarks remain the property of their respective
+owners. This notice records provenance and known terms; it does not grant rights
+that Archify does not hold, and it does not state that every packaged mark has
+been cleared for every commercial, promotional, or redistributive use.
+
+## Story HTML parser
+
+The Node story scanner and builder include parse5 7.3.0 (MIT) and entities
+6.0.1 (BSD-2-Clause), bundled into `story/vendor/html-parser.mjs`. The parser is
+not embedded in generated HTML. Pinned sources, rebuild instructions and the
+complete licenses are in `story/vendor/`.</metadata></svg>
+</g></g></g><g data-story-layer="captions"><g id="caption-step-0" class="film-caption" style="opacity:1"><line x1="30" x2="30" y1="29" y2="96" stroke="#159f88" stroke-width="2"/><g transform="translate(44 35)" fill="#647184"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></g><text x="70" y="49" font-size="20" fill="#159f88" font-weight="650" >初版 Ingress 建立 API 类型与版本配套</text><text x="44" y="79" font-size="14.5" fill="#647184" font-weight="400" >这个 PR 的内容集中在类型和编解码基础，尚未接通实际转发执行。</text><rect x="798" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="817" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="836" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="855" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="874" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/></g><g id="caption-step-1" class="film-caption" style="opacity:0"><line x1="30" x2="30" y1="29" y2="96" stroke="#159f88" stroke-width="2"/><g transform="translate(44 35)" fill="#647184"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></g><text x="70" y="49" font-size="20" fill="#159f88" font-weight="650" >Scheme 注册 Ingress 与 IngressList</text><text x="44" y="79" font-size="14.5" fill="#647184" font-weight="400" >已有实验 API 注册入口开始识别这两个新类型。</text><rect x="798" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="817" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="836" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="855" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="874" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/></g><g id="caption-step-2" class="film-caption" style="opacity:0"><line x1="30" x2="30" y1="29" y2="96" stroke="#159f88" stroke-width="2"/><g transform="translate(44 35)" fill="#647184"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></g><text x="70" y="49" font-size="20" fill="#159f88" font-weight="650" >内部和 v1 类型配套生成转换与复制</text><text x="44" y="79" font-size="14.5" fill="#647184" font-weight="400" >变化还包括 DeepCopy、转换代码和字段文档，不能只按新文件数量理解。</text><rect x="798" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="817" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="836" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="855" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/><rect x="874" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/></g><g id="caption-step-3" class="film-caption" style="opacity:0"><line x1="30" x2="30" y1="29" y2="96" stroke="#159f88" stroke-width="2"/><g transform="translate(44 35)" fill="#647184"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></g><text x="70" y="49" font-size="20" fill="#159f88" font-weight="650" >规则用 Host 和 Paths 描述目标后端</text><text x="44" y="79" font-size="14.5" fill="#647184" font-weight="400" >类型关系表达 API 中的包含结构；这里不是网络请求运行轨迹。</text><rect x="798" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="817" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="836" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="855" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="874" y="42" width="13" height="3" rx="1.5" fill="#e3e8ee"/></g><g id="caption-step-4" class="film-caption" style="opacity:0"><line x1="30" x2="30" y1="29" y2="96" stroke="#159f88" stroke-width="2"/><g transform="translate(44 35)" fill="#647184"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></g><text x="70" y="49" font-size="20" fill="#159f88" font-weight="650" >Backend 声明 ServiceRef、端口与协议</text><text x="44" y="79" font-size="14.5" fill="#647184" font-weight="400" >目标服务与端口进入 API 契约，供后续实现读取和处理。</text><rect x="798" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="817" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="836" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="855" y="42" width="13" height="3" rx="1.5" fill="#159f88"/><rect x="874" y="42" width="13" height="3" rx="1.5" fill="#159f88"/></g></g></svg>

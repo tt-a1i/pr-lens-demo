@@ -1,0 +1,104 @@
+{
+  "baseline": {
+    "sha256": "ca8ef1a22f1a8f04787beb6cd6b023f05aa70a185fb9af66ec1224c6991e0b16",
+    "frames": 3,
+    "overlaps": 4,
+    "maxCaptionBottom": 83,
+    "minGap": -3.0350341796875,
+    "hasDiagramViewport": false
+  },
+  "after": [
+    {
+      "id": "story-tokio",
+      "theme": "light",
+      "frames": 85,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65216827392578,
+      "minGap": 113.79486846923828,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-tokio",
+      "theme": "dark",
+      "frames": 85,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65216827392578,
+      "minGap": 113.79486846923828,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-vue",
+      "theme": "light",
+      "frames": 68,
+      "overlaps": 0,
+      "maxCaptionBottom": 86.98028564453125,
+      "minGap": 57.27057647705078,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-vue",
+      "theme": "dark",
+      "frames": 68,
+      "overlaps": 0,
+      "maxCaptionBottom": 86.98028564453125,
+      "minGap": 57.27057647705078,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-django",
+      "theme": "light",
+      "frames": 83,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65217590332031,
+      "minGap": 89.21495819091797,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-django",
+      "theme": "dark",
+      "frames": 83,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65217590332031,
+      "minGap": 89.21495819091797,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-vllm",
+      "theme": "light",
+      "frames": 85,
+      "overlaps": 0,
+      "maxCaptionBottom": 86.98029327392578,
+      "minGap": 54.70795440673828,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-vllm",
+      "theme": "dark",
+      "frames": 85,
+      "overlaps": 0,
+      "maxCaptionBottom": 86.98029327392578,
+      "minGap": 54.70795440673828,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-kubernetes",
+      "theme": "light",
+      "frames": 74,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65214538574219,
+      "minGap": 63.548851013183594,
+      "hasDiagramViewport": true
+    },
+    {
+      "id": "story-kubernetes",
+      "theme": "dark",
+      "frames": 74,
+      "overlaps": 0,
+      "maxCaptionBottom": 84.65214538574219,
+      "minGap": 63.548851013183594,
+      "hasDiagramViewport": true
+    }
+  ],
+  "totalSamples": 790,
+  "overlaps": 0
+}

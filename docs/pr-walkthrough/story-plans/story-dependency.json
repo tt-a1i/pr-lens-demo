@@ -1,0 +1,91 @@
+{
+  "id": "story-dependency",
+  "title": "依赖改向",
+  "question": "提取公共契约以后，原先的模块环是否还在？",
+  "duration": 24,
+  "source": {
+    "kind": "simulation",
+    "fixture": "design-fixtures/dependency",
+    "analysis": "Small, self-contained before/head fixture. No production PR is implied."
+  },
+  "selection": {
+    "main": "移除存储对订单业务的反向导入",
+    "support": [
+      "公共类型契约",
+      "原保存入口保持"
+    ],
+    "omit": [
+      "把导入关系画成运行轨迹"
+    ]
+  },
+  "views": {
+    "main": {
+      "model": "design-cycle",
+      "type": "architecture"
+    }
+  },
+  "enter": [
+    {
+      "view": "main",
+      "nodes": [
+        "contracts"
+      ],
+      "at": 5.2
+    }
+  ],
+  "connect": [
+    {
+      "view": "main",
+      "edges": [
+        "order-contract",
+        "store-contract"
+      ],
+      "at": 6.3,
+      "stagger": 1.2
+    }
+  ],
+  "fade": [
+    {
+      "view": "main",
+      "edges": [
+        "store-order"
+      ],
+      "at": 10.9,
+      "to": 0.18
+    }
+  ],
+  "metrics": [
+    {
+      "view": "main",
+      "node": "contracts",
+      "label": "这组模块的循环",
+      "before": 1,
+      "after": 0,
+      "at": 12.2
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "提取公共契约，移除存储对业务的反向导入",
+      "body": "订单仍调用存储；这次调整两者共享类型的归属。"
+    },
+    {
+      "at": 5.6,
+      "title": "新增 contracts，双方改为依赖公共类型",
+      "body": "KeyOf 从业务模块内的实现约定，变为明确的类型契约。",
+      "change": "added"
+    },
+    {
+      "at": 11.4,
+      "title": "存储不再反向导入订单模块",
+      "body": "原 store → order 连接移除，order → store 保存入口继续保留。",
+      "change": "removed"
+    },
+    {
+      "at": 17.4,
+      "title": "反向导入移除，这组模块循环从 1 变为 0",
+      "body": "双方依赖公共类型，原来的保存入口保持。"
+    }
+  ]
+}

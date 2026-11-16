@@ -1,0 +1,361 @@
+{
+  "id": "story-our-pr",
+  "title": "我们的 PR 分析",
+  "question": "PR #1359 怎样让原生工作台区分本次变化，并追溯其来源？",
+  "duration": 43,
+  "stills": [
+    3,
+    9.3,
+    15.2,
+    21.3,
+    26.3,
+    31.5,
+    39
+  ],
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/tt-a1i/archify/pull/1359",
+    "base": "fb9ed13755444ff7188b4e65c39a7c96bc04a892",
+    "head": "e50aa8622f63537009691a65e1474f828e3f1eda"
+  },
+  "selection": {
+    "main": "从当前仓库诊断扩展到固定 PR 的增量与源码追溯",
+    "support": [
+      "同一原生分析器",
+      "固定比较条件",
+      "相关既有约束保留作背景",
+      "失败不覆盖上一份结果"
+    ],
+    "omit": [
+      "29 个文件逐个报数",
+      "完整函数与模块指标排行榜",
+      "未确认的传递或运行时影响"
+    ]
+  },
+  "decomposition": [
+    {
+      "angle": "用户目标",
+      "question": "用户现在能完成什么？",
+      "before": "看到当前仓库诊断",
+      "after": "分清 PR 引入的变化、相关背景，并定位其来源",
+      "role": "主线"
+    },
+    {
+      "angle": "输入与契约",
+      "question": "这次比较到底比较谁？",
+      "before": "当前本地源码和上一轮结果",
+      "after": "固定 PR 身份、共同基点/head、范围、配置与语言适配器",
+      "role": "解释比较结果的前提"
+    },
+    {
+      "angle": "职责分配",
+      "question": "谁新增职责，谁继续复用？",
+      "before": "原生抽取、建图、规则、工作台与源码/任务入口",
+      "after": "新增 PR 源码准备与有界增量层，原有能力继续作为事实和展示的所有者",
+      "role": "架构变化"
+    },
+    {
+      "angle": "流程与影响传播",
+      "question": "输入怎样变成用户能读的变化？",
+      "after": "源码 → 两侧原生产物 → 增量记录 → 原生工作台 → 两侧源码和已确认引用",
+      "role": "主要讲解顺序"
+    },
+    {
+      "angle": "异常与兼容边界",
+      "question": "什么时候结果有效，失败时怎样？",
+      "after": "两侧成功才替换可见结果；捕获中 PR 移动则拒绝；普通仓库模式继续保留",
+      "role": "必要的行为约束"
+    },
+    {
+      "angle": "维护与局部结构",
+      "question": "实现复杂度集中在哪里？",
+      "measurement": {
+        "function": "runSessionAnalysis",
+        "file": "archify/modules/code-analysis/bin/serve.mjs",
+        "base": {
+          "file": "archify/modules/code-analysis/bin/serve.mjs",
+          "name": "runSessionAnalysis",
+          "qualname": "runSessionAnalysis",
+          "line": 167,
+          "endLine": 186,
+          "complexity": 8,
+          "nesting": 1,
+          "deepestLine": 170
+        },
+        "head": {
+          "file": "archify/modules/code-analysis/bin/serve.mjs",
+          "name": "runSessionAnalysis",
+          "qualname": "runSessionAnalysis",
+          "line": 170,
+          "endLine": 211,
+          "complexity": 17,
+          "nesting": 5,
+          "deepestLine": 187
+        }
+      },
+      "role": "次级阅读线索，不取代功能主线"
+    }
+  ],
+  "views": {
+    "before": {
+      "model": "own-pr-before",
+      "type": "architecture"
+    },
+    "after": {
+      "model": "own-pr-after",
+      "type": "architecture"
+    },
+    "flow": {
+      "model": "own-pr-flow",
+      "type": "workflow",
+      "start": 10.7,
+      "end": 33.4
+    },
+    "implementation": {
+      "model": "own-pr-session",
+      "type": "architecture",
+      "start": 34,
+      "end": 43
+    }
+  },
+  "pair": {
+    "before": "before",
+    "after": "after",
+    "at": 4.1,
+    "until": 10.5,
+    "shared": [
+      {
+        "id": "repository"
+      },
+      {
+        "id": "session"
+      },
+      {
+        "id": "workbench",
+        "subtitle": "增加 PR 变化与来源"
+      }
+    ]
+  },
+  "enter": [
+    {
+      "view": "after",
+      "nodes": [
+        "pr",
+        "capture",
+        "impact"
+      ],
+      "at": 4.7,
+      "stagger": 0.35
+    },
+    {
+      "view": "flow",
+      "nodes": [
+        "failed"
+      ],
+      "at": 28.4
+    }
+  ],
+  "connect": [
+    {
+      "view": "after",
+      "edges": [
+        "pr-capture",
+        "capture-session",
+        "session-impact",
+        "impact-view"
+      ],
+      "at": 5.2,
+      "stagger": 0.55
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "base-analyzer",
+        "head-analyzer",
+        "analyzer-impact"
+      ],
+      "at": 11.6,
+      "stagger": 1.3
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "publish"
+      ],
+      "at": 19
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "source"
+      ],
+      "at": 23.7
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "failure"
+      ],
+      "at": 28.8
+    }
+  ],
+  "traces": [
+    {
+      "view": "flow",
+      "edges": [
+        "base-analyzer",
+        "head-analyzer",
+        "analyzer-impact"
+      ],
+      "times": [
+        12,
+        14.4,
+        17
+      ],
+      "end": 18.8,
+      "id": "native-analysis"
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "publish",
+        "source"
+      ],
+      "times": [
+        21,
+        24.5
+      ],
+      "end": 26.3,
+      "id": "published-evidence"
+    },
+    {
+      "view": "flow",
+      "edges": [
+        "failure"
+      ],
+      "times": [
+        29.7
+      ],
+      "end": 32.7,
+      "id": "failed-run"
+    }
+  ],
+  "relabel": [
+    {
+      "view": "flow",
+      "node": "workbench",
+      "at": 28.4,
+      "subtitle": "保留上一份成功结果"
+    }
+  ],
+  "fade": [
+    {
+      "view": "flow",
+      "edges": [
+        "publish",
+        "source"
+      ],
+      "at": 28.3,
+      "to": 0.18
+    },
+    {
+      "view": "flow",
+      "nodes": [
+        "impact",
+        "evidence"
+      ],
+      "at": 28.3,
+      "to": 0.35
+    }
+  ],
+  "detail": {
+    "view": "implementation",
+    "nodes": [
+      "session"
+    ],
+    "start": 34,
+    "end": 43,
+    "title": "serve.mjs · runSessionAnalysis",
+    "file": "inputs/pr-analysis/bin__serve.mjs",
+    "lines": [
+      176,
+      179,
+      181,
+      182,
+      183,
+      191,
+      192
+    ],
+    "highlight": [
+      176,
+      179,
+      181,
+      191
+    ],
+    "note": "新增 PR 输入、配置冻结与双侧调度"
+  },
+  "metrics": [
+    {
+      "id": "session-complexity",
+      "view": "implementation",
+      "node": "session",
+      "slot": "left",
+      "label": "圈复杂度",
+      "before": 8,
+      "after": 17,
+      "at": 37.2,
+      "tone": "neutral"
+    },
+    {
+      "id": "session-nesting",
+      "view": "implementation",
+      "node": "session",
+      "slot": "right",
+      "label": "最大嵌套",
+      "before": 1,
+      "after": 5,
+      "at": 37.2,
+      "tone": "neutral"
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "原生工作台新增 PR 比较与源码追溯",
+      "body": "评审者能分清本次引入的变化，以及与变化相关的既有问题。",
+      "change": "added"
+    },
+    {
+      "at": 4.7,
+      "title": "新增 PR 来源准备，固定共同基点与 head",
+      "body": "普通仓库入口继续保留；PR 模式从两个固定版本准备输入。",
+      "change": "added"
+    },
+    {
+      "at": 11.3,
+      "title": "两侧复用同一分析器、配置和语言适配器",
+      "body": "先分析共同基点，再分析 PR 提交，比较条件保持一致。"
+    },
+    {
+      "at": 17.7,
+      "title": "新增增量层，提取变化与已知使用方",
+      "body": "复用已有依赖、定义、指标和引用记录，形成与本次 PR 相关的线索。",
+      "change": "added"
+    },
+    {
+      "at": 23.2,
+      "title": "变化接回原生源码、引用和任务入口",
+      "body": "可定位共同基点与 PR 源码；直接绑定调用与文件导入分别呈现。"
+    },
+    {
+      "at": 28.2,
+      "title": "分析失败时，上一份成功结果继续保留",
+      "body": "候选结果在两侧分析成功后替换；捕获中版本变化会中止本轮。"
+    },
+    {
+      "at": 34.5,
+      "title": "会话协调新增双版本分支，圈复杂度 8 → 17",
+      "body": "runSessionAnalysis 的嵌套由 1 → 5；新增输入与调度集中在这个函数中。"
+    }
+  ]
+}

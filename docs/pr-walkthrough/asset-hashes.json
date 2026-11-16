@@ -1,0 +1,682 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 9,
+    "sha256": "48747480eddba024928d03be9bf83dc579e5515768647507a767e8187a85c9ab"
+  },
+  {
+    "path": "attribution/vllm-LICENSE",
+    "bytes": 11358,
+    "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+  },
+  {
+    "path": "attribution/vue-LICENSE",
+    "bytes": 1092,
+    "sha256": "9c6f7aef9f886df7dfa7e68dda866fc9751059300123df194d8037b509415819"
+  },
+  {
+    "path": "caption-layout-review.json",
+    "bytes": 2476,
+    "sha256": "1af85485ae9a5f7b3861159c2c97b0394f5b1b35fcac4c784f2a113a275bbd61"
+  },
+  {
+    "path": "cases.json",
+    "bytes": 7754,
+    "sha256": "dd35fd6da20782d0444bee5152df81391ce9e6958bbb20b314befcb91fdb6d42"
+  },
+  {
+    "path": "compile-plan.mjs",
+    "bytes": 10888,
+    "sha256": "9cf4fe8fbfc584916b043d7603bb21c8dfeeeaf7a9ad109dd129615d46d81db8"
+  },
+  {
+    "path": "design-fixtures/dependency/base/order/service.ts",
+    "bytes": 220,
+    "sha256": "141d6ffd6e01bce80a8e01ae0d89a408c2b3867820d594e150158fbbb1b28270"
+  },
+  {
+    "path": "design-fixtures/dependency/base/store/store.ts",
+    "bytes": 136,
+    "sha256": "c4b17cb9df0f2bd7772924418e72792fcde21f9a1d7a97f5ef648726b115720c"
+  },
+  {
+    "path": "design-fixtures/dependency/head/contracts/keys.ts",
+    "bytes": 63,
+    "sha256": "51552dd4f413da3ff0bd3267fca9f84a9e0e67e222beb48e48b1b973fbb5056e"
+  },
+  {
+    "path": "design-fixtures/dependency/head/order/service.ts",
+    "bytes": 247,
+    "sha256": "0696cb2fc39dc560dcb3f2dfee50e472f30f070ec9e65009f037e5ce215d0373"
+  },
+  {
+    "path": "design-fixtures/dependency/head/store/store.ts",
+    "bytes": 144,
+    "sha256": "8bee72011822992435fa156cadcc0149b2eed41fa30e35640169ec8be2a47465"
+  },
+  {
+    "path": "design-plans.mjs",
+    "bytes": 404,
+    "sha256": "0dcae5f6a8c9546b6556cbc7575083d6219145ecb80ae47190d10b9774b4120d"
+  },
+  {
+    "path": "design-policy.json",
+    "bytes": 1576,
+    "sha256": "80937baebed5af39ed0be955f17e73d2b1d2b3333e92356caf471554abf5ad08"
+  },
+  {
+    "path": "EXTERNAL-ANALYSIS.zh-CN.md",
+    "bytes": 5741,
+    "sha256": "0b7ebb6182baf315aba2bb56a24ff634da26a94fb6fd6e6d408a9e3e48ab6ee4"
+  },
+  {
+    "path": "images/story-checkout-dark.svg",
+    "bytes": 260781,
+    "sha256": "dfda4f83afc2282eb38ae19a314561ae2cb65b6d43174518ff4533253b64360e"
+  },
+  {
+    "path": "images/story-checkout-light.svg",
+    "bytes": 260534,
+    "sha256": "c0e8ea61ec7b25d4a92e3f641d1c3c8c0417e43da85dc5f8a904debf96b6e0ec"
+  },
+  {
+    "path": "images/story-dependency-dark.svg",
+    "bytes": 77580,
+    "sha256": "6003c4017b58d5af3983c9ad9c9e6cfb9819c7fc830847a34cf8484e15e85600"
+  },
+  {
+    "path": "images/story-dependency-light.svg",
+    "bytes": 77497,
+    "sha256": "88d4e57e74df14e3660f09d37e5184be079211f9abb2d539a8802b5b7b0190aa"
+  },
+  {
+    "path": "images/story-django-dark.svg",
+    "bytes": 150308,
+    "sha256": "0434f77f8c1459bbc37f60d4f7aa768b7249cc8a1254ebe910ef437ecd8f2451"
+  },
+  {
+    "path": "images/story-django-light.svg",
+    "bytes": 150122,
+    "sha256": "fa6c95e37bbdb12bdbbf687c530d73fbf9b389e2ef7feb9335ee7b45799aafc6"
+  },
+  {
+    "path": "images/story-kubernetes-dark.svg",
+    "bytes": 168503,
+    "sha256": "8c635cb38be35d2ab4bcc85f7597b7b89a0a38ba0b3e983c9308ee9bccdf730a"
+  },
+  {
+    "path": "images/story-kubernetes-light.svg",
+    "bytes": 168310,
+    "sha256": "d3529f214c2f2752953dac223fb27570cae76a8a071c5469f412cb0904311251"
+  },
+  {
+    "path": "images/story-our-pr-dark.svg",
+    "bytes": 312807,
+    "sha256": "0bd01dfb18143f936b05156cc5e630b41b6cd567811f1fccd1db3eaae0ce0f6e"
+  },
+  {
+    "path": "images/story-our-pr-light.svg",
+    "bytes": 312473,
+    "sha256": "bc075dac63e8c0e15e8c7917f43ed3b77b5ea79ff087a7c880c39f61a8155ee2"
+  },
+  {
+    "path": "images/story-relocation-dark.svg",
+    "bytes": 138303,
+    "sha256": "cd5bff21186898ca2b5eea28221aa9af665e02861a5f2bfbb5078e2c791ac38d"
+  },
+  {
+    "path": "images/story-relocation-light.svg",
+    "bytes": 138126,
+    "sha256": "7e65055b03ec28b38da91e3537a4e510b1982434aae9e0c07f257be4dcd8cc16"
+  },
+  {
+    "path": "images/story-tokio-dark.svg",
+    "bytes": 235565,
+    "sha256": "d3a3d59b49b81d0d0735f983a8cb52f1412c853519fec445befd566b0eae8345"
+  },
+  {
+    "path": "images/story-tokio-light.svg",
+    "bytes": 235290,
+    "sha256": "28b51026757213e0e7aa72ce7444fc2cd3f8093bad3f9ba05e6999ed0cfdcab6"
+  },
+  {
+    "path": "images/story-vllm-dark.svg",
+    "bytes": 232447,
+    "sha256": "1be12fe71eca3db50a70a566f0c0c92ffce42a363064ea4a139fc2af5866e5e1"
+  },
+  {
+    "path": "images/story-vllm-light.svg",
+    "bytes": 232167,
+    "sha256": "2a1691eebd1b734bb5deb354e68c982549f7a1f44178b7f8d87ff08e2ebac378"
+  },
+  {
+    "path": "images/story-vue-dark.svg",
+    "bytes": 143776,
+    "sha256": "dc437be05bc46e11971a366efb9485728b5fde1e2b1a513fb205200256132be4"
+  },
+  {
+    "path": "images/story-vue-light.svg",
+    "bytes": 143591,
+    "sha256": "e7fdfdf6c94234b64cbbbbc5608d991bf9c86beaac4d3ecc78fa9f7f94e5a910"
+  },
+  {
+    "path": "inputs/pr-analysis/bin__serve.mjs",
+    "bytes": 34085,
+    "sha256": "1e5439ade086492e9f8d499f316297f85c12095fc047e4527b57a72dea92796a"
+  },
+  {
+    "path": "inputs/vllm/vllm__model_executor__layers__attention.py",
+    "bytes": 19464,
+    "sha256": "5d6d987e5de40114494b1ca10d0083b4b8fd3b30f3e8548f0a06d861e0bd70bb"
+  },
+  {
+    "path": "inputs/vue/transformExpression-base.ts",
+    "bytes": 10736,
+    "sha256": "738566603354141da8f9a97e4ee9562bbb28e097123e4ca592ed252e40109f1f"
+  },
+  {
+    "path": "inputs/vue/transformExpression-head.ts",
+    "bytes": 11003,
+    "sha256": "5e34b1e6dbd834e4b0d521bae4eb587aae1d928d108144ee281478844cc05361"
+  },
+  {
+    "path": "manifest.json",
+    "bytes": 13976,
+    "sha256": "89fed10aba05ee9463832419ee9e0828275182478f26fc614c34ed47752e17f7"
+  },
+  {
+    "path": "measurements/dependency.json",
+    "bytes": 7983,
+    "sha256": "90e9927e8217cfc784fc90f4d61fc24db104ac35b2c8f82b30d5c3f4b8d05463"
+  },
+  {
+    "path": "measurements/our-pr.json",
+    "bytes": 498,
+    "sha256": "b9ed7d11eb97670846403465bfcda7df7968b3f0daca05b3294e7af468c18203"
+  },
+  {
+    "path": "measurements/vue.json",
+    "bytes": 1124,
+    "sha256": "6c50c707da8da8f645295c0d0d5f8d7ff69fcfbb1a4963fb60898992069dbd6e"
+  },
+  {
+    "path": "models/checkout-billing.json",
+    "bytes": 2673,
+    "sha256": "c3b99b6b6d5dadf475d0d71a7342170fc53a18297af8dce53ea60d55d1de83cb"
+  },
+  {
+    "path": "models/checkout-sync.json",
+    "bytes": 1519,
+    "sha256": "46d23c69fca4ebe76bb37fee014008cae97c041d006a7304dcbcb919ed2b8002"
+  },
+  {
+    "path": "models/design-checkout.json",
+    "bytes": 2755,
+    "sha256": "d51b8e4c68625358b6eb8c2f7f48ade0c96ade86b22b9e46b206880348c99a0b"
+  },
+  {
+    "path": "models/design-cycle.json",
+    "bytes": 2012,
+    "sha256": "608fb404c17c313b0c8c0dacb883c9033670da91ac642ad123bb5f37b5f5a760"
+  },
+  {
+    "path": "models/design-move-after.json",
+    "bytes": 1392,
+    "sha256": "0627df1c6bcef6d19e6c673fc92cb3dfc5e8f83824b73fd4c9e1858b9e849c1d"
+  },
+  {
+    "path": "models/design-move-before.json",
+    "bytes": 1281,
+    "sha256": "ecdbae9bbea36b731525bd4145bb78f950a00d387f03f4e9e8a546fef73ca373"
+  },
+  {
+    "path": "models/external-django-guard.json",
+    "bytes": 1802,
+    "sha256": "62157b98ca24f42313d665d9956869447ab669e55caf30323ce56b0d270cc116"
+  },
+  {
+    "path": "models/external-django-sequence.json",
+    "bytes": 1342,
+    "sha256": "0ef1365d595c90bcb01b1040dced574a2554c5997d464c2336874819dd2c0ffe"
+  },
+  {
+    "path": "models/external-kubernetes-api.json",
+    "bytes": 2291,
+    "sha256": "5a9ea0b02fd0bfa4eb6d40a2c00f6e4f94cad89c3fb7e273489bf38429bba61a"
+  },
+  {
+    "path": "models/external-kubernetes-types.json",
+    "bytes": 2323,
+    "sha256": "2df86fa14137a3911cef852f70c69be22d713a7cd7818480b4af67a8657d10ef"
+  },
+  {
+    "path": "models/external-tokio-before.json",
+    "bytes": 2141,
+    "sha256": "96519e19a9fc4b594907e42c837b43510f0af61488dce09dc6c02ab5864636ad"
+  },
+  {
+    "path": "models/external-tokio-queues.json",
+    "bytes": 2672,
+    "sha256": "03958aa85580bc94d8d33cf944f64a49ef47b54609916cccba2d338ddfbfd48e"
+  },
+  {
+    "path": "models/external-tokio-worker.json",
+    "bytes": 1526,
+    "sha256": "29c0eb191be8d547a83c506de63980fc7320797956fed157b2d84cfb14189b96"
+  },
+  {
+    "path": "models/external-vllm-dispatch.json",
+    "bytes": 2290,
+    "sha256": "fe0b842af03b7a0741a440b325790bb32dc17bdaecffb28a2c61f36f68160e4a"
+  },
+  {
+    "path": "models/external-vllm-partitions.json",
+    "bytes": 2585,
+    "sha256": "af1969d9c28a050cc6e3965aa2f83a81c1a9732e86918ee995475a4bcec7a094"
+  },
+  {
+    "path": "models/external-vllm-selector.json",
+    "bytes": 522,
+    "sha256": "e171e2b84006142e604d4fea87218fddf97e57e1c2359746ee0a5bf08439f24d"
+  },
+  {
+    "path": "models/external-vue-bindings.json",
+    "bytes": 2367,
+    "sha256": "4076708bdc71cb8611c363b1757ef9c631947d4913deb24c76a277b2f272d064"
+  },
+  {
+    "path": "models/external-vue-expression.json",
+    "bytes": 547,
+    "sha256": "4336f1c6585f0ef2c07241e8f5204b7b6bc8208dc2b6b2ee297a348864f5eba7"
+  },
+  {
+    "path": "models/own-pr-after.json",
+    "bytes": 3102,
+    "sha256": "52557ad50740887d5f9cad9ffb5075dfe31c7f17473d088a35850b5546266bea"
+  },
+  {
+    "path": "models/own-pr-before.json",
+    "bytes": 1211,
+    "sha256": "68f0c207e1ba6347f792c8348ee8c621d623ce5d8ac19dcd8bd076d6f88d7cf2"
+  },
+  {
+    "path": "models/own-pr-flow.json",
+    "bytes": 3007,
+    "sha256": "bd8388703b90b49832035e8c463669a2553be38aafdd5d9e8d7c5f61186495f4"
+  },
+  {
+    "path": "models/own-pr-session.json",
+    "bytes": 529,
+    "sha256": "219e0b2be635bbcbd0a2f1135df1932221accc951307d12d42c36a104c7ff74a"
+  },
+  {
+    "path": "motion.mjs",
+    "bytes": 20651,
+    "sha256": "dcf80a72b925b9bcb87f7ac66dbc5a1b79d0eed2245eb3f73e61df539a3db7fe"
+  },
+  {
+    "path": "native-content-bounds.json",
+    "bytes": 4461,
+    "sha256": "a4a0f202ee20acc31fd47edfb6972f4aa167fed0c7d8bca7a24f5b8fb6ad0713"
+  },
+  {
+    "path": "native/checkout-billing-dark.svg",
+    "bytes": 172386,
+    "sha256": "8880e62a1380de471f28241e6dff3683978c2f43baa8dc181afe16a66641dd47"
+  },
+  {
+    "path": "native/checkout-billing-light.svg",
+    "bytes": 172354,
+    "sha256": "ff77721f04538c115a8467d70f549f38d7fb2a45b852f10d79df716c3e7455a0"
+  },
+  {
+    "path": "native/checkout-sync-dark.svg",
+    "bytes": 145700,
+    "sha256": "f2eb24be7f65dbfb488f9e888caacc6060251802304f6d3d6031a4d4d360bcfe"
+  },
+  {
+    "path": "native/checkout-sync-light.svg",
+    "bytes": 145658,
+    "sha256": "85c99d98651e880cc62f50242fbbbd8bf7078c3d291a375d105c284349340b06"
+  },
+  {
+    "path": "native/design-checkout-dark.svg",
+    "bytes": 157836,
+    "sha256": "5b1e34c9cbf4592c7405535c685b859498fe54bf2a4eb88cadd41b5092d7261c"
+  },
+  {
+    "path": "native/design-checkout-light.svg",
+    "bytes": 157794,
+    "sha256": "f451266dd714a374decda1eeefd36c30e59adf0983806fd8e388f09c77656a98"
+  },
+  {
+    "path": "native/design-cycle-dark.svg",
+    "bytes": 150991,
+    "sha256": "3d8e255ee70f3ea160c8a178303baa8afdaf6918a6398f81b1490d59c1c22380"
+  },
+  {
+    "path": "native/design-cycle-light.svg",
+    "bytes": 150949,
+    "sha256": "ba8876f49c933166dde3a12960431f67a7a1a9f269ab39ee34a4a4ee64c0d126"
+  },
+  {
+    "path": "native/design-move-after-dark.svg",
+    "bytes": 148325,
+    "sha256": "771b402fe550b7dd829074bba21bb425c05baca272e277ba20e775ea9f8344f1"
+  },
+  {
+    "path": "native/design-move-after-light.svg",
+    "bytes": 148283,
+    "sha256": "fa54c119e9433347a1d33d602dc491948701c757ac24db52294319c66bb632d5"
+  },
+  {
+    "path": "native/design-move-before-dark.svg",
+    "bytes": 145108,
+    "sha256": "6288c0594aaae15ec7a6facdc82322ddbf6cbdf501252ceae81e51c0472dab93"
+  },
+  {
+    "path": "native/design-move-before-light.svg",
+    "bytes": 145066,
+    "sha256": "f285354b5ecd5269740c1d524f0e8e5793526d4d500602e5291983f79f1d83b4"
+  },
+  {
+    "path": "native/external-django-guard-dark.svg",
+    "bytes": 151491,
+    "sha256": "24f2dac1f549cb70d568a7dd11513bbd589d32877b769336f50c8131da9c9728"
+  },
+  {
+    "path": "native/external-django-guard-light.svg",
+    "bytes": 151449,
+    "sha256": "65f912ad92370ede2be75bd93b432f97b2b64b135fadca2d8d5812a2dab86e4c"
+  },
+  {
+    "path": "native/external-django-sequence-dark.svg",
+    "bytes": 146110,
+    "sha256": "111159688e00c032273c7d640d4228a99d5d9fe892b05b38c184a5d92379d6e9"
+  },
+  {
+    "path": "native/external-django-sequence-light.svg",
+    "bytes": 146069,
+    "sha256": "12a2d9cb3a311d6ac163e57a3a858f274a20b5f12e8535cec78ada5d16e493cc"
+  },
+  {
+    "path": "native/external-kubernetes-api-dark.svg",
+    "bytes": 152458,
+    "sha256": "6b80ed583373865c7520cd4c1dc562792e54a7b76a3be608d0df92cb2b7010fd"
+  },
+  {
+    "path": "native/external-kubernetes-api-light.svg",
+    "bytes": 152416,
+    "sha256": "5868bee54aadf453459922ce95a8317ba01555eaba2a3dad6239f3855744f6a1"
+  },
+  {
+    "path": "native/external-kubernetes-types-dark.svg",
+    "bytes": 160287,
+    "sha256": "eea804ba52c4c9445cc2d80aa82ea4563b6d362b2941158747db50f6b2c16439"
+  },
+  {
+    "path": "native/external-kubernetes-types-light.svg",
+    "bytes": 160242,
+    "sha256": "b09c734d1d399d26f6287da4f6d00a2f053c3fee298a3f8c4abf8ce2b7ab12ad"
+  },
+  {
+    "path": "native/external-tokio-before-dark.svg",
+    "bytes": 149125,
+    "sha256": "dabde6de70e40fb46083a7d3a74f00873202e2f3dc497c93a863d4f5fee13da6"
+  },
+  {
+    "path": "native/external-tokio-before-light.svg",
+    "bytes": 149083,
+    "sha256": "d3694504ceaa03182ed5038407da69fb52b850676d516af757c40a04c7257427"
+  },
+  {
+    "path": "native/external-tokio-queues-dark.svg",
+    "bytes": 155050,
+    "sha256": "4b1a0d0cd5b97749b40190a2b70ddb0b772c5226b9dfeb67ebc9866cf9fb311e"
+  },
+  {
+    "path": "native/external-tokio-queues-light.svg",
+    "bytes": 155008,
+    "sha256": "c56e1eefbab8bc5293a7b05cb7271ac8626cccf3cdd8ec77b1238f00b429ba00"
+  },
+  {
+    "path": "native/external-tokio-worker-dark.svg",
+    "bytes": 150348,
+    "sha256": "4910c5c5907b1af4ea110b9c7da6252dd92f1bfea22b9d1b6c8a42fef87a2566"
+  },
+  {
+    "path": "native/external-tokio-worker-light.svg",
+    "bytes": 150307,
+    "sha256": "82cacbbd2ab5a00ed1546870ff4d4772be4cb6aef19bfa03df6df873eb640a38"
+  },
+  {
+    "path": "native/external-vllm-dispatch-dark.svg",
+    "bytes": 153987,
+    "sha256": "6588b0475a7a48e9f5d39b3db9b2d1aa5672ebbb86d1af245176a114c88f2a20"
+  },
+  {
+    "path": "native/external-vllm-dispatch-light.svg",
+    "bytes": 153945,
+    "sha256": "28f12656d4f2b5b70b64f3cface7292a9632f1f83878f18660033979d1375aa6"
+  },
+  {
+    "path": "native/external-vllm-partitions-dark.svg",
+    "bytes": 152086,
+    "sha256": "e4667bd6dd39f48b83fa7d2bda2ec69c42f06173897404a66a9285a3934f4536"
+  },
+  {
+    "path": "native/external-vllm-partitions-light.svg",
+    "bytes": 152045,
+    "sha256": "affa9ead8001c2cfed88233ea58fa8cf35453b7c33f56ecd88c3501ea940d920"
+  },
+  {
+    "path": "native/external-vllm-selector-dark.svg",
+    "bytes": 143426,
+    "sha256": "8ca01a183d481c2174cf4f631c637a18cdc26f58f764c0a88393f16865ba4476"
+  },
+  {
+    "path": "native/external-vllm-selector-light.svg",
+    "bytes": 143384,
+    "sha256": "752eace7610225c4b4cc4cd457111779cd1e0dee02e26db9376464801ff6daa9"
+  },
+  {
+    "path": "native/external-vue-bindings-dark.svg",
+    "bytes": 150847,
+    "sha256": "1db80ff5f87691b1d40191e63fa953df703f1fb5a75ee95fb2fddf10e25b1277"
+  },
+  {
+    "path": "native/external-vue-bindings-light.svg",
+    "bytes": 150806,
+    "sha256": "bd2264f781eafa2f5db5da40dc22d8f4c139b993cd679d2b91e226059c98c1fe"
+  },
+  {
+    "path": "native/external-vue-expression-dark.svg",
+    "bytes": 143469,
+    "sha256": "d376d9a53f00afbf7c29db41372db6c7801fabbb2c47e51d009bf46ec611f585"
+  },
+  {
+    "path": "native/external-vue-expression-light.svg",
+    "bytes": 143427,
+    "sha256": "a0d2fbdece753bbb6db6695169cc44da5d181b5332accf95d3861734c2d93903"
+  },
+  {
+    "path": "native/own-pr-after-dark.svg",
+    "bytes": 157137,
+    "sha256": "923cf7272764f928a2f5b4365fbc240e9201c848ef7d507360f5347481301fd9"
+  },
+  {
+    "path": "native/own-pr-after-light.svg",
+    "bytes": 157095,
+    "sha256": "1432c7bc11e826e7c3ddc4271300934b786419e420dd09e92ffa9d8ac0604cad"
+  },
+  {
+    "path": "native/own-pr-before-dark.svg",
+    "bytes": 145262,
+    "sha256": "662c9f5c997be22cc6bfea039a2424301be0fe37b6d863800c2ab1355c8f59a2"
+  },
+  {
+    "path": "native/own-pr-before-light.svg",
+    "bytes": 145220,
+    "sha256": "28c7561c4ea7ea60c6231d5cb7505211589df841c1e59359fde5ca753db70b0b"
+  },
+  {
+    "path": "native/own-pr-flow-dark.svg",
+    "bytes": 158215,
+    "sha256": "e47edf18c34666cbfc7c9743146c462978b3dd97678d2d353312ef1b966e2660"
+  },
+  {
+    "path": "native/own-pr-flow-light.svg",
+    "bytes": 158173,
+    "sha256": "0195ceb8c9de866704672b2bdbc8a448159b26e1552fc1e1d0b55f43515d49d6"
+  },
+  {
+    "path": "native/own-pr-session-dark.svg",
+    "bytes": 143389,
+    "sha256": "9898dc693c86d9352bf5cd27071d681964c650c48947771829cd74b444753218"
+  },
+  {
+    "path": "native/own-pr-session-light.svg",
+    "bytes": 143347,
+    "sha256": "1d16bcb473ed9d44ebc99c6ec4a88b62d618350c82ce2f0dc961c5778e31a2dc"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2833,
+    "sha256": "89574878bab3d1d4c6f0419843e3acd36518af4d9b933b43af0d999349bfbe4f"
+  },
+  {
+    "path": "review-record.json",
+    "bytes": 3745,
+    "sha256": "a31e20ab3cc98da246d6a67c2932e4095e3b42ad2c93b582a94f1588d5876fe4"
+  },
+  {
+    "path": "source-index.json",
+    "bytes": 6568,
+    "sha256": "b0741bf2e1afe4790e072bc583acd596e8791300789b16d07459264874a58e7a"
+  },
+  {
+    "path": "stills/story-checkout-2.png",
+    "bytes": 142899,
+    "sha256": "ceb8d5ca8e525b91364709c6b92016bdacbdadca2bef760ccdcc01ac90aa549e"
+  },
+  {
+    "path": "stills/story-checkout-5.png",
+    "bytes": 122634,
+    "sha256": "e288da117cab16115bec13f92696420dfcb447a1f54b4046015e643dcd073df7"
+  },
+  {
+    "path": "stills/story-dependency-4.png",
+    "bytes": 91945,
+    "sha256": "19bede9b1e4646f869ace431405ecb61104b5a4d2fc9912b54c935715653fdc8"
+  },
+  {
+    "path": "stills/story-django-3.png",
+    "bytes": 83200,
+    "sha256": "a8e50caf8811dd2e54a939669340d2f15b1ffefa15bd232c94e671613f2ea78a"
+  },
+  {
+    "path": "stills/story-django-5.png",
+    "bytes": 146438,
+    "sha256": "e7fcf9f2d11195ad43fb4664e0f90e5f9ede40c18b5f07fa6435237011e5e494"
+  },
+  {
+    "path": "stills/story-kubernetes-4.png",
+    "bytes": 84392,
+    "sha256": "f957d7cfa3b3f2066d02d03526bc3052002140f4b2e537640905f2b11c3ce02b"
+  },
+  {
+    "path": "stills/story-kubernetes-5.png",
+    "bytes": 112290,
+    "sha256": "b058c1da000391153388a9ce13206d7a057db9e9450a12427e875e6df3a08587"
+  },
+  {
+    "path": "stills/story-our-pr-2.png",
+    "bytes": 132816,
+    "sha256": "d3c7b2b44de8d304e9bcb9a556ec237641ae26b10095d01afe75568a1bd22a36"
+  },
+  {
+    "path": "stills/story-our-pr-7.png",
+    "bytes": 173907,
+    "sha256": "aa862784f5662eacbd0fdfd3c5d61626f95d1069f57d73fb8254e20d32de0e94"
+  },
+  {
+    "path": "stills/story-relocation-2.png",
+    "bytes": 85904,
+    "sha256": "97a03f0e2f300565cb999e2013bfbc8dd067f5896137d3c495a6b31911be71a4"
+  },
+  {
+    "path": "stills/story-tokio-3.png",
+    "bytes": 121302,
+    "sha256": "701e84aada1450ff2d149d81e44f328be9b595bfc255dc08b9003776ed26f34e"
+  },
+  {
+    "path": "stills/story-tokio-6.png",
+    "bytes": 120788,
+    "sha256": "be3af7167758030f51daf42b713aac79356d8dc13f10929f0fc644094ab331a1"
+  },
+  {
+    "path": "stills/story-vllm-3.png",
+    "bytes": 111321,
+    "sha256": "3172574a6bafb1d54c35cd39966b798e3a5fdff43cf7cb3d1c341d88b5d26e4b"
+  },
+  {
+    "path": "stills/story-vllm-6.png",
+    "bytes": 125182,
+    "sha256": "c18d06763b01df5d23437bf2135ea8b78740b81c57579e3b9f62f44602d5075d"
+  },
+  {
+    "path": "stills/story-vue-3.png",
+    "bytes": 128958,
+    "sha256": "b8a3fc28795eadeeda7e0d4d9da938dc5aaa3e75cbb904dff3e5598b08ba7b3d"
+  },
+  {
+    "path": "stills/story-vue-5.png",
+    "bytes": 124099,
+    "sha256": "843bce23cfabe70aca1a0109e15a7f2e2382dd55245cd365ea44b3f0bf339c99"
+  },
+  {
+    "path": "story-plans/story-checkout.json",
+    "bytes": 3830,
+    "sha256": "16f5b26f32ca489f89725098dac604b3f454fb379ad660a6b493691f4164d244"
+  },
+  {
+    "path": "story-plans/story-dependency.json",
+    "bytes": 2049,
+    "sha256": "01937d49f1e59272c32dd72b3e60326e6fbe29fb8447f556b020700277dc4544"
+  },
+  {
+    "path": "story-plans/story-django.json",
+    "bytes": 3407,
+    "sha256": "d2bedba33f59084dfd7325ab38651a147acb33c8cb06616b158fea8cbec57a9b"
+  },
+  {
+    "path": "story-plans/story-kubernetes.json",
+    "bytes": 3429,
+    "sha256": "98e736fcbe0cc86225a38001bca67ce8a4698c616e896284cbd4fd771958c97e"
+  },
+  {
+    "path": "story-plans/story-our-pr.json",
+    "bytes": 8376,
+    "sha256": "fa9ac6c308dffd2f6558f6de630448991cb4d685f26c5854c032c7aa0300ae98"
+  },
+  {
+    "path": "story-plans/story-relocation.json",
+    "bytes": 1764,
+    "sha256": "1d03868df5870a6ab79893f8457c0392bff981ae1c8088ad9bd8c0f4550f62c0"
+  },
+  {
+    "path": "story-plans/story-tokio.json",
+    "bytes": 3557,
+    "sha256": "c545886bd0a0bc2481c08cd204dc8f96dd71394b1f345568a6b253c276f96c7f"
+  },
+  {
+    "path": "story-plans/story-vllm.json",
+    "bytes": 4785,
+    "sha256": "04f9303eb883e0b02ae2541a9429fe0e99297c26e9e14e2567a563c024c67e76"
+  },
+  {
+    "path": "story-plans/story-vue.json",
+    "bytes": 2990,
+    "sha256": "df834753a45effa388a0c50cd2c5626ff69b23755ad3d34a7941d6d9080dd353"
+  }
+]

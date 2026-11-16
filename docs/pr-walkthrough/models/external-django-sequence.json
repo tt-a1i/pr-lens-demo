@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "ASGI 异步入口与原有同步视图链",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard",
+    "viewBox": [
+      850,
+      490
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "server",
+      "type": "external",
+      "label": "ASGI 服务"
+    },
+    {
+      "id": "handler",
+      "type": "backend",
+      "label": "新增 ASGIHandler",
+      "change": "added"
+    },
+    {
+      "id": "sync",
+      "type": "backend",
+      "label": "原有同步视图链"
+    }
+  ],
+  "messages": [
+    {
+      "id": "request",
+      "from": "server",
+      "to": "handler",
+      "y": 165,
+      "label": "HTTP scope / receive",
+      "change": "added"
+    },
+    {
+      "id": "handoff",
+      "from": "handler",
+      "to": "sync",
+      "y": 225,
+      "label": "sync_to_async(get_response)",
+      "change": "added"
+    },
+    {
+      "id": "result",
+      "from": "sync",
+      "to": "handler",
+      "y": 305,
+      "label": "HttpResponse",
+      "variant": "return",
+      "change": "added"
+    },
+    {
+      "id": "response",
+      "from": "handler",
+      "to": "server",
+      "y": 385,
+      "label": "response.start / body",
+      "variant": "return",
+      "change": "added"
+    }
+  ]
+}

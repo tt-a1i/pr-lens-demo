@@ -1,0 +1,22 @@
+{
+  "base": {
+    "file": "archify/modules/code-analysis/bin/serve.mjs",
+    "name": "runSessionAnalysis",
+    "qualname": "runSessionAnalysis",
+    "line": 167,
+    "endLine": 186,
+    "complexity": 8,
+    "nesting": 1,
+    "deepestLine": 170
+  },
+  "head": {
+    "file": "archify/modules/code-analysis/bin/serve.mjs",
+    "name": "runSessionAnalysis",
+    "qualname": "runSessionAnalysis",
+    "line": 170,
+    "endLine": 211,
+    "complexity": 17,
+    "nesting": 5,
+    "deepestLine": 187
+  }
+}

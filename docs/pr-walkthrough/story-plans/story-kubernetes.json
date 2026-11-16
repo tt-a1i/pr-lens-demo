@@ -1,0 +1,165 @@
+{
+  "id": "story-kubernetes",
+  "title": "Kubernetes API",
+  "question": "初版 Ingress PR 新增了哪些 API 契约，哪些执行能力尚未加入？",
+  "duration": 31.5,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/kubernetes/kubernetes/pull/14175",
+    "base": "cad5f03311afff3907ce1f682c115c7c5451db06",
+    "head": "44477b246baadf49f100ab89725baa7119ce6cef"
+  },
+  "stills": [
+    3,
+    8.5,
+    14.4,
+    20.5,
+    28
+  ],
+  "selection": {
+    "main": "新增 API 类型、注册和规则数据契约",
+    "support": [
+      "内部与 v1 结构",
+      "生成的转换/复制",
+      "ServiceRef 与端口"
+    ],
+    "omit": [
+      "没有新增负载均衡控制器或请求转发实现",
+      "不套用后来的 networking.k8s.io/v1 结构"
+    ]
+  },
+  "views": {
+    "api": {
+      "model": "external-kubernetes-api",
+      "type": "architecture",
+      "end": 16.2
+    },
+    "types": {
+      "model": "external-kubernetes-types",
+      "type": "class",
+      "start": 16.6,
+      "end": 31.5
+    }
+  },
+  "enter": [
+    {
+      "view": "api",
+      "nodes": [
+        "versioned"
+      ],
+      "at": 4.8
+    },
+    {
+      "view": "api",
+      "nodes": [
+        "internal",
+        "generated"
+      ],
+      "at": 10.9,
+      "stagger": 0.35
+    },
+    {
+      "view": "types",
+      "nodes": [
+        "path",
+        "backend"
+      ],
+      "at": 23.9,
+      "stagger": 0.2
+    }
+  ],
+  "connect": [
+    {
+      "view": "api",
+      "edges": [
+        "register"
+      ],
+      "at": 5.4
+    },
+    {
+      "view": "api",
+      "edges": [
+        "version-convert",
+        "convert-internal",
+        "version-generated"
+      ],
+      "at": 11.5,
+      "stagger": 0.4
+    },
+    {
+      "view": "types",
+      "edges": [
+        "rule-path",
+        "path-backend"
+      ],
+      "at": 24,
+      "stagger": 0.3
+    }
+  ],
+  "focus": [
+    {
+      "view": "types",
+      "nodes": [
+        "spec",
+        "rule"
+      ],
+      "at": 17,
+      "end": 23.8
+    },
+    {
+      "view": "types",
+      "nodes": [
+        "rule",
+        "path",
+        "backend"
+      ],
+      "at": 24.1,
+      "end": 31.5
+    }
+  ],
+  "fade": [
+    {
+      "view": "types",
+      "nodes": [
+        "spec"
+      ],
+      "edges": [
+        "spec-rule"
+      ],
+      "at": 23.5,
+      "to": 0
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "初版 Ingress 建立 API 类型与版本配套",
+      "body": "这个 PR 的内容集中在类型和编解码基础，尚未接通实际转发执行。",
+      "change": "added"
+    },
+    {
+      "at": 5,
+      "title": "Scheme 注册 Ingress 与 IngressList",
+      "body": "已有实验 API 注册入口开始识别这两个新类型。",
+      "change": "added"
+    },
+    {
+      "at": 11.1,
+      "title": "内部和 v1 类型配套生成转换与复制",
+      "body": "变化还包括 DeepCopy、转换代码和字段文档，不能只按新文件数量理解。",
+      "change": "added"
+    },
+    {
+      "at": 17.3,
+      "title": "规则用 Host 和 Paths 描述目标后端",
+      "body": "类型关系表达 API 中的包含结构；这里不是网络请求运行轨迹。",
+      "change": "added"
+    },
+    {
+      "at": 24.2,
+      "title": "Backend 声明 ServiceRef、端口与协议",
+      "body": "目标服务与端口进入 API 契约，供后续实现读取和处理。",
+      "change": "added"
+    }
+  ]
+}

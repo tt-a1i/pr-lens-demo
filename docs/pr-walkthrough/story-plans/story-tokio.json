@@ -1,0 +1,169 @@
+{
+  "id": "story-tokio",
+  "title": "Tokio 调度器",
+  "question": "线程池重写怎样改变任务的分配、窃取和停泊协调？",
+  "duration": 35.5,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/tokio-rs/tokio/pull/1657",
+    "base": "1cae04f8b380137137bb06e9d0ec0743aaa74c51",
+    "head": "1c117fb7fd3ca398ca53ff676485b12cbb08557a"
+  },
+  "stills": [
+    3,
+    8.5,
+    14.3,
+    20.1,
+    26.5,
+    32.6
+  ],
+  "selection": {
+    "main": "本地队列替换与 Worker 搜索/停泊协调",
+    "support": [
+      "共享队列",
+      "批量窃取"
+    ],
+    "omit": [
+      "本 PR 的单次任务分配与 JoinHandle 改造另有主线",
+      "作者跑出的性能数字不作为本地测量"
+    ]
+  },
+  "views": {
+    "before": {
+      "model": "external-tokio-before",
+      "type": "architecture"
+    },
+    "after": {
+      "model": "external-tokio-queues",
+      "type": "architecture"
+    },
+    "states": {
+      "model": "external-tokio-worker",
+      "type": "lifecycle",
+      "start": 22,
+      "end": 35.5
+    }
+  },
+  "pair": {
+    "before": "before",
+    "after": "after",
+    "at": 4.5,
+    "until": 21.7,
+    "shared": [
+      {
+        "id": "workerA"
+      },
+      {
+        "id": "workerB"
+      },
+      {
+        "id": "global"
+      },
+      {
+        "id": "local",
+        "label": "本地环形队列",
+        "subtitle": "替换 Chase-Lev deque"
+      },
+      {
+        "id": "idle",
+        "subtitle": "搜索人数与停泊集合"
+      }
+    ]
+  },
+  "connect": [
+    {
+      "view": "after",
+      "edges": [
+        "overflow"
+      ],
+      "at": 10.5
+    },
+    {
+      "view": "after",
+      "edges": [
+        "steal"
+      ],
+      "at": 16.4
+    }
+  ],
+  "traces": [
+    {
+      "view": "after",
+      "edges": [
+        "overflow",
+        "shared-pop"
+      ],
+      "times": [
+        12,
+        14.6
+      ],
+      "end": 16
+    },
+    {
+      "view": "after",
+      "edges": [
+        "steal"
+      ],
+      "times": [
+        18.1
+      ],
+      "end": 21
+    },
+    {
+      "view": "states",
+      "edges": [
+        "seek",
+        "sleep"
+      ],
+      "times": [
+        24,
+        26.5
+      ],
+      "end": 28.4
+    },
+    {
+      "view": "states",
+      "edges": [
+        "wake",
+        "found"
+      ],
+      "times": [
+        30.3,
+        32.4
+      ],
+      "end": 35
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "替换本地队列，重做搜索与唤醒协调",
+      "body": "保留工作窃取模型；先看任务怎样在本地、共享队列和 Worker 间移动。"
+    },
+    {
+      "at": 4.8,
+      "title": "Chase-Lev 队列替换为有界环形队列",
+      "body": "同一逻辑队列保留位置，底层结构和满队列处理发生变化。"
+    },
+    {
+      "at": 10.7,
+      "title": "本地队列满时，约一半任务移到共享队列",
+      "body": "溢出任务成批发布，为其他 Worker 提供可取的工作。"
+    },
+    {
+      "at": 16.7,
+      "title": "空闲 Worker 可以批量窃取其他本地队列",
+      "body": "任务迁移与静态模块依赖不同，这里演示的是队列中的工作流动。"
+    },
+    {
+      "at": 22.5,
+      "title": "搜索者数量影响搜索与停泊选择",
+      "body": "以限制搜索并发为目标；本地无任务时才进入搜索或停泊。"
+    },
+    {
+      "at": 29.2,
+      "title": "Worker 被唤醒后重新检查任务",
+      "body": "找到任务则回到执行；没有任务时继续按停泊协议等待。"
+    }
+  ]
+}

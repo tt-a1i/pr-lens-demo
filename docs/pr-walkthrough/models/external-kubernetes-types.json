@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "diagram_type": "class",
+  "meta": {
+    "title": "Ingress 的规则与后端数据契约",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "layout": {
+    "mode": "grid"
+  },
+  "types": [
+    {
+      "id": "spec",
+      "label": "IngressSpec",
+      "kind": "class",
+      "row": 0,
+      "col": 0,
+      "change": "added",
+      "attributes": [
+        {
+          "name": "Rules",
+          "type": "[]IngressRule",
+          "visibility": "public"
+        }
+      ]
+    },
+    {
+      "id": "rule",
+      "label": "IngressRule",
+      "kind": "class",
+      "row": 0,
+      "col": 1,
+      "change": "added",
+      "attributes": [
+        {
+          "name": "Host",
+          "type": "string",
+          "visibility": "public"
+        },
+        {
+          "name": "Paths",
+          "type": "[]IngressPath",
+          "visibility": "public"
+        }
+      ]
+    },
+    {
+      "id": "path",
+      "label": "IngressPath",
+      "kind": "class",
+      "row": 1,
+      "col": 1,
+      "change": "added",
+      "attributes": [
+        {
+          "name": "Path",
+          "type": "string",
+          "visibility": "public"
+        },
+        {
+          "name": "Backend",
+          "type": "IngressBackend",
+          "visibility": "public"
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "IngressBackend",
+      "kind": "class",
+      "row": 1,
+      "col": 2,
+      "change": "added",
+      "attributes": [
+        {
+          "name": "ServiceRef",
+          "type": "LocalObjectReference",
+          "visibility": "public"
+        },
+        {
+          "name": "ServicePort",
+          "type": "IntOrString",
+          "visibility": "public"
+        },
+        {
+          "name": "Protocol",
+          "type": "Protocol",
+          "visibility": "public"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "spec-rule",
+      "from": "spec",
+      "to": "rule",
+      "kind": "composition",
+      "label": "Rules[]"
+    },
+    {
+      "id": "rule-path",
+      "from": "rule",
+      "to": "path",
+      "kind": "composition",
+      "label": "Paths[]"
+    },
+    {
+      "id": "path-backend",
+      "from": "path",
+      "to": "backend",
+      "kind": "composition",
+      "label": "Backend"
+    }
+  ]
+}

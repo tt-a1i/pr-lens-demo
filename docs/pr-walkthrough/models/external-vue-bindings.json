@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "编译期绑定与内联模板产物",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard",
+    "viewBox": [
+      1100,
+      610
+    ]
+  },
+  "stages": [
+    {
+      "label": "脚本编译"
+    },
+    {
+      "label": "绑定信息"
+    },
+    {
+      "label": "模板编译"
+    },
+    {
+      "label": "生成产物"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "script",
+      "stage": 0,
+      "row": 1,
+      "label": "compileScript",
+      "sublabel": "收集顶层声明与导入",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "modified"
+    },
+    {
+      "id": "bindings",
+      "stage": 1,
+      "row": 1,
+      "label": "绑定元数据",
+      "sublabel": "按绑定种类分类",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "modified"
+    },
+    {
+      "id": "template",
+      "stage": 2,
+      "row": 1,
+      "label": "compileTemplate",
+      "sublabel": "按绑定种类改写表达式",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "modified"
+    },
+    {
+      "id": "ordinary",
+      "stage": 3,
+      "row": 0,
+      "label": "返回绑定对象",
+      "sublabel": "普通模式继续保留",
+      "type": "backend",
+      "width": 152,
+      "height": 86
+    },
+    {
+      "id": "inline",
+      "stage": 3,
+      "row": 2,
+      "label": "返回 render 闭包",
+      "sublabel": "inlineTemplate 模式",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "added"
+    }
+  ],
+  "flows": [
+    {
+      "id": "collect",
+      "from": "script",
+      "to": "bindings",
+      "label": "生成元数据",
+      "change": "modified",
+      "labelDy": 72
+    },
+    {
+      "id": "bind-template",
+      "from": "bindings",
+      "to": "template",
+      "label": "编译选项",
+      "change": "modified",
+      "labelDy": 72
+    },
+    {
+      "id": "normal-result",
+      "from": "script",
+      "to": "ordinary",
+      "label": "普通模式",
+      "fromSide": "top",
+      "toSide": "left",
+      "labelDy": -28
+    },
+    {
+      "id": "inline-result",
+      "from": "template",
+      "to": "inline",
+      "label": "内联 render",
+      "change": "added",
+      "labelDy": 15
+    }
+  ]
+}

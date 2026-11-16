@@ -1,0 +1,75 @@
+{
+  "id": "story-relocation",
+  "title": "实现搬迁",
+  "question": "实现搬迁并改名后，调用者是否还走原来的公开入口？",
+  "duration": 20,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/tt-a1i/archify/pull/1338",
+    "base": "91270ea08d53baf676bd2270d7805233a8798351",
+    "head": "a4cc9165358f3dfe080096618bb91ba6882f40ed"
+  },
+  "selection": {
+    "main": "实现迁移，公开导出保留",
+    "support": [
+      "同一实现对象的前后对应"
+    ],
+    "omit": [
+      "与迁移无关的复杂度总数"
+    ]
+  },
+  "views": {
+    "before": {
+      "model": "design-move-before",
+      "type": "architecture"
+    },
+    "after": {
+      "model": "design-move-after",
+      "type": "architecture"
+    }
+  },
+  "pair": {
+    "before": "before",
+    "after": "after",
+    "at": 5.2,
+    "shared": [
+      {
+        "id": "caller"
+      },
+      {
+        "id": "api"
+      },
+      {
+        "id": "implementation",
+        "label": "findingWhere()",
+        "subtitle": "overlay/overview.mjs"
+      }
+    ]
+  },
+  "connect": [
+    {
+      "view": "after",
+      "edges": [
+        "binding-new"
+      ],
+      "at": 7.3
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "实现迁到 overview，公开入口仍叫 where",
+      "body": "先固定调用者和导出入口，再看同一个实现对象搬到哪里。"
+    },
+    {
+      "at": 5.7,
+      "title": "where() 搬迁后改名为 findingWhere()",
+      "body": "实现的位置与名称变化，函数沿同一身份移动。"
+    },
+    {
+      "at": 13,
+      "title": "重导出指向新实现，调用方仍导入 where",
+      "body": "新的绑定指向 overlay/overview.mjs，对外入口与 import 路径保持。"
+    }
+  ]
+}

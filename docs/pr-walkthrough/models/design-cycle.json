@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "提取公共契约，移除存储对业务的反向依赖",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "order",
+      "label": "订单模块",
+      "type": "backend",
+      "pos": [
+        50,
+        110
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "order / service.ts",
+      "change": "modified"
+    },
+    {
+      "id": "store",
+      "label": "存储模块",
+      "type": "backend",
+      "pos": [
+        610,
+        110
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "store / store.ts",
+      "change": "modified"
+    },
+    {
+      "id": "contracts",
+      "label": "公共契约",
+      "type": "backend",
+      "pos": [
+        330,
+        350
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "contracts / keys.ts",
+      "change": "added"
+    }
+  ],
+  "connections": [
+    {
+      "id": "order-store",
+      "from": "order",
+      "to": "store",
+      "label": "保存订单",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        435,
+        135
+      ]
+    },
+    {
+      "id": "store-order",
+      "from": "store",
+      "to": "order",
+      "label": "原反向导入",
+      "change": "removed",
+      "fromSide": "top",
+      "toSide": "top",
+      "labelAt": [
+        435,
+        42
+      ]
+    },
+    {
+      "id": "order-contract",
+      "from": "order",
+      "to": "contracts",
+      "label": "KeyOf 类型",
+      "change": "added",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "labelAt": [
+        221,
+        326
+      ]
+    },
+    {
+      "id": "store-contract",
+      "from": "store",
+      "to": "contracts",
+      "label": "KeyOf 类型",
+      "change": "added",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "labelAt": [
+        659,
+        326
+      ]
+    }
+  ]
+}

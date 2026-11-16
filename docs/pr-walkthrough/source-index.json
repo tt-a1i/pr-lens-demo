@@ -1,0 +1,145 @@
+[
+  {
+    "id": "tokio",
+    "repository": "tokio-rs/tokio",
+    "number": 1657,
+    "title": "executor: rewrite the work-stealing thread pool",
+    "url": "https://github.com/tokio-rs/tokio/pull/1657",
+    "base": "1cae04f8b380137137bb06e9d0ec0743aaa74c51",
+    "baseBranchTip": "1cae04f8b380137137bb06e9d0ec0743aaa74c51",
+    "head": "1c117fb7fd3ca398ca53ff676485b12cbb08557a",
+    "files": 100,
+    "additions": 7408,
+    "deletions": 6795,
+    "kind": "real-pr",
+    "scope": "Selected source paths and before/head diff; no full repository scan or runtime execution.",
+    "originalSource": "https://github.com/tokio-rs/tokio/blob/1c117fb7fd3ca398ca53ff676485b12cbb08557a/tokio-executor/src/thread_pool/queue/local.rs",
+    "inspectedSources": [
+      {
+        "path": "tokio-executor/src/thread_pool/queue/local.rs",
+        "url": "https://github.com/tokio-rs/tokio/blob/1c117fb7fd3ca398ca53ff676485b12cbb08557a/tokio-executor/src/thread_pool/queue/local.rs"
+      },
+      {
+        "path": "tokio-executor/src/thread_pool/worker.rs",
+        "url": "https://github.com/tokio-rs/tokio/blob/1c117fb7fd3ca398ca53ff676485b12cbb08557a/tokio-executor/src/thread_pool/worker.rs"
+      },
+      {
+        "path": "tokio-executor/src/thread_pool/idle.rs",
+        "url": "https://github.com/tokio-rs/tokio/blob/1c117fb7fd3ca398ca53ff676485b12cbb08557a/tokio-executor/src/thread_pool/idle.rs"
+      }
+    ]
+  },
+  {
+    "id": "vue",
+    "repository": "vuejs/core",
+    "number": 2532,
+    "title": "New `<script setup>` and ref sugar implementation",
+    "url": "https://github.com/vuejs/core/pull/2532",
+    "base": "0935c0501b8dcabf5600a539672c4745f7b1b93f",
+    "baseBranchTip": "38aadf5e7e0ba9daf13889655b129a6a7a8cadd7",
+    "head": "2a4fc32d1561125582a7fe3b9bf2815d6974c814",
+    "files": 11,
+    "additions": 1081,
+    "deletions": 670,
+    "kind": "real-pr",
+    "scope": "Selected source paths and before/head diff; no full repository scan or runtime execution.",
+    "originalSource": "https://github.com/vuejs/core/blob/2a4fc32d1561125582a7fe3b9bf2815d6974c814/packages/compiler-sfc/src/compileScript.ts",
+    "inspectedSources": [
+      {
+        "path": "packages/compiler-sfc/src/compileScript.ts",
+        "url": "https://github.com/vuejs/core/blob/2a4fc32d1561125582a7fe3b9bf2815d6974c814/packages/compiler-sfc/src/compileScript.ts"
+      },
+      {
+        "path": "packages/compiler-sfc/src/compileTemplate.ts",
+        "url": "https://github.com/vuejs/core/blob/2a4fc32d1561125582a7fe3b9bf2815d6974c814/packages/compiler-sfc/src/compileTemplate.ts"
+      },
+      {
+        "path": "packages/compiler-core/src/transforms/transformExpression.ts",
+        "url": "https://github.com/vuejs/core/blob/2a4fc32d1561125582a7fe3b9bf2815d6974c814/packages/compiler-core/src/transforms/transformExpression.ts"
+      }
+    ]
+  },
+  {
+    "id": "django",
+    "repository": "django/django",
+    "number": 11209,
+    "title": "Fixed #30451 -- Added ASGI handler and coroutine-safety.",
+    "url": "https://github.com/django/django/pull/11209",
+    "base": "cce47ff65a4dd3786c049ec14ee889e128ca7de9",
+    "baseBranchTip": "cce47ff65a4dd3786c049ec14ee889e128ca7de9",
+    "head": "7f19e3713598a37b0809b5434114140170d12e34",
+    "files": 38,
+    "additions": 931,
+    "deletions": 42,
+    "kind": "real-pr",
+    "scope": "Selected source paths and before/head diff; no full repository scan or runtime execution.",
+    "originalSource": "https://github.com/django/django/blob/7f19e3713598a37b0809b5434114140170d12e34/django/core/handlers/asgi.py",
+    "inspectedSources": [
+      {
+        "path": "django/core/handlers/asgi.py",
+        "url": "https://github.com/django/django/blob/7f19e3713598a37b0809b5434114140170d12e34/django/core/handlers/asgi.py"
+      },
+      {
+        "path": "django/utils/asyncio.py",
+        "url": "https://github.com/django/django/blob/7f19e3713598a37b0809b5434114140170d12e34/django/utils/asyncio.py"
+      },
+      {
+        "path": "django/db/utils.py",
+        "url": "https://github.com/django/django/blob/7f19e3713598a37b0809b5434114140170d12e34/django/db/utils.py"
+      }
+    ]
+  },
+  {
+    "id": "vllm",
+    "repository": "vllm-project/vllm",
+    "number": 1348,
+    "title": "Implement PagedAttention V2",
+    "url": "https://github.com/vllm-project/vllm/pull/1348",
+    "base": "d0740dff1b3ab06860316d98c937a3d4e143f25f",
+    "baseBranchTip": "d0740dff1b3ab06860316d98c937a3d4e143f25f",
+    "head": "9451b2d8e3282d27797e9b02780448f703dc80d6",
+    "files": 6,
+    "additions": 764,
+    "deletions": 139,
+    "kind": "real-pr",
+    "snapshot": "inputs/vllm/vllm__model_executor__layers__attention.py",
+    "scope": "Selected source paths and before/head diff; no full repository scan or runtime execution.",
+    "originalSource": "https://github.com/vllm-project/vllm/blob/9451b2d8e3282d27797e9b02780448f703dc80d6/vllm/model_executor/layers/attention.py",
+    "inspectedSources": [
+      {
+        "path": "vllm/model_executor/layers/attention.py",
+        "url": "https://github.com/vllm-project/vllm/blob/9451b2d8e3282d27797e9b02780448f703dc80d6/vllm/model_executor/layers/attention.py"
+      },
+      {
+        "path": "csrc/attention/attention_kernels.cu",
+        "url": "https://github.com/vllm-project/vllm/blob/9451b2d8e3282d27797e9b02780448f703dc80d6/csrc/attention/attention_kernels.cu"
+      }
+    ]
+  },
+  {
+    "id": "kubernetes",
+    "repository": "kubernetes/kubernetes",
+    "number": 14175,
+    "title": "Add Basic Ingress resource type for L7 Loadbalancing - Init Version",
+    "url": "https://github.com/kubernetes/kubernetes/pull/14175",
+    "base": "cad5f03311afff3907ce1f682c115c7c5451db06",
+    "baseBranchTip": "dafb3cc7a5b568c1fac0721da926dc16eaba4e46",
+    "head": "44477b246baadf49f100ab89725baa7119ce6cef",
+    "files": 8,
+    "additions": 766,
+    "deletions": 0,
+    "kind": "real-pr",
+    "scope": "Selected source paths and before/head diff; no full repository scan or runtime execution.",
+    "originalSource": "https://github.com/kubernetes/kubernetes/blob/44477b246baadf49f100ab89725baa7119ce6cef/pkg/apis/experimental/v1/types.go",
+    "inspectedSources": [
+      {
+        "path": "pkg/apis/experimental/v1/types.go",
+        "url": "https://github.com/kubernetes/kubernetes/blob/44477b246baadf49f100ab89725baa7119ce6cef/pkg/apis/experimental/v1/types.go"
+      },
+      {
+        "path": "pkg/apis/experimental/v1/register.go",
+        "url": "https://github.com/kubernetes/kubernetes/blob/44477b246baadf49f100ab89725baa7119ce6cef/pkg/apis/experimental/v1/register.go"
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "V1 与 V2 的分流条件",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "selector",
+      "label": "内核分流条件",
+      "type": "backend",
+      "pos": [
+        90,
+        150
+      ],
+      "size": [
+        350,
+        125
+      ],
+      "sublabel": "保留 V1，按输入决定 V2",
+      "change": "added"
+    }
+  ],
+  "connections": []
+}

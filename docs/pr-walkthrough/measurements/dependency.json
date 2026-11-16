@@ -1,0 +1,324 @@
+{
+  "provenance": "Arc native analyzer over the small synthetic source fixtures; these are not production PR measurements.",
+  "base": {
+    "files": 2,
+    "modules": [
+      {
+        "id": "order",
+        "label": "order",
+        "path": "order",
+        "files": 1,
+        "loc": 3,
+        "fanIn": 1,
+        "fanOut": 1,
+        "instability": 0.5,
+        "entry": [
+          "order/service.ts"
+        ]
+      },
+      {
+        "id": "store",
+        "label": "store",
+        "path": "store",
+        "files": 1,
+        "loc": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "instability": 0.5,
+        "entry": [
+          "store/store.ts"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "order",
+        "to": "store",
+        "weight": 1,
+        "kinds": {
+          "eager": 1,
+          "static": 1
+        },
+        "evidence": [
+          {
+            "file": "order/service.ts",
+            "line": 1,
+            "to": "store/store.ts"
+          }
+        ]
+      },
+      {
+        "from": "store",
+        "to": "order",
+        "weight": 1,
+        "kinds": {
+          "eager": 1,
+          "static": 1
+        },
+        "evidence": [
+          {
+            "file": "store/store.ts",
+            "line": 1,
+            "to": "order/service.ts"
+          }
+        ]
+      }
+    ],
+    "cycles": [
+      {
+        "id": "COUP-c25258b1346b",
+        "code": "coupling/cycle",
+        "dimension": "coupling",
+        "severity": "error",
+        "confidence": 1,
+        "message": "2 modules depend on each other at package level: order → store → order. See coupling/import-cycle for whether any file actually cycles.",
+        "subject": {
+          "modules": [
+            "order",
+            "store"
+          ]
+        },
+        "evidence": {
+          "kind": "eager",
+          "path": [
+            "order",
+            "store"
+          ],
+          "edges": [
+            {
+              "from": "order",
+              "to": "store",
+              "weight": 1,
+              "lazy": 0,
+              "deferred": false
+            },
+            {
+              "from": "store",
+              "to": "order",
+              "weight": 1,
+              "lazy": 0,
+              "deferred": false
+            }
+          ],
+          "closingLazyImports": [],
+          "imports": [
+            {
+              "file": "order/service.ts",
+              "line": 1,
+              "to": "store/store.ts"
+            },
+            {
+              "file": "store/store.ts",
+              "line": 1,
+              "to": "order/service.ts"
+            }
+          ],
+          "totalImports": 2,
+          "threshold": null
+        },
+        "supportedFixes": [
+          "move the shared piece both sides need into a new leaf module",
+          "invert one edge by passing the dependency in as a parameter",
+          "if one direction is a single import, check whether it is a convenience re-export that can be dropped"
+        ],
+        "evidenceDigest": {
+          "files": [
+            "order/service.ts",
+            "store/store.ts"
+          ],
+          "sha256": "65689203057da8a96e07094f536b795be22a38e0329e08a7e0209d39d2b851f6"
+        }
+      },
+      {
+        "id": "COUP-228257a63382",
+        "code": "coupling/import-cycle",
+        "dimension": "coupling",
+        "confidence": 0.7,
+        "severity": "error",
+        "message": "2 files form a module-scope import cycle: order/service.ts → store/store.ts → order/service.ts. Load-time behavior is not verified; accesses to partially initialized modules may depend on import order.",
+        "subject": {
+          "files": [
+            "order/service.ts",
+            "store/store.ts"
+          ]
+        },
+        "evidence": {
+          "kind": "eager",
+          "risk": {
+            "loading": "potential-at-import",
+            "coupling": "present",
+            "loadingNote": "module-scope dependency cycle; execution and attribute reads are not fully modeled"
+          },
+          "path": [
+            "order/service.ts",
+            "store/store.ts"
+          ],
+          "pathImports": [
+            {
+              "file": "order/service.ts",
+              "to": "store/store.ts",
+              "line": 1,
+              "deferred": false
+            },
+            {
+              "file": "store/store.ts",
+              "to": "order/service.ts",
+              "line": 1,
+              "deferred": false
+            }
+          ],
+          "imports": [
+            {
+              "file": "order/service.ts",
+              "line": 1,
+              "to": "store/store.ts",
+              "names": [
+                "saveOrder"
+              ],
+              "kind": "static"
+            },
+            {
+              "file": "store/store.ts",
+              "line": 1,
+              "to": "order/service.ts",
+              "names": [
+                "customerKey"
+              ],
+              "kind": "static"
+            }
+          ],
+          "lazyImports": 0,
+          "totalImports": 2,
+          "threshold": null
+        },
+        "supportedFixes": [
+          "prefer `import module` + attribute access at call time over `from module import name` inside the cycle",
+          "move the shared definitions into a new module both sides import",
+          "turn one direction into a function-scope import if the dependency is only needed at call time"
+        ],
+        "evidenceDigest": {
+          "files": [
+            "order/service.ts",
+            "store/store.ts"
+          ],
+          "sha256": "65689203057da8a96e07094f536b795be22a38e0329e08a7e0209d39d2b851f6"
+        }
+      }
+    ],
+    "codes": [
+      "coupling/import-cycle",
+      "coupling/cycle",
+      "coupling/hub",
+      "coupling/concentration",
+      "coupling/internal-leak",
+      "complexity/function"
+    ]
+  },
+  "head": {
+    "files": 3,
+    "modules": [
+      {
+        "id": "contracts",
+        "label": "contracts",
+        "path": "contracts",
+        "files": 1,
+        "loc": 1,
+        "fanIn": 2,
+        "fanOut": 0,
+        "instability": 0,
+        "entry": [
+          "contracts/keys.ts"
+        ]
+      },
+      {
+        "id": "order",
+        "label": "order",
+        "path": "order",
+        "files": 1,
+        "loc": 4,
+        "fanIn": 0,
+        "fanOut": 2,
+        "instability": 1,
+        "entry": [
+          "order/service.ts"
+        ]
+      },
+      {
+        "id": "store",
+        "label": "store",
+        "path": "store",
+        "files": 1,
+        "loc": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "instability": 0.5,
+        "entry": [
+          "store/store.ts"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "order",
+        "to": "contracts",
+        "weight": 1,
+        "kinds": {
+          "eager": 0,
+          "static": 1,
+          "typeOnly": 1
+        },
+        "evidence": [
+          {
+            "file": "order/service.ts",
+            "line": 2,
+            "to": "contracts/keys.ts",
+            "typeOnly": true
+          }
+        ]
+      },
+      {
+        "from": "order",
+        "to": "store",
+        "weight": 1,
+        "kinds": {
+          "eager": 1,
+          "static": 1
+        },
+        "evidence": [
+          {
+            "file": "order/service.ts",
+            "line": 1,
+            "to": "store/store.ts"
+          }
+        ]
+      },
+      {
+        "from": "store",
+        "to": "contracts",
+        "weight": 1,
+        "kinds": {
+          "eager": 0,
+          "static": 1,
+          "typeOnly": 1
+        },
+        "evidence": [
+          {
+            "file": "store/store.ts",
+            "line": 1,
+            "to": "contracts/keys.ts",
+            "typeOnly": true
+          }
+        ]
+      }
+    ],
+    "cycles": [],
+    "codes": [
+      "coupling/import-cycle",
+      "coupling/cycle",
+      "coupling/hub",
+      "coupling/concentration",
+      "coupling/internal-leak",
+      "complexity/function"
+    ]
+  }
+}

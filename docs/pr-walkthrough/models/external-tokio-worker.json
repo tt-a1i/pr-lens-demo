@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "搜索、停泊和唤醒协调",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "mainPath": [
+    "running",
+    "searching",
+    "parked"
+  ],
+  "states": [
+    {
+      "id": "running",
+      "type": "active",
+      "label": "执行任务",
+      "sublabel": "先消费本地队列"
+    },
+    {
+      "id": "searching",
+      "type": "active",
+      "label": "搜索任务",
+      "sublabel": "尽量限制同时搜索数量",
+      "change": "modified"
+    },
+    {
+      "id": "parked",
+      "type": "waiting",
+      "label": "停泊等待",
+      "sublabel": "任务通知后重新检查",
+      "change": "modified"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "seek",
+      "from": "running",
+      "to": "searching",
+      "label": "本地无任务且允许搜索",
+      "change": "modified"
+    },
+    {
+      "id": "sleep",
+      "from": "searching",
+      "to": "parked",
+      "label": "没有找到任务",
+      "change": "modified"
+    },
+    {
+      "id": "wake",
+      "from": "parked",
+      "to": "searching",
+      "label": "被唤醒后重查",
+      "change": "modified"
+    },
+    {
+      "id": "found",
+      "from": "searching",
+      "to": "running",
+      "label": "取得任务",
+      "change": "modified"
+    },
+    {
+      "id": "limit",
+      "from": "running",
+      "to": "parked",
+      "label": "暂不加入搜索",
+      "change": "modified"
+    }
+  ]
+}

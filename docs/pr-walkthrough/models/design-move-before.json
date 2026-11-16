@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "原来的 where 实现在检查模块内",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "caller",
+      "label": "原有调用者",
+      "type": "backend",
+      "pos": [
+        28,
+        90
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "import { where }"
+    },
+    {
+      "id": "api",
+      "label": "公开导出 where",
+      "type": "backend",
+      "pos": [
+        338,
+        90
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "bin/check.mjs"
+    },
+    {
+      "id": "implementation",
+      "label": "where()",
+      "type": "backend",
+      "pos": [
+        338,
+        300
+      ],
+      "size": [
+        210,
+        84
+      ],
+      "sublabel": "bin/check.mjs"
+    }
+  ],
+  "connections": [
+    {
+      "id": "caller-api",
+      "from": "caller",
+      "to": "api",
+      "label": "公开入口"
+    },
+    {
+      "id": "binding-old",
+      "from": "api",
+      "to": "implementation",
+      "label": "本地定义",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        443,
+        235
+      ]
+    }
+  ]
+}

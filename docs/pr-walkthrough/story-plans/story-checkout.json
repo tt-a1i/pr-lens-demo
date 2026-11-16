@@ -1,0 +1,186 @@
+{
+  "id": "story-checkout",
+  "title": "组织结账",
+  "question": "组织结账怎样从同步扣款改为幂等排队和后台执行？",
+  "duration": 34,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/tt-a1i/pr-lens-demo/pull/2",
+    "base": "e3a00b089748830a724dd51ae565ac03707c8c2a",
+    "head": "8bcb443e82d1da97c78aa6d626ad6e18ec54120b"
+  },
+  "selection": {
+    "main": "HTTP 接收与后台扣款分离",
+    "support": [
+      "重复请求复用发票",
+      "发票归属组织"
+    ],
+    "omit": [
+      "与主线无关的代码细节",
+      "未测量的性能收益"
+    ]
+  },
+  "views": {
+    "before": {
+      "model": "checkout-sync",
+      "type": "workflow"
+    },
+    "after": {
+      "model": "design-checkout",
+      "type": "workflow"
+    },
+    "billing": {
+      "model": "checkout-billing",
+      "type": "erd",
+      "start": 20,
+      "end": 34
+    }
+  },
+  "pair": {
+    "before": "before",
+    "after": "after",
+    "at": 4.7,
+    "until": 19.8,
+    "shared": [
+      {
+        "id": "checkout",
+        "label": "提交组织结账",
+        "subtitle": "orgId · 幂等键"
+      },
+      {
+        "id": "stripe",
+        "subtitle": "PaymentIntents"
+      },
+      {
+        "id": "response",
+        "label": "202 · queued",
+        "subtitle": "返回 invoiceId"
+      }
+    ]
+  },
+  "enter": [
+    {
+      "view": "after",
+      "nodes": [
+        "guard",
+        "queue",
+        "worker"
+      ],
+      "at": 5.7,
+      "stagger": 0.45
+    }
+  ],
+  "connect": [
+    {
+      "view": "after",
+      "edges": [
+        "to-guard",
+        "first-submit",
+        "queued-response",
+        "consume",
+        "payment"
+      ],
+      "at": 6.3,
+      "stagger": 0.6
+    },
+    {
+      "view": "after",
+      "edges": [
+        "repeat"
+      ],
+      "at": 10.8
+    }
+  ],
+  "traces": [
+    {
+      "view": "after",
+      "edges": [
+        "to-guard",
+        "repeat"
+      ],
+      "times": [
+        11.8,
+        13.7
+      ],
+      "end": 15.5,
+      "id": "retry-request"
+    },
+    {
+      "view": "after",
+      "edges": [
+        "consume",
+        "payment"
+      ],
+      "times": [
+        16.3,
+        18
+      ],
+      "end": 19.7,
+      "id": "worker-run"
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "组织结账改为幂等排队，再由后台扣款",
+      "body": "原先请求等待扣款与回执完成；这次将等待移出 HTTP 链路。"
+    },
+    {
+      "at": 5.4,
+      "title": "新增幂等锁、队列与结账 Worker",
+      "body": "首次请求取得锁后入队，Worker 在后台调用 Stripe。",
+      "change": "added"
+    },
+    {
+      "at": 10.6,
+      "title": "重复请求绕过队列，复用已有发票",
+      "body": "同一个幂等键返回已有 invoiceId，不创建第二个结账任务。"
+    },
+    {
+      "at": 15.8,
+      "title": "HTTP 返回 202，付款结果由后台处理",
+      "body": "202 只表示任务已入队；后台扣款继续传递同一个幂等键。"
+    },
+    {
+      "at": 21,
+      "title": "发票从用户归属改为组织归属",
+      "body": "沿着 invoiceId 看数据契约：org_id 取代 user_id 外键。"
+    },
+    {
+      "at": 27,
+      "title": "金额类型扩大，幂等键增加唯一约束",
+      "body": "amount_cents：int → bigint；idempotency_key 不能重复。"
+    }
+  ],
+  "focus": [
+    {
+      "view": "billing",
+      "nodes": [
+        "invoices"
+      ],
+      "at": 26,
+      "end": 34,
+      "area": "center"
+    }
+  ],
+  "fade": [
+    {
+      "view": "billing",
+      "nodes": [
+        "users",
+        "organizations"
+      ],
+      "at": 26,
+      "to": 0
+    },
+    {
+      "view": "billing",
+      "edges": [
+        "user-invoices",
+        "org-invoices"
+      ],
+      "at": 26,
+      "to": 0
+    }
+  ]
+}

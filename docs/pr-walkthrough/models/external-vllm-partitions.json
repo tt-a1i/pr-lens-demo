@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "序列维度分区计算，再归一化合并",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard",
+    "viewBox": [
+      1100,
+      610
+    ]
+  },
+  "stages": [
+    {
+      "label": "共享输入"
+    },
+    {
+      "label": "不同序列分区"
+    },
+    {
+      "label": "归并输出"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "inputs",
+      "stage": 0,
+      "row": 1,
+      "label": "同一组 Q / KV",
+      "sublabel": "共享缓存索引",
+      "type": "backend",
+      "width": 152,
+      "height": 86
+    },
+    {
+      "id": "part0",
+      "stage": 1,
+      "row": 0,
+      "label": "序列分区 0",
+      "sublabel": "512 tokens / 分区",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "added"
+    },
+    {
+      "id": "part1",
+      "stage": 1,
+      "row": 1,
+      "label": "序列分区 1",
+      "sublabel": "局部输出与统计",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "added"
+    },
+    {
+      "id": "remaining",
+      "stage": 1,
+      "row": 2,
+      "label": "其余序列分区",
+      "sublabel": "分区数随输入变化",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "added"
+    },
+    {
+      "id": "reduce",
+      "stage": 2,
+      "row": 1,
+      "label": "V2 reduce 内核",
+      "sublabel": "缩放并写回 out",
+      "type": "backend",
+      "width": 152,
+      "height": 86,
+      "change": "added"
+    }
+  ],
+  "flows": [
+    {
+      "id": "read0",
+      "from": "inputs",
+      "to": "part0",
+      "label": "分区 0",
+      "change": "added"
+    },
+    {
+      "id": "read1",
+      "from": "inputs",
+      "to": "part1",
+      "label": "分区 1",
+      "change": "added"
+    },
+    {
+      "id": "read-rest",
+      "from": "inputs",
+      "to": "remaining",
+      "label": "其余分区",
+      "change": "added"
+    },
+    {
+      "id": "sum0",
+      "from": "part0",
+      "to": "reduce",
+      "label": "分区 0 结果",
+      "change": "added",
+      "labelAt": [
+        423,
+        229
+      ]
+    },
+    {
+      "id": "sum1",
+      "from": "part1",
+      "to": "reduce",
+      "label": "局部输出与统计",
+      "change": "added",
+      "labelAt": [
+        423,
+        345
+      ]
+    },
+    {
+      "id": "sum-rest",
+      "from": "remaining",
+      "to": "reduce",
+      "label": "其他结果",
+      "change": "added",
+      "labelAt": [
+        423,
+        455
+      ]
+    }
+  ]
+}

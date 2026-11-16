@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "原有工作台报告当前仓库状态",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "repository",
+      "label": "仓库分析",
+      "pos": [
+        30,
+        90
+      ],
+      "sublabel": "原有调用方式",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ]
+    },
+    {
+      "id": "session",
+      "label": "原生分析会话",
+      "pos": [
+        355,
+        90
+      ],
+      "sublabel": "复用现有分析器",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ]
+    },
+    {
+      "id": "workbench",
+      "label": "原生工作台",
+      "pos": [
+        680,
+        90
+      ],
+      "sublabel": "当前诊断与 Atlas",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "repo-session",
+      "from": "repository",
+      "to": "session",
+      "label": "原有入口"
+    },
+    {
+      "id": "session-view",
+      "from": "session",
+      "to": "workbench",
+      "label": "当前诊断"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "story-vue",
+  "title": "Vue 编译绑定",
+  "question": "script setup 的绑定信息怎样影响普通与内联模板的生成？",
+  "duration": 29,
+  "source": {
+    "kind": "real-pr",
+    "url": "https://github.com/vuejs/core/pull/2532",
+    "base": "0935c0501b8dcabf5600a539672c4745f7b1b93f",
+    "head": "2a4fc32d1561125582a7fe3b9bf2815d6974c814"
+  },
+  "stills": [
+    3,
+    8.5,
+    14.5,
+    20,
+    26.8
+  ],
+  "selection": {
+    "main": "绑定元数据与新增内联模板产物",
+    "support": [
+      "普通模式保留",
+      "编译期与运行期区分",
+      "复杂度不等同语义变化"
+    ],
+    "omit": [
+      "ref sugar 的全部语法细节属于另一条讲解",
+      "不把旧版本实现画成当前 Vue 公共 API"
+    ]
+  },
+  "views": {
+    "main": {
+      "model": "external-vue-bindings",
+      "type": "dataflow",
+      "end": 21.5
+    },
+    "detail": {
+      "model": "external-vue-expression",
+      "type": "architecture",
+      "start": 22,
+      "end": 29
+    }
+  },
+  "enter": [
+    {
+      "view": "main",
+      "nodes": [
+        "inline"
+      ],
+      "at": 10.8
+    }
+  ],
+  "connect": [
+    {
+      "view": "main",
+      "edges": [
+        "bind-template"
+      ],
+      "at": 5.7
+    },
+    {
+      "view": "main",
+      "edges": [
+        "inline-result"
+      ],
+      "at": 11.3
+    }
+  ],
+  "detail": {
+    "view": "detail",
+    "nodes": [
+      "expression"
+    ],
+    "start": 22,
+    "end": 29,
+    "title": "transformExpression.ts",
+    "file": "inputs/vue/transformExpression-head.ts",
+    "lines": [
+      104,
+      106,
+      107,
+      108,
+      109,
+      113
+    ],
+    "highlight": [
+      104,
+      106,
+      107,
+      108,
+      109
+    ],
+    "note": "按绑定种类改写访问方式"
+  },
+  "metrics": [
+    {
+      "id": "vue-complexity",
+      "view": "detail",
+      "node": "expression",
+      "label": "圈复杂度",
+      "before": 2,
+      "after": 6,
+      "at": 25.4,
+      "tone": "neutral"
+    }
+  ],
+  "steps": [
+    {
+      "at": 0,
+      "title": "脚本绑定信息连接模板编译与生成产物",
+      "body": "这是编译阶段的变化；图中的箭头不表示组件运行时请求。"
+    },
+    {
+      "at": 5.3,
+      "title": "顶层声明和导入被归类为绑定元数据",
+      "body": "模板表达式据此区分 setup 值、组件导入和 props。"
+    },
+    {
+      "at": 11,
+      "title": "inlineTemplate 模式直接返回 render 闭包",
+      "body": "模板在 setup 词法作用域中生成，不再只依赖返回绑定对象。",
+      "change": "added"
+    },
+    {
+      "at": 16.8,
+      "title": "普通模式继续返回绑定对象",
+      "body": "新增内联分支有自己的读取规则，普通生成方式仍然保留。"
+    },
+    {
+      "at": 22.4,
+      "title": "内联绑定按种类生成访问表达式",
+      "body": "setup 值使用 unref，组件导入直接引用；普通模式保留前缀读取。"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "发票归属迁移与字段契约变化",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "layout": {
+    "mode": "grid",
+    "headerH": 40,
+    "rowH": 27
+  },
+  "entities": [
+    {
+      "id": "users",
+      "label": "users · 用户",
+      "pos": [
+        24,
+        62
+      ],
+      "width": 246,
+      "attributes": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "key": "pk"
+        },
+        {
+          "name": "email",
+          "type": "citext",
+          "key": "uk"
+        }
+      ]
+    },
+    {
+      "id": "organizations",
+      "label": "organizations · 组织",
+      "pos": [
+        24,
+        316
+      ],
+      "width": 246,
+      "attributes": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "key": "pk"
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "key": "uk"
+        },
+        {
+          "name": "stripe_account_id",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "invoices",
+      "label": "invoices · 发票",
+      "pos": [
+        470,
+        122
+      ],
+      "width": 380,
+      "change": "modified",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "key": "pk"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "key": "fk",
+          "references": "users.id",
+          "change": "removed"
+        },
+        {
+          "name": "org_id",
+          "type": "uuid",
+          "key": "fk",
+          "references": "organizations.id",
+          "change": "added"
+        },
+        {
+          "name": "amount_cents",
+          "type": "bigint",
+          "previousType": "int",
+          "change": "modified"
+        },
+        {
+          "name": "idempotency_key",
+          "type": "text",
+          "key": "uk",
+          "change": "added"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "user-invoices",
+      "from": "users",
+      "to": "invoices",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "原归属",
+      "change": "removed",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        368,
+        122
+      ]
+    },
+    {
+      "id": "org-invoices",
+      "from": "organizations",
+      "to": "invoices",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "新归属",
+      "change": "added",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        368,
+        343
+      ]
+    }
+  ]
+}

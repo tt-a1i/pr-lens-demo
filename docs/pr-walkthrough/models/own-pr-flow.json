@@ -1,0 +1,143 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "固定输入、复用分析、比较与源码追溯",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "lanes": [
+    {
+      "id": "base",
+      "label": "共同基点 → PR 比较"
+    },
+    {
+      "id": "head",
+      "label": "PR 提交与来源追溯"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "base",
+      "lane": "base",
+      "col": 0,
+      "label": "共同基点",
+      "sublabel": "fb9ed137",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "head",
+      "lane": "head",
+      "col": 0,
+      "label": "PR 提交",
+      "sublabel": "e50aa862",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "analyzer",
+      "lane": "base",
+      "col": 1,
+      "label": "同一原生分析器",
+      "sublabel": "相同配置与语言适配器",
+      "type": "backend",
+      "width": 164,
+      "height": 76
+    },
+    {
+      "id": "impact",
+      "lane": "base",
+      "col": 2,
+      "label": "PR 增量提取",
+      "sublabel": "依赖 / 定义 / 指标",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "workbench",
+      "lane": "base",
+      "col": 3,
+      "label": "原生工作台",
+      "sublabel": "本次变化与既有背景",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "modified"
+    },
+    {
+      "id": "evidence",
+      "lane": "head",
+      "col": 3,
+      "label": "原生源码与任务",
+      "sublabel": "固定源码 · 已确认引用",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "modified"
+    },
+    {
+      "id": "failed",
+      "lane": "head",
+      "col": 2,
+      "label": "本轮分析失败",
+      "sublabel": "清理本轮临时输入",
+      "type": "backend",
+      "width": 164,
+      "height": 76,
+      "change": "modified"
+    }
+  ],
+  "edges": [
+    {
+      "id": "base-analyzer",
+      "from": "base",
+      "to": "analyzer",
+      "label": "先分析基点"
+    },
+    {
+      "id": "head-analyzer",
+      "from": "head",
+      "to": "analyzer",
+      "label": "再分析 PR",
+      "change": "added"
+    },
+    {
+      "id": "analyzer-impact",
+      "from": "analyzer",
+      "to": "impact",
+      "label": "两侧原生产物",
+      "change": "added"
+    },
+    {
+      "id": "publish",
+      "from": "impact",
+      "to": "workbench",
+      "label": "成功后替换",
+      "change": "modified"
+    },
+    {
+      "id": "source",
+      "from": "workbench",
+      "to": "evidence",
+      "label": "追溯变化",
+      "change": "modified"
+    },
+    {
+      "id": "failure",
+      "from": "analyzer",
+      "to": "failed",
+      "label": "任一侧失败",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "variant": "security"
+    }
+  ]
+}

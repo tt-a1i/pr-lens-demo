@@ -1,0 +1,134 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "组织结账：幂等排队与后台扣款",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "lanes": [
+    {
+      "id": "request",
+      "label": "请求处理"
+    },
+    {
+      "id": "background",
+      "label": "后台执行"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "checkout",
+      "lane": "request",
+      "col": 0,
+      "label": "提交组织结账",
+      "sublabel": "orgId · 幂等键",
+      "type": "backend",
+      "width": 158,
+      "height": 76,
+      "change": "modified"
+    },
+    {
+      "id": "guard",
+      "lane": "request",
+      "col": 1,
+      "label": "申请幂等锁",
+      "sublabel": "Redis · 24 小时",
+      "type": "database",
+      "width": 158,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "queue",
+      "lane": "request",
+      "col": 2,
+      "label": "结账队列",
+      "sublabel": "只接收首次请求",
+      "type": "messagebus",
+      "width": 158,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "response",
+      "lane": "request",
+      "col": 3,
+      "label": "202 · queued",
+      "sublabel": "返回 invoiceId",
+      "type": "backend",
+      "width": 158,
+      "height": 76,
+      "change": "modified"
+    },
+    {
+      "id": "worker",
+      "lane": "background",
+      "col": 2,
+      "label": "结账 Worker",
+      "sublabel": "processOrgCheckout",
+      "type": "backend",
+      "width": 158,
+      "height": 76,
+      "change": "added"
+    },
+    {
+      "id": "stripe",
+      "lane": "background",
+      "col": 3,
+      "label": "Stripe 扣款",
+      "sublabel": "PaymentIntents",
+      "type": "backend",
+      "width": 158,
+      "height": 76,
+      "change": "modified"
+    }
+  ],
+  "edges": [
+    {
+      "id": "to-guard",
+      "from": "checkout",
+      "to": "guard",
+      "label": "申请锁",
+      "change": "added"
+    },
+    {
+      "id": "first-submit",
+      "from": "guard",
+      "to": "queue",
+      "label": "取得锁",
+      "change": "added"
+    },
+    {
+      "id": "repeat",
+      "from": "guard",
+      "to": "response",
+      "label": "重复：返回已有发票",
+      "change": "added",
+      "fromSide": "top",
+      "toSide": "top"
+    },
+    {
+      "id": "queued-response",
+      "from": "queue",
+      "to": "response",
+      "label": "入队后返回",
+      "change": "modified"
+    },
+    {
+      "id": "consume",
+      "from": "queue",
+      "to": "worker",
+      "label": "后台消费",
+      "change": "added"
+    },
+    {
+      "id": "payment",
+      "from": "worker",
+      "to": "stripe",
+      "label": "透传幂等键",
+      "change": "modified"
+    }
+  ]
+}

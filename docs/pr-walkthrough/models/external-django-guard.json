@@ -1,0 +1,88 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "同步专用函数进入异步环境时的保护",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "nodes": [
+    {
+      "id": "call",
+      "lane": "normal",
+      "col": 0,
+      "label": "同步专用函数",
+      "sublabel": "由 async_unsafe 包装",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "modified"
+    },
+    {
+      "id": "loop",
+      "lane": "normal",
+      "col": 1,
+      "label": "检测事件循环",
+      "sublabel": "当前线程是否正在运行",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "added"
+    },
+    {
+      "id": "proceed",
+      "lane": "normal",
+      "col": 2,
+      "label": "调用原函数",
+      "sublabel": "同步环境继续执行",
+      "type": "backend",
+      "width": 166,
+      "height": 78
+    },
+    {
+      "id": "reject",
+      "lane": "rejected",
+      "col": 2,
+      "label": "拒绝异步误用",
+      "sublabel": "抛出同步专用异常",
+      "type": "security",
+      "width": 166,
+      "height": 78,
+      "change": "added"
+    }
+  ],
+  "edges": [
+    {
+      "id": "detect",
+      "from": "call",
+      "to": "loop",
+      "label": "先检查",
+      "change": "added"
+    },
+    {
+      "id": "safe",
+      "from": "loop",
+      "to": "proceed",
+      "label": "无运行中循环",
+      "change": "added"
+    },
+    {
+      "id": "unsafe",
+      "from": "loop",
+      "to": "reject",
+      "label": "运行中循环",
+      "change": "added"
+    }
+  ],
+  "lanes": [
+    {
+      "id": "normal",
+      "label": "原有同步调用契约"
+    },
+    {
+      "id": "rejected",
+      "label": "异步上下文保护"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "PagedAttention V2 加入后保留 V1 分流",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "nodes": [
+    {
+      "id": "decode",
+      "lane": "main",
+      "col": 0,
+      "label": "解码注意力",
+      "sublabel": "已有 Q 与 KV cache",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "modified"
+    },
+    {
+      "id": "choose",
+      "lane": "main",
+      "col": 1,
+      "label": "选择内核",
+      "sublabel": "按分区数与工作量",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "added"
+    },
+    {
+      "id": "v1",
+      "lane": "main",
+      "col": 2,
+      "label": "V1 内核",
+      "sublabel": "单分区或工作量足够",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "modified"
+    },
+    {
+      "id": "v2",
+      "lane": "partition",
+      "col": 2,
+      "label": "V2 内核",
+      "sublabel": "序列分区，再归并",
+      "type": "backend",
+      "width": 166,
+      "height": 78,
+      "change": "added"
+    },
+    {
+      "id": "output",
+      "lane": "main",
+      "col": 3,
+      "label": "原输出张量",
+      "sublabel": "shape 与调用契约保留",
+      "type": "backend",
+      "width": 166,
+      "height": 78
+    }
+  ],
+  "edges": [
+    {
+      "id": "select",
+      "from": "decode",
+      "to": "choose",
+      "label": "决定路径",
+      "change": "added"
+    },
+    {
+      "id": "keep-v1",
+      "from": "choose",
+      "to": "v1",
+      "label": "使用 V1",
+      "change": "modified"
+    },
+    {
+      "id": "choose-v2",
+      "from": "choose",
+      "to": "v2",
+      "label": "其余情况",
+      "change": "added"
+    },
+    {
+      "id": "v1-out",
+      "from": "v1",
+      "to": "output",
+      "label": "写入 out"
+    },
+    {
+      "id": "v2-out",
+      "from": "v2",
+      "to": "output",
+      "label": "归并后写入",
+      "change": "added",
+      "fromSide": "right",
+      "toSide": "bottom"
+    }
+  ],
+  "lanes": [
+    {
+      "id": "main",
+      "label": "原有调用与输出"
+    },
+    {
+      "id": "partition",
+      "label": "新增分区路径"
+    }
+  ]
+}

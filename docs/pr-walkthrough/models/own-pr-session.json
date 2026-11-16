@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "会话协调函数承担新增双版本分支",
+    "locale": "zh-CN",
+    "output": "diagram.html",
+    "quality_profile": "standard"
+  },
+  "components": [
+    {
+      "id": "session",
+      "label": "runSessionAnalysis()",
+      "pos": [
+        40,
+        70
+      ],
+      "sublabel": "bin / serve.mjs",
+      "type": "backend",
+      "size": [
+        210,
+        84
+      ],
+      "change": "modified"
+    }
+  ],
+  "connections": []
+}
