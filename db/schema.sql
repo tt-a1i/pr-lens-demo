@@ -1,7 +1,6 @@
 CREATE TABLE users (
   id uuid PRIMARY KEY,
-  email citext NOT NULL UNIQUE,
-  stripe_customer_id text
+  email citext NOT NULL UNIQUE
 );
 
 CREATE TABLE organizations (
@@ -12,8 +11,11 @@ CREATE TABLE organizations (
 
 CREATE TABLE invoices (
   id uuid PRIMARY KEY,
-  user_id uuid NOT NULL REFERENCES users(id),
-  amount_cents int NOT NULL,
-  status text NOT NULL DEFAULT 'pending',
+  org_id uuid NOT NULL REFERENCES organizations(id),
+  idempotency_key text NOT NULL,
+  amount_cents bigint NOT NULL,
+  status text NOT NULL DEFAULT 'queued',
   created_at timestamp with time zone NOT NULL DEFAULT now()
 );
+
+CREATE UNIQUE INDEX invoices_idempotency_key_idx ON invoices (idempotency_key);
