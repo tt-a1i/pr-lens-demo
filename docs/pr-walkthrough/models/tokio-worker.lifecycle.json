@@ -1,0 +1,21 @@
+{
+  "schema_version": 3,
+  "diagram_type": "lifecycle",
+  "meta": {
+    "title": "Tokio #1657: Worker Search & Park Transitions",
+    "output": "tokio-worker.html",
+    "quality_profile": "showcase"
+  },
+  "mainPath": ["executing", "searching", "parked"],
+  "states": [
+    { "id": "executing", "type": "active", "label": "Executing", "sublabel": "drain local ring + LIFO", "step": "01" },
+    { "id": "searching", "type": "decision", "label": "Searching", "sublabel": "relaxed search bound", "step": "02" },
+    { "id": "parked", "type": "waiting", "label": "Parked", "sublabel": "Mutex<Vec<usize>> idle", "step": "03" }
+  ],
+  "transitions": [
+    { "id": "t_search", "from": "executing", "to": "searching", "label": "local empty" },
+    { "id": "t_park", "from": "searching", "to": "parked", "label": "no stolen tasks" },
+    { "id": "t_wake", "from": "searching", "to": "executing", "label": "batch stolen", "variant": "dashed" },
+    { "id": "t_unpark", "from": "parked", "to": "executing", "label": "notify_worker", "variant": "dashed" }
+  ]
+}

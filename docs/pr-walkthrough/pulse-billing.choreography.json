@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "kind": "story-choreography",
+  "id": "pulse-billing",
+  "title": "Pulse Billing PR #5：结账意图从同步直付转向异步幂等队列",
+  "locale": "zh-CN",
+  "preset": "classic",
+  "chrome": "story",
+  "badge": "Intent · PR #5",
+  "stills": [
+    1.5,
+    7.5,
+    13,
+    18
+  ],
+  "views": [
+    {
+      "id": "sync",
+      "type": "architecture",
+      "input": "models/pulse-sync.architecture.json",
+      "callouts": {
+        "gateway": {
+          "text": "阻塞扣款",
+          "tone": "modified"
+        },
+        "mailer": {
+          "text": "已剥离",
+          "tone": "removed"
+        }
+      }
+    },
+    {
+      "id": "async_flow",
+      "type": "sequence",
+      "input": "models/pulse-async.sequence.json",
+      "callouts": {
+        "lock": {
+          "text": "幂等锁",
+          "tone": "accent"
+        },
+        "queue": {
+          "text": "新增入队接口 · 示例桩",
+          "tone": "added"
+        }
+      }
+    },
+    {
+      "id": "ledger",
+      "type": "erd",
+      "input": "models/pulse-ledger.erd.json",
+      "callouts": {
+        "invoices": {
+          "text": "归属迁移 · 唯一幂等键",
+          "tone": "modified"
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "view": "sync",
+      "duration": 5,
+      "title": "基线契约：POST /checkout 阻塞等待扣款与发信",
+      "body": "基线路由等待 Stripe 扣款与 SMTP 发信后返回 200；响应时间受两段串联调用的耗时影响。",
+      "trace": {
+        "edges": [
+          "c_post",
+          "c_stripe"
+        ],
+        "travel": 1.1
+      }
+    },
+    {
+      "view": "async_flow",
+      "duration": 5.5,
+      "title": "契约迁移：首次与重复请求都返回 202 Queued",
+      "body": "首次入队返回 invoiceId 和 jobId。重复请求复用已有 invoiceId。入队函数目前只返回示例 ID。",
+      "transition": {
+        "from": "sync",
+        "shared": [
+          {
+            "id": "checkout_api",
+            "label": "Checkout Route",
+            "subtitle": "202 async queued"
+          }
+        ]
+      },
+      "enter": [
+        "lock",
+        "queue",
+        "worker"
+      ],
+      "trace": {
+        "edges": [
+          "m_claim",
+          "m_enq",
+          "m_202"
+        ],
+        "travel": 0.9
+      }
+    },
+    {
+      "view": "async_flow",
+      "duration": 5.5,
+      "title": "源码印证：锁占用或入队成功均返回 202 Queued",
+      "body": "锁已占用时跳过入队并返回已有 invoiceId。首次请求调用入队函数，响应额外包含 jobId。",
+      "focus": {
+        "nodes": [
+          "checkout_api",
+          "lock",
+          "queue"
+        ],
+        "area": "left"
+      },
+      "detail": {
+        "nodes": [
+          "checkout_api",
+          "lock",
+          "queue"
+        ],
+        "title": "src/routes/checkout.ts · postCheckout()",
+        "note": "外部响应语义已改为排队受理，前端不能再假定立即可用",
+        "path": "inputs/pulse/checkout.ts",
+        "lines": [
+          13,
+          19,
+          20,
+          23,
+          31,
+          32,
+          33
+        ],
+        "highlight": [
+          19,
+          20,
+          32
+        ]
+      }
+    },
+    {
+      "view": "ledger",
+      "duration": 5,
+      "title": "计费归属迁移：invoices 从用户转向组织",
+      "body": "invoices 新增 org_id 与幂等键唯一索引，amount_cents 改为 bigint；这是 Schema 约束变化，不代表已验证的持久化流程。",
+      "focus": [
+        "orgs",
+        "invoices"
+      ]
+    }
+  ]
+}

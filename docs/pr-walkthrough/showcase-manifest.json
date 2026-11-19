@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-11-17T16:22:32.920Z",
+  "engineRevision": "0a928733a0062db602a1a1ec02253b3a1fa2a061",
+  "cases": [
+    {
+      "id": "arc-story-split",
+      "duration": 18,
+      "steps": 3,
+      "outputs": [
+        "images/arc-story-split-light.svg",
+        "images/arc-story-split-dark.svg"
+      ],
+      "stills": [
+        "stills/arc-story-split-still-1-light.svg",
+        "stills/arc-story-split-still-2-light.svg",
+        "stills/arc-story-split-still-3-light.svg",
+        "stills/arc-story-split-still-1-dark.svg",
+        "stills/arc-story-split-still-2-dark.svg",
+        "stills/arc-story-split-still-3-dark.svg"
+      ],
+      "stage": "stages/arc-story-split.stage.html",
+      "video": {
+        "path": "videos/arc-story-split.mp4",
+        "bytes": 4590347,
+        "engineRevision": "0a928733a0062db602a1a1ec02253b3a1fa2a061",
+        "sha256": "c0721e5c0ebfb4aad7e289b897f0c22143dc823abb7bf3c4cff5431d582ae42b"
+      }
+    },
+    {
+      "id": "pulse-billing",
+      "duration": 21,
+      "steps": 4,
+      "outputs": [
+        "images/pulse-billing-light.svg",
+        "images/pulse-billing-dark.svg"
+      ],
+      "stills": [
+        "stills/pulse-billing-still-1-light.svg",
+        "stills/pulse-billing-still-2-light.svg",
+        "stills/pulse-billing-still-3-light.svg",
+        "stills/pulse-billing-still-4-light.svg",
+        "stills/pulse-billing-still-1-dark.svg",
+        "stills/pulse-billing-still-2-dark.svg",
+        "stills/pulse-billing-still-3-dark.svg",
+        "stills/pulse-billing-still-4-dark.svg"
+      ],
+      "stage": "stages/pulse-billing.stage.html",
+      "video": {
+        "path": "videos/pulse-billing.mp4",
+        "bytes": 6029027,
+        "engineRevision": "fd04805905e28f6779890eb4d8773183e620ca10",
+        "sha256": "8d318e9588bea325809aee286bf0586bb79325084088a12f28f2b7b2b076dad2"
+      },
+      "engineRevision": "fd04805905e28f6779890eb4d8773183e620ca10"
+    },
+    {
+      "id": "tokio-scheduler",
+      "duration": 11.5,
+      "steps": 2,
+      "outputs": [
+        "images/tokio-scheduler-light.svg",
+        "images/tokio-scheduler-dark.svg"
+      ],
+      "stills": [
+        "stills/tokio-scheduler-still-1-light.svg",
+        "stills/tokio-scheduler-still-2-light.svg",
+        "stills/tokio-scheduler-still-1-dark.svg",
+        "stills/tokio-scheduler-still-2-dark.svg"
+      ],
+      "stage": "stages/tokio-scheduler.stage.html",
+      "video": {
+        "path": "videos/tokio-scheduler.mp4",
+        "bytes": 1721591,
+        "engineRevision": "f1b25dc0670a7b569dd35fff451a626a9f072b0b",
+        "sha256": "d90837ab2c90f13bd2f4481823f6513b5427d37a8b6a6fcfd77128432f411e90"
+      }
+    },
+    {
+      "id": "vue-complexity",
+      "duration": 13,
+      "steps": 2,
+      "outputs": [
+        "images/vue-complexity-light.svg",
+        "images/vue-complexity-dark.svg"
+      ],
+      "stills": [
+        "stills/vue-complexity-still-1-light.svg",
+        "stills/vue-complexity-still-2-light.svg",
+        "stills/vue-complexity-still-1-dark.svg",
+        "stills/vue-complexity-still-2-dark.svg"
+      ],
+      "stage": "stages/vue-complexity.stage.html",
+      "video": {
+        "path": "videos/vue-complexity.mp4",
+        "bytes": 2846514,
+        "engineRevision": "f1b25dc0670a7b569dd35fff451a626a9f072b0b",
+        "sha256": "fe8899a978e751c74e10b09279ac6a7bde98cf1632e37ea80efc151687411e24"
+      }
+    }
+  ]
+}

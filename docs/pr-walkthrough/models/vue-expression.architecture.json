@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Vue #2532: processExpression & Nested prefix()",
+    "output": "vue-expression.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "process_exp", "type": "backend", "label": "processExpression", "sublabel": "outer AST walker (cc 22 → 22)", "pos": [40, 120], "size": [220, 72] },
+    { "id": "prefix_fn", "type": "security", "label": "prefix(raw)", "sublabel": "nested helper (inline branches)", "pos": [340, 120], "size": [220, 72] }
+  ],
+  "connections": [
+    { "id": "c_call", "from": "process_exp", "to": "prefix_fn", "label": "per identifier", "variant": "emphasis" }
+  ]
+}

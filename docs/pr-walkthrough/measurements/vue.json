@@ -1,0 +1,44 @@
+{
+  "base": {
+    "file": "packages/compiler-core/src/transforms/transformExpression.ts",
+    "name": "processExpression",
+    "qualname": "processExpression",
+    "line": 81,
+    "endLine": 270,
+    "complexity": 22,
+    "nesting": 2,
+    "deepestLine": 113
+  },
+  "bindingRead": {
+    "base": {
+      "file": "packages/compiler-core/src/transforms/transformExpression.ts",
+      "name": "prefix",
+      "qualname": "processExpression.<locals>.prefix",
+      "line": 101,
+      "endLine": 106,
+      "complexity": 2,
+      "nesting": 0,
+      "deepestLine": 101
+    },
+    "head": {
+      "file": "packages/compiler-core/src/transforms/transformExpression.ts",
+      "name": "prefix",
+      "qualname": "processExpression.<locals>.prefix",
+      "line": 102,
+      "endLine": 114,
+      "complexity": 6,
+      "nesting": 2,
+      "deepestLine": 106
+    }
+  },
+  "head": {
+    "file": "packages/compiler-core/src/transforms/transformExpression.ts",
+    "name": "processExpression",
+    "qualname": "processExpression",
+    "line": 82,
+    "endLine": 278,
+    "complexity": 22,
+    "nesting": 2,
+    "deepestLine": 121
+  }
+}

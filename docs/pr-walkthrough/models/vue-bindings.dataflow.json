@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Vue #2532: Binding Metadata Flow",
+    "output": "vue-bindings.html",
+    "viewBox": [1040, 480],
+    "quality_profile": "showcase"
+  },
+  "stages": [
+    { "label": "Script" },
+    { "label": "Transform" },
+    { "label": "Render Output" }
+  ],
+  "nodes": [
+    { "id": "bindings", "type": "frontend", "label": "bindingMetadata", "sublabel": "setup / import map", "stage": 0, "row": 0 },
+    { "id": "process_exp", "type": "backend", "label": "processExpression", "sublabel": "template AST pass", "stage": 1, "row": 0 },
+    { "id": "inline_code", "type": "cloud", "label": "Inline setup()", "sublabel": "_unref(foo) / bare id", "stage": 2, "row": 0 },
+    { "id": "normal_ctx", "type": "database", "label": "Normal Mode", "sublabel": "$setup.foo / _ctx.foo", "stage": 2, "row": 1 }
+  ],
+  "flows": [
+    { "id": "f_meta", "from": "bindings", "to": "process_exp", "label": "resolve type", "variant": "emphasis", "route": "straight" },
+    { "id": "f_inline", "from": "process_exp", "to": "inline_code", "label": "inline=true", "variant": "emphasis", "route": "straight" },
+    { "id": "f_normal", "from": "process_exp", "to": "normal_ctx", "label": "fallback", "variant": "default" }
+  ]
+}

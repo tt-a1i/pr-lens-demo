@@ -1,0 +1,37 @@
+{
+  "engine": "0a928733a0062db602a1a1ec02253b3a1fa2a061",
+  "cases": [
+    {
+      "id": "arc-story-split",
+      "stage": "stages/arc-story-split.stage.html",
+      "video": "videos/arc-story-split.mp4",
+      "duration": 18,
+      "videoEngine": "0a928733a0062db602a1a1ec02253b3a1fa2a061"
+    },
+    {
+      "id": "pulse-billing",
+      "stage": "stages/pulse-billing.stage.html",
+      "video": "videos/pulse-billing.mp4",
+      "duration": 21,
+      "videoEngine": "fd04805905e28f6779890eb4d8773183e620ca10",
+      "engine": "fd04805905e28f6779890eb4d8773183e620ca10"
+    },
+    {
+      "id": "tokio-scheduler",
+      "stage": "stages/tokio-scheduler.stage.html",
+      "video": "videos/tokio-scheduler.mp4",
+      "duration": 11.5,
+      "videoEngine": "f1b25dc0670a7b569dd35fff451a626a9f072b0b"
+    },
+    {
+      "id": "vue-complexity",
+      "stage": "stages/vue-complexity.stage.html",
+      "video": "videos/vue-complexity.mp4",
+      "duration": 13,
+      "videoEngine": "f1b25dc0670a7b569dd35fff451a626a9f072b0b"
+    }
+  ],
+  "svgCount": 30,
+  "videoCount": 4,
+  "themeColorComparisons": 8
+}

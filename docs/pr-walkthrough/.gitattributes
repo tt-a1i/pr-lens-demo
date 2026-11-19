@@ -1,0 +1,8 @@
+*.md text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+inputs/** text eol=lf
+images/** -text
+stills/** -text
+stages/** -text
+videos/** -text

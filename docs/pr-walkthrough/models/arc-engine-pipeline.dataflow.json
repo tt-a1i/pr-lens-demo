@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Story Compilation & MP4 Streaming Pipeline",
+    "output": "story-engine-pipeline.html",
+    "viewBox": [
+      1040,
+      480
+    ],
+    "quality_profile": "showcase"
+  },
+  "stages": [
+    {
+      "label": "Inputs"
+    },
+    {
+      "label": "AST Stage"
+    },
+    {
+      "label": "Encoders"
+    },
+    {
+      "label": "Artifacts"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "native_svg",
+      "type": "frontend",
+      "label": "Baked Views",
+      "sublabel": "light & dark SVG",
+      "stage": 0,
+      "row": 0
+    },
+    {
+      "id": "choreo_spec",
+      "type": "external",
+      "label": "Choreography",
+      "sublabel": "steps + callouts",
+      "stage": 0,
+      "row": 1
+    },
+    {
+      "id": "story_core",
+      "type": "backend",
+      "label": "Story Engine",
+      "sublabel": "AST + Camera + Timeline",
+      "stage": 1,
+      "row": 0
+    },
+    {
+      "id": "svg_compiler",
+      "type": "cloud",
+      "label": "SVG / Still",
+      "sublabel": "Camo-safe keyframes",
+      "stage": 2,
+      "row": 0
+    },
+    {
+      "id": "story_container",
+      "type": "backend",
+      "label": "视频导出管线",
+      "sublabel": "Capture + WebCodecs + Mux",
+      "stage": 2,
+      "row": 1
+    },
+    {
+      "id": "out_svg",
+      "type": "frontend",
+      "label": "Dual SVG",
+      "sublabel": ".svg & .still.svg",
+      "stage": 3,
+      "row": 0
+    },
+    {
+      "id": "out_mp4",
+      "type": "database",
+      "label": "1080p MP4",
+      "sublabel": "fast-start moov",
+      "stage": 3,
+      "row": 1
+    }
+  ],
+  "flows": [
+    {
+      "id": "f_native",
+      "from": "native_svg",
+      "to": "story_core",
+      "label": "DOM AST",
+      "variant": "default",
+      "route": "straight"
+    },
+    {
+      "id": "f_spec",
+      "from": "choreo_spec",
+      "to": "story_core",
+      "label": "plan",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f_svg",
+      "from": "story_core",
+      "to": "svg_compiler",
+      "label": "keyframes",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "id": "f_container",
+      "from": "story_core",
+      "to": "story_container",
+      "label": "stage + WebCodecs",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f_out_svg",
+      "from": "svg_compiler",
+      "to": "out_svg",
+      "label": "publish",
+      "variant": "default",
+      "route": "straight"
+    },
+    {
+      "id": "f_out_mp4",
+      "from": "story_container",
+      "to": "out_mp4",
+      "label": "stream",
+      "variant": "emphasis",
+      "route": "straight"
+    }
+  ]
+}

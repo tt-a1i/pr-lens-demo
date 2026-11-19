@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Pulse Checkout: Synchronous Baseline",
+    "output": "pulse-sync.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "sheet", "type": "frontend", "label": "CheckoutSheet", "sublabel": "POST /checkout", "pos": [40, 120], "size": [165, 68] },
+    { "id": "checkout_api", "type": "backend", "label": "Checkout Route", "sublabel": "sync 200 OK", "pos": [280, 120], "size": [175, 68] },
+    { "id": "gateway", "type": "external", "label": "Stripe Charge", "sublabel": "blocking RPC", "pos": [530, 60], "size": [165, 66] },
+    { "id": "mailer", "type": "external", "label": "Receipt Mailer", "sublabel": "sync SMTP", "pos": [530, 190], "size": [165, 66] }
+  ],
+  "connections": [
+    { "id": "c_post", "from": "sheet", "to": "checkout_api", "label": "order", "variant": "emphasis" },
+    { "id": "c_stripe", "from": "checkout_api", "to": "gateway", "label": "chargeSync()" },
+    { "id": "c_mail", "from": "checkout_api", "to": "mailer", "label": "sendReceiptSync()", "variant": "dashed" }
+  ]
+}

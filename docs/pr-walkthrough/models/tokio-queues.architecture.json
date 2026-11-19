@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Tokio #1657: Bounded Local Ring & Shared Queue",
+    "output": "tokio-queues.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "worker", "type": "backend", "label": "Worker Thread", "sublabel": "run_queue + park", "pos": [40, 140], "size": [170, 68] },
+    { "id": "local_ring", "type": "messagebus", "label": "Bounded Ring Queue", "sublabel": "256 slots (replaces Chase-Lev)", "pos": [290, 80], "size": [210, 68] },
+    { "id": "inject", "type": "database", "label": "Global Inject Queue", "sublabel": "Mutex overflow + external", "pos": [290, 220], "size": [210, 68] },
+    { "id": "peer", "type": "backend", "label": "Peer Worker", "sublabel": "steal_batch()", "pos": [580, 140], "size": [165, 68] }
+  ],
+  "connections": [
+    { "id": "c_push", "from": "worker", "to": "local_ring", "label": "push_back_or_overflow", "variant": "emphasis" },
+    { "id": "c_overflow", "from": "local_ring", "to": "inject", "label": "half batch spill", "variant": "dashed" },
+    { "id": "c_steal", "from": "local_ring", "to": "peer", "label": "batch steal", "variant": "emphasis" },
+    { "id": "c_pop", "from": "inject", "to": "peer", "label": "fallback pop" }
+  ]
+}

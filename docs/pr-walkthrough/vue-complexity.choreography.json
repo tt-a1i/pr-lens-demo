@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "kind": "story-choreography",
+  "id": "vue-complexity",
+  "title": "Vue #2532：外层指标不变时，嵌套函数 prefix() 的局部复杂度跃升",
+  "locale": "zh-CN",
+  "preset": "classic",
+  "chrome": "story",
+  "badge": "Complexity · #2532",
+  "stills": [
+    2,
+    9
+  ],
+  "views": [
+    {
+      "id": "bindings",
+      "type": "dataflow",
+      "input": "models/vue-bindings.dataflow.json",
+      "callouts": {
+        "bindings": {
+          "text": "编译期元数据",
+          "tone": "accent"
+        },
+        "inline_code": {
+          "text": "+ Inline 闭包",
+          "tone": "added"
+        }
+      }
+    },
+    {
+      "id": "expr",
+      "type": "architecture",
+      "input": "models/vue-expression.architecture.json",
+      "callouts": {
+        "process_exp": {
+          "text": "cc 22→22",
+          "tone": "neutral"
+        },
+        "prefix_fn": {
+          "text": "cc 2→6 · 嵌套 0→2",
+          "tone": "modified"
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "view": "bindings",
+      "duration": 5.5,
+      "title": "编译器数据流：bindingMetadata 决定产物分叉路径",
+      "body": "在编译期读取 script setup 绑定元数据，inline 模式直接解包 unref() 或保留组件导入，普通模式维持后缀访问。",
+      "trace": {
+        "edges": [
+          "f_meta",
+          "f_inline"
+        ],
+        "travel": 1
+      }
+    },
+    {
+      "view": "expr",
+      "duration": 7.5,
+      "title": "外层圈复杂度看似 22 → 22，嵌套 prefix() 实际从 2 升至 6",
+      "body": "若只看外层函数或文件均值会漏掉分支膨胀；组件级指标精确附着到 prefix(raw) 并联动真实源码行高亮分支条件。",
+      "transition": {
+        "from": "bindings",
+        "shared": [
+          {
+            "id": "process_exp",
+            "label": "processExpression",
+            "subtitle": "cc 22 → 22 (不变)"
+          }
+        ]
+      },
+      "focus": {
+        "nodes": [
+          "prefix_fn"
+        ],
+        "area": "left"
+      },
+      "metrics": [
+        {
+          "node": "prefix_fn",
+          "label": "Cyclomatic Complexity",
+          "before": 2,
+          "after": 6
+        }
+      ],
+      "detail": {
+        "nodes": [
+          "prefix_fn"
+        ],
+        "title": "transformExpression.ts · prefix()",
+        "note": "nested prefix() 复杂度 2→6，最大嵌套 0→2",
+        "path": "inputs/vue/transformExpression-head.ts",
+        "lines": [
+          101,
+          102,
+          103,
+          104,
+          106,
+          107,
+          108,
+          109,
+          113,
+          114
+        ],
+        "highlight": [
+          104,
+          106,
+          107,
+          108
+        ]
+      }
+    }
+  ]
+}

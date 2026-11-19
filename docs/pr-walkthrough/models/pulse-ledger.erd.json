@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "Pulse Organization Invoice Schema",
+    "output": "pulse-ledger.html",
+    "quality_profile": "showcase"
+  },
+  "entities": [
+    {
+      "id": "orgs",
+      "label": "organizations",
+      "row": 0,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "key": "pk"
+        },
+        {
+          "name": "slug",
+          "type": "text"
+        },
+        {
+          "name": "stripe_account_id",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "invoices",
+      "label": "invoices",
+      "row": 0,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "key": "pk"
+        },
+        {
+          "name": "org_id",
+          "type": "uuid",
+          "key": "fk",
+          "references": "orgs.id"
+        },
+        {
+          "name": "idempotency_key",
+          "type": "text"
+        },
+        {
+          "name": "amount_cents",
+          "type": "bigint"
+        },
+        {
+          "name": "status",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_org_invoices",
+      "from": "orgs",
+      "to": "invoices",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "invoices.org_id"
+    }
+  ]
+}

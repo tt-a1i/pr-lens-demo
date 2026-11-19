@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "kind": "story-choreography",
+  "id": "tokio-scheduler",
+  "title": "Tokio #1657：百文件调度器重写的架构与并发状态影响",
+  "locale": "zh-CN",
+  "preset": "classic",
+  "chrome": "story",
+  "badge": "Arch · PR #1657",
+  "stills": [2.0, 8.0],
+  "views": [
+    {
+      "id": "queues",
+      "type": "architecture",
+      "input": "models/tokio-queues.architecture.json",
+      "callouts": {
+        "local_ring": { "text": "有界环形队列", "tone": "added" },
+        "inject": { "text": "半批溢出", "tone": "modified" }
+      }
+    },
+    {
+      "id": "lifecycle",
+      "type": "lifecycle",
+      "input": "models/tokio-worker.lifecycle.json",
+      "callouts": {
+        "searching": { "text": "Relaxed 限制", "tone": "modified" },
+        "parked": { "text": "Mutex<Vec>", "tone": "neutral" }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "view": "queues",
+      "duration": 5.5,
+      "title": "结构替换：Chase-Lev 替换为 256 槽有界环形队列",
+      "body": "本地队列满时将一半任务溢出到 Global Inject Queue，同级 Peer Worker 通过 batch steal 批量窃取平衡负载。",
+      "trace": { "edges": ["c_push", "c_overflow", "c_steal"], "travel": 1.0 }
+    },
+    {
+      "view": "lifecycle",
+      "duration": 6.0,
+      "title": "并发状态迁移：Worker 在 Executing / Searching / Parked 间切换",
+      "body": "架构中的 Worker 身份平滑延续为状态机，结合搜索计数优化与停车唤醒路径呈现百文件改动的核心耦合面。",
+      "transition": {
+        "from": "queues",
+        "shared": [{ "id": "worker", "targetId": "executing", "label": "Executing", "subtitle": "drain ring + LIFO" }]
+      },
+      "trace": { "edges": ["t_search", "t_park", "t_unpark"], "travel": 1.0 }
+    }
+  ]
+}

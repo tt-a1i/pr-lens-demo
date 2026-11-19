@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Pulse Checkout: Async Idempotent Queue",
+    "output": "pulse-async.html",
+    "quality_profile": "showcase"
+  },
+  "participants": [
+    { "id": "client", "label": "CheckoutSheet", "type": "frontend" },
+    { "id": "checkout_api", "label": "Checkout Route", "type": "backend" },
+    { "id": "lock", "label": "Idempotency Lock", "type": "security" },
+    { "id": "queue", "label": "Checkout Queue", "type": "messagebus" },
+    { "id": "worker", "label": "Org Worker", "type": "backend" }
+  ],
+  "messages": [
+    { "id": "m_claim", "from": "checkout_api", "to": "lock", "y": 165, "label": "claimCheckoutLock(key)", "variant": "security" },
+    { "id": "m_repeat", "from": "checkout_api", "to": "client", "y": 225, "label": "重复 · 202 + invoiceId", "variant": "return" },
+    { "id": "m_enq", "from": "checkout_api", "to": "queue", "y": 285, "label": "首次 · enqueueCheckoutJob()", "variant": "emphasis" },
+    { "id": "m_job", "from": "queue", "to": "checkout_api", "y": 345, "label": "jobId（示例桩返回）", "variant": "return" },
+    { "id": "m_202", "from": "checkout_api", "to": "client", "y": 405, "label": "首次 · 202 + invoiceId + jobId", "variant": "return" },
+    { "id": "m_consume", "from": "queue", "to": "worker", "y": 475, "label": "计划消费路径 · 尚未接入", "variant": "dashed" }
+  ]
+}

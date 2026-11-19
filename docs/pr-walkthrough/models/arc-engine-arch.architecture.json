@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Archify Story Engine Architecture",
+    "output": "story-engine-arch.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "native_views", "type": "frontend", "label": "10 Native Views", "sublabel": "Arch / Seq / Flow / ERD", "pos": [40, 80], "size": [170, 68] },
+    { "id": "spec", "type": "external", "label": "Choreography JSON", "sublabel": "steps + transitions", "pos": [40, 220], "size": [170, 68] },
+    { "id": "story_core", "type": "backend", "label": "Story Engine", "sublabel": "AST stage + plan", "pos": [280, 150], "size": [175, 72] },
+    { "id": "deliverables", "type": "cloud", "label": "4x Deliverables", "sublabel": "SVG / Still / Stage / MP4", "pos": [520, 150], "size": [185, 72] },
+    { "id": "domain_skill", "type": "security", "label": "Domain Skills", "sublabel": "PR review / external", "pos": [280, 290], "size": [175, 68] }
+  ],
+  "connections": [
+    { "id": "c_views", "from": "native_views", "to": "story_core", "label": "SVG AST" },
+    { "id": "c_spec", "from": "spec", "to": "story_core", "label": "steps[]" },
+    { "id": "c_out", "from": "story_core", "to": "deliverables", "label": "compile", "variant": "emphasis" },
+    { "id": "c_decouple", "from": "domain_skill", "to": "spec", "label": "author spec", "variant": "dashed" }
+  ]
+}

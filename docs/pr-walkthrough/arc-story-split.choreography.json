@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "kind": "story-choreography",
+  "id": "arc-story-split",
+  "title": "Archify 通用组件编排引擎拆分与 fast-start MP4 升级",
+  "locale": "zh-CN",
+  "preset": "classic",
+  "chrome": "story",
+  "badge": "Line A · dev",
+  "stills": [
+    1.5,
+    7.5,
+    13.5
+  ],
+  "views": [
+    {
+      "id": "arch",
+      "type": "architecture",
+      "input": "models/arc-engine-arch.architecture.json",
+      "callouts": {
+        "story_core": {
+          "text": "AST 通用引擎",
+          "tone": "added"
+        },
+        "domain_skill": {
+          "text": "零核心耦合",
+          "tone": "accent"
+        }
+      }
+    },
+    {
+      "id": "flow",
+      "type": "dataflow",
+      "input": "models/arc-engine-pipeline.dataflow.json",
+      "callouts": {
+        "story_container": {
+          "text": "1080p MP4",
+          "tone": "added"
+        },
+        "out_mp4": {
+          "text": "Fast-Start",
+          "tone": "accent"
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "view": "arch",
+      "duration": 5,
+      "title": "意图与解耦边界：通用编排抽离于领域 Skill 之外",
+      "body": "Story Engine 只保留组件提取、跨图身份过渡与时间轴编译；PR 审查等场景经验独立在外部仓库或下游 Skill。",
+      "trace": {
+        "edges": [
+          "c_decouple",
+          "c_spec",
+          "c_out"
+        ],
+        "travel": 1.1
+      }
+    },
+    {
+      "view": "flow",
+      "duration": 6,
+      "title": "一套声明式编排驱动四类通用交付产物",
+      "body": "复用的 Story Engine 节点跨视图平滑衔接，同时编译双主题动态 SVG、静态回退帧、交互舞台与高清视频。",
+      "transition": {
+        "from": "arch",
+        "shared": [
+          {
+            "id": "story_core",
+            "subtitle": "AST + Timeline"
+          }
+        ]
+      },
+      "trace": {
+        "edges": [
+          "f_native",
+          "f_svg",
+          "f_container",
+          "f_out_svg"
+        ],
+        "travel": 1
+      }
+    },
+    {
+      "view": "flow",
+      "duration": 7,
+      "title": "性能与格式升级：fast-start MP4 与 4 帧批量 GPU 回读",
+      "body": "以无依赖 StoryContainer 默认导出 1080p H.264 MP4，配合 @layer 样式去重与 4 帧合并 getImageData 降耗。",
+      "focus": {
+        "nodes": [
+          "story_container"
+        ],
+        "area": "left"
+      },
+      "metrics": [
+        {
+          "node": "story_container",
+          "label": "getImageData 调用",
+          "before": "每帧 1 次",
+          "after": "每批最多 4 帧"
+        }
+      ],
+      "detail": {
+        "nodes": [
+          "story_container"
+        ],
+        "title": "story-container.js · mp4()",
+        "note": "预留 moov 索引负责封装；GPU 回读属于捕获层",
+        "path": "inputs/arc/story-container.js",
+        "lines": [
+          42,
+          43,
+          44,
+          45,
+          47
+        ],
+        "highlight": [
+          44,
+          45,
+          47
+        ]
+      },
+      "fade": {
+        "nodes": [
+          "native_svg",
+          "choreo_spec",
+          "story_core",
+          "svg_compiler",
+          "out_svg",
+          "out_mp4"
+        ],
+        "edges": [
+          "f_native",
+          "f_spec",
+          "f_svg",
+          "f_container",
+          "f_out_svg",
+          "f_out_mp4"
+        ],
+        "to": 0
+      }
+    }
+  ]
+}
